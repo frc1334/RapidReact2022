@@ -16,7 +16,7 @@ public class RobotMap {
   /* --- MOTORS --- */
   // DriveSubsystem: 3 Spark Maxes
   public static final int L1motor = 1;
-  // public static final int L2motor = 2;
-  public static final int R1motor = 2;
+  public static final int L2motor = 2;
+  public static final int R1motor = 3;
 
 }
