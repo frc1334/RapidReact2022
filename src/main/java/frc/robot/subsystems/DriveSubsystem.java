@@ -6,7 +6,7 @@
 
 Author: Clarrie Wang                                     Date: Jan 22 2022
 
-DriveSubsystem class for differential drivetrain using 3 NEO brushless motors.
+DriveSubsystem class for differential drivetrain using 4 NEO brushless motors.
 
 ---------------------------------------------------------------------------*/
 
@@ -38,19 +38,27 @@ public class DriveSubsystem extends SubsystemBase {
   RelativeEncoder R1encoder = R1motor.getEncoder();
   SparkMaxPIDController R1controller = R1motor.getPIDController();
 
+  CANSparkMax R2motor = new CANSparkMax(RobotMap.R1motor, MotorType.kBrushless);
+  RelativeEncoder R2encoder = R1motor.getEncoder();
+  SparkMaxPIDController R2controller = R1motor.getPIDController();
+
   // Grouping together the motor controllers on the left side
   MotorControllerGroup LeftControllerGroup = new MotorControllerGroup(L1motor, L2motor);
+  MotorControllerGroup RightControllerGroup = new MotorControllerGroup(R1motor, R2motor);
 
   // Differential drivetrain object (aka West Coast/Tank drive)
-  DifferentialDrive DifferentialDriveTrain = new DifferentialDrive(L1motor, R1motor);
+  DifferentialDrive DifferentialDriveTrain = new DifferentialDrive(LeftControllerGroup, RightControllerGroup);
 
   public DriveSubsystem() {
     // make the back motor on left side the follower of the L1motor
     L2motor.follow(L1motor);
+    R2motor.follow(R1motor);
     
     // reset encoders to start at 0
     L1encoder.setPosition(0);
+    L2encoder.setPosition(0);    
     R1encoder.setPosition(0);
+    R2encoder.setPosition(0);
   }
 
   // feed percent voltage power into both sides of drive train
@@ -59,6 +67,7 @@ public class DriveSubsystem extends SubsystemBase {
     L1motor.set(Left);
     L2motor.set(Left);
     R1motor.set(Right);
+    R2motor.set(Right);
   }
 
   // wrapper function that allows for turning in tank drive
