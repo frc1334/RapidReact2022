@@ -5,7 +5,7 @@
 package frc.robot;
 
 import frc.robot.subsystems.DriveSubsystem;
-
+//import frc.robot.commands.AutoDriveCommand;
 import frc.robot.commands.DriveCommand;
 
 import edu.wpi.first.wpilibj.TimedRobot;
@@ -80,7 +80,7 @@ public class Robot extends TimedRobot {
   public void autonomousPeriodic() {
     switch (m_autoSelected) {
       case kCustomAuto:
-        // Put custom auto code here
+        //commandScheduler.schedule(new AutoDriveCommand(15000));
         break;
       case kDefaultAuto:
       default:
@@ -99,6 +99,9 @@ public class Robot extends TimedRobot {
     // Start the CommandScheduler to schedule commands for each cycle
     commandScheduler.run();
     DriveCommand.schedule();
+    System.out.println("Speed: " + Robot.OI.getSpeed());
+    System.out.println("Left: " + Robot.OI.checkLeftTrigger());
+    System.out.println("Right: " + Robot.OI.checkRightTrigger());
   }
 
   /** This function is called once when the robot is disabled. */
