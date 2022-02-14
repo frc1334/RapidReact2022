@@ -18,6 +18,7 @@ public class RobotMap {
   public static final int L1motor = 1;
   public static final int L2motor = 2;
   public static final int R1motor = 3;
+  public static final int R2motor = 4;
 
 
   // Launcher: 2 Falcons
