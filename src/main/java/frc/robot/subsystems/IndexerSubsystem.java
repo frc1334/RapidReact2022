@@ -37,8 +37,7 @@ public class IndexerSubsystem extends SubsystemBase {
     FeederMotor = new TalonFX(RobotMap.FeederMotor);
   }
 
-  //what is double?
-  //what is PercentOutput?
+
   public void setIndexerVoltage (double voltage) {
     //varible ControlMode is pulled from the "com.ctre.phoenix.motorcontrol.ControlMode" import
     FeederMotor.set(ControlMode.PercentOutput, voltage);
