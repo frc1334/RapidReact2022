@@ -19,4 +19,6 @@ public class RobotMap {
   public static final int L2motor = 2;
   public static final int R1motor = 3;
 
+  //added by William Kozlowski for the IndexerSubsystem.java
+  public static final int FeederMotor = 5;
 }
