@@ -25,4 +25,6 @@ public class RobotMap {
   public static final int Launcher1 = 6;
   public static final int Launcher2 = 7;
 
+  //added by William Kozlowski for the IndexerSubsystem.java
+  public static final int FeederMotor = 5;
 }
