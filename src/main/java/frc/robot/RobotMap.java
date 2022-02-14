@@ -20,4 +20,14 @@ public class RobotMap {
   public static final int R1motor = 3;
   public static final int R2motor = 4;
 
+  // IntakeSubsystem: 1 TalonFRX Motor Controller
+  public static final int intakeMotor = 8;
+
+  // IntakeSubsystem: Double Solenoid
+  public static final int intakeSol1 = 9;
+  public static final int intakeSol2 = 10;
+
+  // IntakeSubsystem: cargo color
+  public static final String color = "Red";
+
 }

@@ -5,9 +5,10 @@
 package frc.robot;
 
 import frc.robot.subsystems.DriveSubsystem;
+import frc.robot.subsystems.IntakeSubsystem;
 //import frc.robot.commands.AutoDriveCommand;
 import frc.robot.commands.DriveCommand;
-
+import frc.robot.commands.IntakeCommand;
 import edu.wpi.first.wpilibj.TimedRobot;
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
@@ -28,6 +29,7 @@ public class Robot extends TimedRobot {
 
   // Initializing subsystems:
   public static DriveSubsystem DriveSubsystem = new DriveSubsystem();
+  public static IntakeSubsystem IntakeSubsystem = new IntakeSubsystem();
 
 
   // Initializing OI object
@@ -36,6 +38,7 @@ public class Robot extends TimedRobot {
   // Initializing commands
   DriveCommand DriveCommand = new DriveCommand();
   CommandScheduler commandScheduler = CommandScheduler.getInstance();
+  IntakeCommand IntakeCommand = new IntakeCommand();
 
   /**
    * This function is run when the robot is first started up and should be used for any
