@@ -13,18 +13,22 @@ OI: operator interface - maps commands to controls on Xbox Controller.
 package frc.robot;
 
 import edu.wpi.first.wpilibj.XboxController;
-// import edu.wpi.first.wpilibj.GenericHID.Hand;
-// import edu.wpi.first.wpilibj.buttons.JoystickButton;
+import edu.wpi.first.wpilibj.GenericHID;
+import edu.wpi.first.wpilibj2.command.button.JoystickButton;
+
+import frc.robot.commands.ToggleSolenoids;
 
 public class OI {
     public XboxController driver;
-    // public JoystickButton AButton;
+    public JoystickButton AButton;
     // public JoystickButton BButton;
     // public JoystickButton XButton;
     
     // constructor intializing the Xbox Controller objects for driver and operator in ports 0 and 1 respectively
     public OI() {
         driver = new XboxController(1);
+        AButton = new JoystickButton(driver, 1);
+        AButton.whenPressed(new ToggleSolenoids());
     }
 
     // method that takes speed to go forwards or backwards from bumpers of controller depending on how hard driver presses
