@@ -5,6 +5,7 @@
 package frc.robot.subsystems;
 
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
+// Question: do I add ColorSensor into RobotMap & Robot?
 import frc.robot.RobotMap;
 
 import edu.wpi.first.wpilibj.I2C;
@@ -57,6 +58,7 @@ public class ColorSensor extends SubsystemBase {
     
     while (validDistance) {
       // Run the color match on our detected color
+      // Question: colorString is not used?
       String colorString;
       ColorMatchResult match = m_colorMatcher.matchClosestColor(detectedColor);
 

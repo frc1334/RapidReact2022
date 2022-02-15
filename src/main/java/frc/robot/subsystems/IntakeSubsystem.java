@@ -25,6 +25,7 @@ public class IntakeSubsystem extends SubsystemBase {
     intakeMotor = new VictorSPX(RobotMap.intakeMotor);
     intakeMotor.setInverted(true);
 
+    // Question: asking for module type
     intakeSol = new DoubleSolenoid(RobotMap.intakeSol1, RobotMap.intakeSol2);
   }
 
@@ -35,6 +36,7 @@ public class IntakeSubsystem extends SubsystemBase {
 
   // Take in or push out the cargo depending on its color
   public void colorIntake() {
+    // Question: shows error when I'm trying to use colorString
     if (ColorSensor.colorString == RobotMap.color) {
       // Set solenoid forwards to take in the cargo
       intakeSol.set(DoubleSolenoid.Value.kForward);
