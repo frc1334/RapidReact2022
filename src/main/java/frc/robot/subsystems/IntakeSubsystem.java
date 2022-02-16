@@ -8,7 +8,6 @@ import frc.robot.Robot;
 import frc.robot.RobotMap;
 import frc.robot.subsystems.ColorSensor;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
-import edu.wpi.first.wpilibj.DoubleSolenoid;
 import edu.wpi.first.wpilibj.PneumaticsModuleType;
 
 import com.ctre.phoenix.motorcontrol.ControlMode;
@@ -17,16 +16,11 @@ import com.ctre.phoenix.motorcontrol.can.VictorSPX;
 public class IntakeSubsystem extends SubsystemBase {
   // A new motor controller object to control the 775 motor
   VictorSPX intakeMotor;
-  // Double solenoid to complete the motions of getting the cargo in and out
-  DoubleSolenoid intakeSol;
 
   public IntakeSubsystem() {
 
     intakeMotor = new VictorSPX(RobotMap.intakeMotor);
     intakeMotor.setInverted(true);
-
-    // Question: asking for module type
-    intakeSol = new DoubleSolenoid(RobotMap.intakeSol1, RobotMap.intakeSol2);
   }
 
   // This method makes the motor spin based on a percentage based voltage input
@@ -38,11 +32,10 @@ public class IntakeSubsystem extends SubsystemBase {
   public void colorIntake() {
     // Question: shows error when I'm trying to use colorString
     if (ColorSensor.colorString == RobotMap.color) {
-      // Set solenoid forwards to take in the cargo
-      intakeSol.set(DoubleSolenoid.Value.kForward);
+      setPercentOutput(0.25);
     } else {
-      // Set solenoid in reverse to push out the cargo
-      intakeSol.set(DoubleSolenoid.Value.kReverse);
+      setPercentOutput(0.0);
+      // 0 or negative? Do we need to take the ball in before sensing the color?
     }
   }
 }

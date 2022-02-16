@@ -59,7 +59,7 @@ public class ColorSensor extends SubsystemBase {
     while (validDistance) {
       // Run the color match on our detected color
       // Question: colorString is not used?
-      String colorString;
+      public String colorString;
       ColorMatchResult match = m_colorMatcher.matchClosestColor(detectedColor);
 
       if (match.color == kBlueTarget) {
