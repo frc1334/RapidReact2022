@@ -6,7 +6,7 @@ package frc.robot;
 
 import frc.robot.subsystems.DriveSubsystem;
 import frc.robot.subsystems.IntakeSubsystem;
-import frc.robot.subsystems.TestingSolenoids;
+import frc.robot.subsystems.PneumaticsSubsystem;
 //import frc.robot.commands.AutoDriveCommand;
 import frc.robot.commands.DriveCommand;
 import frc.robot.commands.IntakeCommand;
@@ -32,7 +32,7 @@ public class Robot extends TimedRobot {
   public static DriveSubsystem DriveSubsystem = new DriveSubsystem();
   public static IntakeSubsystem IntakeSubsystem = new IntakeSubsystem();
 
-  public static TestingSolenoids TestingSolenoids = new TestingSolenoids();
+  public static PneumaticsSubsystem TestingSolenoids = new PneumaticsSubsystem();
 
   // Initializing OI object
   public static OI OI = new OI();
