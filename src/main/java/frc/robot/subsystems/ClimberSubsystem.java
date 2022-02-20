@@ -15,6 +15,9 @@ public class ClimberSubsystem extends SubsystemBase{
 
 //public void whenPressed(ClimberRelease)    
     public void ClimberRelease(TalonFX leftClimbMotor, TalonFX rightClimbMotor) {
+           
+        LeftClimbMotor.setSelectedSensorPosition(0);
+        RightClimbMotor.setSelectedSensorPosition(0);
         
         //RightClimbMotor.set(ControlMode.Follower, RobotMap.LeftClimbMotor);
         
