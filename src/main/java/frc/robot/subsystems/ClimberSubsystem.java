@@ -16,8 +16,7 @@ public class ClimberSubsystem extends SubsystemBase{
 //public void whenPressed(ClimberRelease)    
     public void ClimberRelease(TalonFX leftClimbMotor, TalonFX rightClimbMotor) {
         
-        //this might not be necessary
-        RightClimbMotor.set(ControlMode.Follower, RobotMap.LeftClimbMotor);
+        //RightClimbMotor.set(ControlMode.Follower, RobotMap.LeftClimbMotor);
         
         //set motors to neutral so spring can expand (coast)
         LeftClimbMotor.setNeutralMode(NeutralMode.Coast);
