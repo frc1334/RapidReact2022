@@ -5,6 +5,7 @@ import com.ctre.phoenix.motorcontrol.can.TalonFX;
 import com.ctre.phoenix.motion.MotionProfileStatus;
 import com.ctre.phoenix.motorcontrol.ControlMode;
 import com.ctre.phoenix.motorcontrol.FeedbackDevice;
+import com.ctre.phoenix.motorcontrol.NeutralMode;
 
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 
@@ -15,10 +16,9 @@ public class ClimberSubsystem extends SubsystemBase{
 
 //public void whenPressed(ClimberRelease)    
     public void ClimberRelease(TalonFX leftClimbMotor, TalonFX rightClimbMotor) {
-           
+        
         LeftClimbMotor.setSelectedSensorPosition(0);
         RightClimbMotor.setSelectedSensorPosition(0);
-        
         //RightClimbMotor.set(ControlMode.Follower, RobotMap.LeftClimbMotor);
         
         //set motors to neutral so spring can expand (coast)
@@ -30,7 +30,7 @@ public class ClimberSubsystem extends SubsystemBase{
         while (Latching) {
         
         //get encoder value
-        double MotorPos = LeftClimbMotor.getPosition();
+        double MotorPos = LeftClimbMotor.getSelectedSensorPosition();
         
         //stop motors once they reach target distance (or set them to hold position)
             if (MotorPos > 180) {
@@ -39,5 +39,9 @@ public class ClimberSubsystem extends SubsystemBase{
                 RightClimbMotor.setNeutralMode(NeutralMode.Brake);
             }
         }
+        
+        
     } 
+
+
 }
