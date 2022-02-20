@@ -20,8 +20,8 @@ public class ClimberSubsystem extends SubsystemBase{
         RightClimbMotor.set(ControlMode.Follower, RobotMap.LeftClimbMotor);
         
         //set motors to neutral so spring can expand (coast)
-        LeftClimbMotor.setNeutralMode(null);
-        RightClimbMotor.setNeutralMode(null);
+        LeftClimbMotor.setNeutralMode(NeutralMode.Coast);
+        RightClimbMotor.setNeutralMode(NeutralMode.Coast);
 
         boolean Latching = true;
 
@@ -33,8 +33,8 @@ public class ClimberSubsystem extends SubsystemBase{
         //stop motors once they reach target distance (or set them to hold position)
             if (MotorPos > 180) {
                 Latching = false;
-                LeftClimbMotor.stopMotor();
-                RightClimbMotor.stopMotor();
+                LeftClimbMotor.setNeutralMode(NeutralMode.Brake);
+                RightClimbMotor.setNeutralMode(NeutralMode.Brake);
             }
         }
     } 
