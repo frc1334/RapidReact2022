@@ -7,6 +7,7 @@ package frc.robot;
 import frc.robot.subsystems.DriveSubsystem;
 //import frc.robot.commands.AutoDriveCommand;
 import frc.robot.commands.DriveCommand;
+import frc.robot.subsystems.IndexerSubsystem;
 
 import edu.wpi.first.wpilibj.TimedRobot;
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
@@ -28,7 +29,7 @@ public class Robot extends TimedRobot {
 
   // Initializing subsystems:
   public static DriveSubsystem DriveSubsystem = new DriveSubsystem();
-
+  public static IndexerSubsystem IndexerSubsystem = new IndexerSubsystem(); //added by will
 
   // Initializing OI object
   public static OI OI = new OI();

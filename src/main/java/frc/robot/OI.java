@@ -14,18 +14,22 @@ package frc.robot;
 
 import edu.wpi.first.wpilibj.XboxController;
 // import edu.wpi.first.wpilibj.GenericHID.Hand;
-// import edu.wpi.first.wpilibj.buttons.JoystickButton;
+import edu.wpi.first.wpilibj2.command.button.JoystickButton;
+import frc.robot.commands.IndexerCommand;
 
 public class OI {
     public XboxController driver;
     // public JoystickButton AButton;
-    // public JoystickButton BButton;
+    public JoystickButton BButton;
     // public JoystickButton XButton;
     
     // constructor intializing the Xbox Controller objects for driver and operator in ports 0 and 1 respectively
     public OI() {
         driver = new XboxController(1);
+        BButton = new JoystickButton(driver, 1);
+        BButton.whenPressed(new IndexerCommand());
     }
+
 
     // method that takes speed to go forwards or backwards from bumpers of controller depending on how hard driver presses
     public double getSpeed() {
@@ -44,4 +48,9 @@ public class OI {
     public double getTurn() {
        return driver.getRawAxis(0);
     }
+
+    
+    
+    
 }
+
