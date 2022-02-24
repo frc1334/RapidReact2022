@@ -26,6 +26,9 @@ public class RobotMap {
   // IntakeSubsystem: cargo color (may be changed depending on the real situation)
   public static final String color = "Red";
 
+  //ColorSensor: 1 Color Sensor V3
+  public static final int ColorSensor = 9;
+
 
   // Launcher: 2 Falcons
   public static final int Launcher1 = 6;
