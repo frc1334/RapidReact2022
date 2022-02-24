@@ -6,21 +6,15 @@ package frc.robot;
 
 import frc.robot.subsystems.DriveSubsystem;
 import frc.robot.subsystems.IntakeSubsystem;
-<<<<<<< HEAD
 import frc.robot.subsystems.TestingSolenoids;
 import frc.robot.subsystems.ColorSensor;
-=======
 import frc.robot.subsystems.PneumaticsSubsystem;
->>>>>>> 24490dc7e9e0f7f7b7376270e6972a6a4fc43ec6
 //import frc.robot.commands.AutoDriveCommand;
 import frc.robot.commands.DriveCommand;
-<<<<<<< HEAD
 import frc.robot.subsystems.IndexerSubsystem;
-=======
 import frc.robot.commands.IntakeCommand;
 
 import com.revrobotics.ColorSensorV3;
->>>>>>> 63f040449d8492d38e8653d71a50b978d91c4b8e
 
 import edu.wpi.first.wpilibj.TimedRobot;
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
@@ -42,18 +36,12 @@ public class Robot extends TimedRobot {
 
   // Initializing subsystems:
   public static DriveSubsystem DriveSubsystem = new DriveSubsystem();
-<<<<<<< HEAD
   public static IndexerSubsystem IndexerSubsystem = new IndexerSubsystem(); //added by will
-=======
   public static IntakeSubsystem IntakeSubsystem = new IntakeSubsystem();
-<<<<<<< HEAD
   public static TestingSolenoids TestingSolenoids = new TestingSolenoids();
   public static ColorSensor ColorSensor = new ColorSensor(); 
-=======
 
   public static PneumaticsSubsystem TestingSolenoids = new PneumaticsSubsystem();
->>>>>>> 24490dc7e9e0f7f7b7376270e6972a6a4fc43ec6
->>>>>>> 63f040449d8492d38e8653d71a50b978d91c4b8e
 
   // Initializing OI object
   public static OI OI = new OI();
