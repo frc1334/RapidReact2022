@@ -5,27 +5,30 @@
 package frc.robot.subsystems;
 
 import edu.wpi.first.wpilibj.Compressor;
-import edu.wpi.first.hal.CTREPCMJNI;
 import edu.wpi.first.wpilibj.PneumaticsModuleType;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 
-public class PneumaticsIntakeSubsystem extends SubsystemBase {
+public class CompressorSubsystem extends SubsystemBase {
   /** Creates a new PneumaticsSubsystem. */
   Compressor compressor;
 
-  public PneumaticsIntakeSubsystem() {
-    compressor = new Compressor(0, PneumaticsModuleType.CTREPCM);
-    compressor.setClosedLoopControl(0, true); // pump air
+  public CompressorSubsystem() {
+    compressor = new Compressor(PneumaticsModuleType.CTREPCM);
+    compressor.enableDigital();
   }
 
-  public void pumpAirOn() {
-    compressor.setClosedLoopControl(true);
+  public void pumpAir() {
+    compressor.enableDigital();
   }
 
-  public void pumpAirOff() {
-    compressor.setClosedLoopControl(false);
+  public void stopAir() {
+    compressor.disable();
   }
 
+  public boolean isEnabled() {
+    return compressor.enabled();
+  }
+  
   @Override
   public void periodic() {
     // This method will be called once per scheduler run
