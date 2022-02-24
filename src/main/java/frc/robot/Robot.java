@@ -6,8 +6,12 @@ package frc.robot;
 
 import frc.robot.subsystems.DriveSubsystem;
 import frc.robot.subsystems.IntakeSubsystem;
+<<<<<<< HEAD
 import frc.robot.subsystems.TestingSolenoids;
 import frc.robot.subsystems.ColorSensor;
+=======
+import frc.robot.subsystems.PneumaticsSubsystem;
+>>>>>>> 24490dc7e9e0f7f7b7376270e6972a6a4fc43ec6
 //import frc.robot.commands.AutoDriveCommand;
 import frc.robot.commands.DriveCommand;
 import frc.robot.commands.IntakeCommand;
@@ -35,8 +39,13 @@ public class Robot extends TimedRobot {
   // Initializing subsystems:
   public static DriveSubsystem DriveSubsystem = new DriveSubsystem();
   public static IntakeSubsystem IntakeSubsystem = new IntakeSubsystem();
+<<<<<<< HEAD
   public static TestingSolenoids TestingSolenoids = new TestingSolenoids();
   public static ColorSensor ColorSensor = new ColorSensor(); 
+=======
+
+  public static PneumaticsSubsystem TestingSolenoids = new PneumaticsSubsystem();
+>>>>>>> 24490dc7e9e0f7f7b7376270e6972a6a4fc43ec6
 
   // Initializing OI object
   public static OI OI = new OI();

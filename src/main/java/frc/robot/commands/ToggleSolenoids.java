@@ -11,7 +11,7 @@ public class ToggleSolenoids extends CommandBase {
   /** Creates a new ToggleSolenoids. */
   public ToggleSolenoids() {
     // Use addRequirements() here to declare subsystem dependencies.
-    addRequirements(Robot.TestingSolenoids);
+    addRequirements(Robot.TestingSolenoids); // this is technically supposed declare PneumaticsSubsystem, the class was renamed and now the code can't recognize it
   }
 
   // Called when the command is initially scheduled.
