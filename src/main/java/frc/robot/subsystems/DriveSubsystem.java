@@ -35,12 +35,12 @@ public class DriveSubsystem extends SubsystemBase {
   SparkMaxPIDController L2controller = L2motor.getPIDController();
 
   CANSparkMax R1motor = new CANSparkMax(RobotMap.R1motor, MotorType.kBrushless);
-  RelativeEncoder R1encoder = R2motor.getEncoder();
-  SparkMaxPIDController R1controller = R2motor.getPIDController();
+  RelativeEncoder R1encoder = R1motor.getEncoder();
+  SparkMaxPIDController R1controller = R1motor.getPIDController();
 
   CANSparkMax R2motor = new CANSparkMax(RobotMap.R1motor, MotorType.kBrushless);
-  RelativeEncoder R2encoder = R1motor.getEncoder();
-  SparkMaxPIDController R2controller = R1motor.getPIDController();
+  RelativeEncoder R2encoder = R2motor.getEncoder();
+  SparkMaxPIDController R2controller = R2motor.getPIDController();
 
   // Grouping together the motor controllers on the left side
   MotorControllerGroup LeftControllerGroup = new MotorControllerGroup(L1motor, L2motor);
