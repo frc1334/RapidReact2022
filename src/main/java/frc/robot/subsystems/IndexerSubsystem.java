@@ -23,24 +23,27 @@ import frc.robot.RobotMap;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 
 import com.ctre.phoenix.motorcontrol.ControlMode;
-import com.ctre.phoenix.motorcontrol.can.TalonFX;
+import com.ctre.phoenix.motorcontrol.can.TalonSRX;
 
 
 public class IndexerSubsystem extends SubsystemBase {
   /** Creates a new IndexerSubsystem. */
 
   //replace TalonFX with whatever motor controller we're using
-  TalonFX FeederMotor;
+  TalonSRX FeederMotor1;
+  TalonSRX FeederMotor2;
 
   public IndexerSubsystem() {
     //FeederMotor is set to channel ID 5 in RobotMap.java for now
-    FeederMotor = new TalonFX(RobotMap.FeederMotor);
+    FeederMotor1 = new TalonSRX(RobotMap.FeederMotor1);
+    FeederMotor2 = new TalonSRX(RobotMap.FeederMotor2);
   }
 
 
   public void setIndexerVoltage (double voltage) {
     //varible ControlMode is pulled from the "com.ctre.phoenix.motorcontrol.ControlMode" import
-    FeederMotor.set(ControlMode.PercentOutput, voltage);
+    FeederMotor1.set(ControlMode.PercentOutput, voltage);
+    FeederMotor2.set(ControlMode.PercentOutput, voltage);
   }
 
   //@Override

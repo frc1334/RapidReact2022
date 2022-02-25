@@ -4,37 +4,37 @@
 
 package frc.robot.subsystems;
 
+import frc.robot.Robot;
 import frc.robot.RobotMap;
 import frc.robot.subsystems.ColorSensor;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
-import edu.wpi.first.wpilibj.DoubleSolenoid;
+import edu.wpi.first.wpilibj.PneumaticsModuleType;
 
 import com.ctre.phoenix.motorcontrol.ControlMode;
 import com.ctre.phoenix.motorcontrol.can.VictorSPX;
 
 public class IntakeSubsystem extends SubsystemBase {
-  // A motor controller object to control the 775 motor
-  VictorSPX motorController;
-  // Double solenoid to complete the motions of getting the cargo in and out
-  DoubleSolenoid doubleSolenoid;
+  // A new motor controller object to control the 775 motor
+  VictorSPX intakeMotor;
 
   public IntakeSubsystem() {
-    motorController.setInverted(true);
+
+    intakeMotor = new VictorSPX(RobotMap.intakeMotor);
+    intakeMotor.setInverted(true);
   }
 
   // This method makes the motor spin based on a percentage based voltage input
   public void setPercentOutput (double output) {
-    motorController.set(ControlMode.PercentOutput, output);
+    intakeMotor.set(ControlMode.PercentOutput, output);
   }
 
   // Take in or push out the cargo depending on its color
-  public void colorIntake(String color) {
-    if (color == ColorSensor.colorString) {
-      // Set solenoid forwards to take in the cargo
-      doubleSolenoid.set(DoubleSolenoid.Value.kForward);
+  public void colorIntake() {
+    if (ColorSensor.colorString == RobotMap.color) {
+      setPercentOutput(0.25);
     } else {
-      // Set solenoid in reverse to push out the cargo
-      doubleSolenoid.set(DoubleSolenoid.Value.kReverse);
+      setPercentOutput(0.0);
+      // 0 or negative? Do we need to take the ball in before sensing the color?
     }
   }
 }

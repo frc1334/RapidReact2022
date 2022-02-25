@@ -8,12 +8,12 @@ import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import edu.wpi.first.wpilibj.PneumaticsModuleType;
 import edu.wpi.first.wpilibj.DoubleSolenoid;
 
-public class TestingSolenoids extends SubsystemBase {
+public class PneumaticsSubsystem extends SubsystemBase {
   boolean toggle = false;
   DoubleSolenoid IntakeSol;
   
-  /** Creates a new TestingSolenoids. */
-  public TestingSolenoids() {
+  /** Creates a new PneumaticsSubsystem. */
+  public PneumaticsSubsystem() {
     IntakeSol = new DoubleSolenoid(PneumaticsModuleType.CTREPCM, 1, 2);
   }
 
