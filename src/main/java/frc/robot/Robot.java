@@ -6,8 +6,10 @@ package frc.robot;
 
 import frc.robot.subsystems.DriveSubsystem;
 import frc.robot.subsystems.TestingSolenoids;
+import frc.robot.subsystems.LauncherSubsystem;
 //import frc.robot.commands.AutoDriveCommand;
 import frc.robot.commands.DriveCommand;
+import frc.robot.commands.LauncherCommands;
 
 import edu.wpi.first.wpilibj.TimedRobot;
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
@@ -30,6 +32,7 @@ public class Robot extends TimedRobot {
   // Initializing subsystems:
   public static DriveSubsystem DriveSubsystem = new DriveSubsystem();
   public static TestingSolenoids TestingSolenoids = new TestingSolenoids();
+  public static LauncherSubsystem LauncherSubsystem = new LauncherSubsystem();
 
   // Initializing OI object
   public static OI OI = new OI();
