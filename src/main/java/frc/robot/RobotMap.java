@@ -33,6 +33,7 @@ public class RobotMap {
   // Launcher: 2 Falcons
   public static final int Launcher1 = 6;
   public static final int Launcher2 = 7;
+  public static final int Launcher3 = 8;
 
   //added by William Kozlowski for the IndexerSubsystem.java
   public static final int FeederMotor1 = 5;
