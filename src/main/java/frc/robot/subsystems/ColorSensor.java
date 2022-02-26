@@ -27,6 +27,8 @@ public class ColorSensor extends SubsystemBase {
   private final Color kBlueTarget = new Color(0.143, 0.427, 0.429);
   private final Color kRedTarget = new Color(0.561, 0.232, 0.114);
 
+  String whatColor;
+
   public String colorMatch() {
     m_colorMatcher.addColorMatch(kBlueTarget);
     m_colorMatcher.addColorMatch(kRedTarget);
@@ -69,7 +71,6 @@ public class ColorSensor extends SubsystemBase {
     }
     return colorString;
   }
-  
   
 }
 

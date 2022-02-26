@@ -11,7 +11,7 @@ public class TalonSRXCommands extends CommandBase {
 
   public TalonSRXCommands(double setpoint) {
     this.setpoint = setpoint;
-    addRequirements(Robot.LauncherSubsystem);
+    addRequirements(Robot.LauncherSRXSubsystem);
   }
 
   // Called when the command is initially scheduled.
@@ -22,7 +22,7 @@ public class TalonSRXCommands extends CommandBase {
   // Called every time the scheduler runs while the command is scheduled.
   @Override
   public void execute() {
-    Robot.LauncherSubsystem.setLauncherVelocity(setpoint);
+    Robot.LauncherSRXSubsystem.setLauncherVelocity(setpoint);
   }
 
   // Called once the command ends or is interrupted.
