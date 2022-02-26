@@ -6,10 +6,11 @@ package frc.robot;
 
 import frc.robot.subsystems.DriveSubsystem;
 import frc.robot.subsystems.IntakeSubsystem;
-import frc.robot.subsystems.TestingSolenoids;
+import frc.robot.subsystems.PneumaticsSubsystem;
 import frc.robot.subsystems.ColorSensor;
 import frc.robot.subsystems.PneumaticsSubsystem;
 import frc.robot.subsystems.LauncherSubsystem;
+
 import frc.robot.commands.LauncherCommands;
 //import frc.robot.commands.AutoDriveCommand;
 import frc.robot.commands.DriveCommand;
@@ -17,7 +18,6 @@ import frc.robot.subsystems.IndexerSubsystem;
 import frc.robot.commands.IntakeCommand;
 
 import com.revrobotics.ColorSensorV3;
-
 
 import edu.wpi.first.wpilibj.TimedRobot;
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
@@ -41,7 +41,7 @@ public class Robot extends TimedRobot {
   public static DriveSubsystem DriveSubsystem = new DriveSubsystem();
   public static IndexerSubsystem IndexerSubsystem = new IndexerSubsystem(); //added by will
   public static IntakeSubsystem IntakeSubsystem = new IntakeSubsystem();
-  public static TestingSolenoids TestingSolenoids = new TestingSolenoids();
+  public static PneumaticsSubsystem PneumaticsSubsystem = new PneumaticsSubsystem();
   public static ColorSensor ColorSensor = new ColorSensor(); 
   public static LauncherSubsystem LauncherSubsystem = new LauncherSubsystem();
   public static PneumaticsSubsystem TestingSolenoids = new PneumaticsSubsystem();

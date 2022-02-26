@@ -38,7 +38,6 @@ public class RobotMap {
   public static final int FeederMotor1 = 5;
   public static final int FeederMotor2 = 11;
 
-}
   public static final int FeederMotor = 5;
   
    // Climber: 2 Falcons
