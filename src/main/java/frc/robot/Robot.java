@@ -9,7 +9,8 @@ import frc.robot.subsystems.IntakeSubsystem;
 import frc.robot.subsystems.PneumaticsSubsystem;
 import frc.robot.subsystems.ColorSensor;
 import frc.robot.subsystems.PneumaticsSubsystem;
-import frc.robot.subsystems.LauncherSubsystem;
+import frc.robot.subsystems.LauncherFXSubsystem;
+import frc.robot.subsystems.LauncherSRXSubsystem;
 
 // import frc.robot.commands.Launcher_Commands.TalonFXCommands;
 //import frc.robot.commands.AutoDriveCommand;
@@ -43,7 +44,8 @@ public class Robot extends TimedRobot {
   public static IntakeSubsystem IntakeSubsystem = new IntakeSubsystem();
   public static PneumaticsSubsystem PneumaticsSubsystem = new PneumaticsSubsystem();
   public static ColorSensor ColorSensor = new ColorSensor(); 
-  public static LauncherSubsystem LauncherSubsystem = new LauncherSubsystem();
+  public static LauncherFXSubsystem LauncherFXSubsystem = new LauncherFXSubsystem();
+  public static LauncherSRXSubsystem LauncherSRXSubsystem = new LauncherSRXSubsystem();
   public static PneumaticsSubsystem TestingSolenoids = new PneumaticsSubsystem();
 
   // Initializing OI object

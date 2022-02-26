@@ -7,7 +7,8 @@ import com.ctre.phoenix.motorcontrol.FeedbackDevice;
 
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 
-public class LauncherSubsystem extends SubsystemBase{
+// Talon SRX is the big guy
+public class LauncherSRXSubsystem extends SubsystemBase{
     TalonSRX Launcher3 = new TalonSRX(RobotMap.Launcher3);
 
     public LauncherSRXSubsystem(double P, double I, double D, double FF) {
@@ -23,7 +24,7 @@ public class LauncherSubsystem extends SubsystemBase{
     public void setLauncherVelocity (double setpoint) {
         // Set the first Talon's PID target to the setpoing (second Talon will follow)
         Launcher3.set(ControlMode.Velocity, setpoint);
-        System.out.println("LAUNCHER: " + Launcher1.getSelectedSensorVelocity());
+        System.out.println("LAUNCHER: " + Launcher3.getSelectedSensorVelocity());
     }
 
 

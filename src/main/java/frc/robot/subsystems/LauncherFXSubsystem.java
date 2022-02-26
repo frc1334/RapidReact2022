@@ -7,7 +7,8 @@ import com.ctre.phoenix.motorcontrol.FeedbackDevice;
 
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 
-public class LauncherSubsystem extends SubsystemBase{
+// Talon FX is the transport motor
+public class LauncherFXSubsystem extends SubsystemBase{
     TalonFX Launcher1 = new TalonFX(RobotMap.Launcher1);
     TalonFX Launcher2 = new TalonFX(RobotMap.Launcher2);
 
