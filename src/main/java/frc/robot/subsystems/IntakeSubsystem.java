@@ -30,7 +30,7 @@ public class IntakeSubsystem extends SubsystemBase {
 
   // Take in or push out the cargo depending on its color
   public void colorIntake() {
-    if (ColorSensor.colorString == RobotMap.color) {
+    if (colorString == RobotMap.color) {
       setPercentOutput(0.25);
     } else {
       setPercentOutput(0.0);
