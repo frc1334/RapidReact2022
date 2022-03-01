@@ -18,7 +18,7 @@ public class LauncherFXSubsystem extends SubsystemBase{
         Launcher2.set(ControlMode.Follower, RobotMap.Launcher1);
 
         // Invert the first Talon (Left and Right can now run the same Velocity PID RPM)
-        LaunchersetInverted(true);
+        Launcher1.setInverted(true);
 
         // Config PID - both motors should be the same
         Launcher1.config_kP(0, P);

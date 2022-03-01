@@ -13,7 +13,7 @@ public class LauncherSRXSubsystem extends SubsystemBase{
 
     public LauncherSRXSubsystem(double P, double I, double D, double FF) {
 
-        // Config PID - both motors should be the same
+        // Config PID 
         Launcher3.config_kP(0, P);
         Launcher3.config_kI(0, I);
         Launcher3.config_kD(0, D);
