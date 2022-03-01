@@ -21,38 +21,62 @@ import com.revrobotics.CANSparkMaxLowLevel.MotorType;
 import com.revrobotics.RelativeEncoder;
 import com.revrobotics.SparkMaxPIDController;
 
-import edu.wpi.first.wpilibj.drive.DifferentialDrive;
-import edu.wpi.first.wpilibj.motorcontrol.MotorControllerGroup;
+// import edu.wpi.first.wpilibj.drive.DifferentialDrive;
+// import edu.wpi.first.wpilibj.motorcontrol.MotorControllerGroup;
 
 public class DriveSubsystem extends SubsystemBase {
   // using 3 Spark Max motor controllers, 1s for front motors, 2 for back
-  CANSparkMax L1motor = new CANSparkMax(RobotMap.L1motor, MotorType.kBrushless);
-  RelativeEncoder L1encoder = L1motor.getEncoder();
-  SparkMaxPIDController L1controller = L1motor.getPIDController();
+  CANSparkMax L1motor;
+  RelativeEncoder L1encoder;
+  SparkMaxPIDController L1controller;
 
-  CANSparkMax L2motor = new CANSparkMax(RobotMap.L2motor, MotorType.kBrushless);
-  RelativeEncoder L2encoder = L2motor.getEncoder();
-  SparkMaxPIDController L2controller = L2motor.getPIDController();
+  CANSparkMax L2motor;
+  RelativeEncoder L2encoder;
+  SparkMaxPIDController L2controller;
 
-  CANSparkMax R1motor = new CANSparkMax(RobotMap.R1motor, MotorType.kBrushless);
-  RelativeEncoder R1encoder = R1motor.getEncoder();
-  SparkMaxPIDController R1controller = R1motor.getPIDController();
+  CANSparkMax R1motor;
+  RelativeEncoder R1encoder;
+  SparkMaxPIDController R1controller;
 
-  CANSparkMax R2motor = new CANSparkMax(RobotMap.R1motor, MotorType.kBrushless);
-  RelativeEncoder R2encoder = R2motor.getEncoder();
-  SparkMaxPIDController R2controller = R2motor.getPIDController();
+  CANSparkMax R2motor;
+  RelativeEncoder R2encoder;
+  SparkMaxPIDController R2controller;
 
   // Grouping together the motor controllers on the left side
-  MotorControllerGroup LeftControllerGroup = new MotorControllerGroup(L1motor, L2motor);
-  MotorControllerGroup RightControllerGroup = new MotorControllerGroup(R1motor, R2motor);
+  // MotorControllerGroup LeftControllerGroup;
+  // MotorControllerGroup RightControllerGroup;
 
   // Differential drivetrain object (aka West Coast/Tank drive)
-  DifferentialDrive DifferentialDriveTrain = new DifferentialDrive(LeftControllerGroup, RightControllerGroup);
+  // DifferentialDrive DifferentialDriveTrain;
 
   public DriveSubsystem() {
-    // make the back motor on left side the follower of the L1motor
-    L2motor.follow(L1motor); // doesn't work
-    R2motor.follow(R1motor);
+    L1motor = new CANSparkMax(RobotMap.L1motor, MotorType.kBrushless);
+    L1encoder = L1motor.getEncoder();
+    L1controller = L1motor.getPIDController();
+  
+    L2motor = new CANSparkMax(RobotMap.L2motor, MotorType.kBrushless);
+    L2encoder = L2motor.getEncoder();
+    L2controller = L2motor.getPIDController();
+  
+    R1motor = new CANSparkMax(RobotMap.R1motor, MotorType.kBrushless);
+    R1encoder = R1motor.getEncoder();
+    R1controller = R1motor.getPIDController();
+  
+    R2motor = new CANSparkMax(RobotMap.R1motor, MotorType.kBrushless);
+    R2encoder = R2motor.getEncoder();
+    R2controller = R2motor.getPIDController();
+
+    // Grouping together the motor controllers on the left side
+    // LeftControllerGroup = new MotorControllerGroup(L1motor, L2motor);
+    // RightControllerGroup = new MotorControllerGroup(R1motor, R2motor);
+
+    // Differential drivetrain object (aka West Coast/Tank drive)
+    // only used for drive pid
+    // DifferentialDriveTrain = new DifferentialDrive(LeftControllerGroup, RightControllerGroup);
+
+    // make the back motor on left side the follower of the L1motor, not needed
+    // L2motor.follow(L1motor); // doesn't work
+    // R2motor.follow(R1motor);
     
     // reset encoders to start at 0
     L1encoder.setPosition(0);
