@@ -1,3 +1,15 @@
+// Copyright (c) FIRST and other WPILib contributors.
+// Open Source Software; you can modify and/or share it under the terms of
+// the WPILib BSD license file in the root directory of this project.
+
+/*-------------------------------------------------------------------------
+
+Author: Zoey Xie                                  Date: Jan 22 2022
+
+LauncherFXSubsystem class for motor controllers of Talon motos.
+
+---------------------------------------------------------------------------*/
+
 package frc.robot.subsystems;
 
 import frc.robot.RobotMap;
@@ -7,7 +19,7 @@ import com.ctre.phoenix.motorcontrol.FeedbackDevice;
 
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 
-// Talon FX is the transport motor
+// Talon FX is the small motor
 public class LauncherFXSubsystem extends SubsystemBase{
     TalonFX Launcher1 = new TalonFX(RobotMap.Launcher1);
     TalonFX Launcher2 = new TalonFX(RobotMap.Launcher2);
