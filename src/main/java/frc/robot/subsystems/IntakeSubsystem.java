@@ -18,7 +18,7 @@ public class IntakeSubsystem extends SubsystemBase {
   VictorSPX intakeMotor;
 
   public IntakeSubsystem() {
-
+    public String tryColor = m_colorSensor.colorMatch();
     intakeMotor = new VictorSPX(RobotMap.intakeMotor);
     intakeMotor.setInverted(true);
   }
@@ -29,8 +29,9 @@ public class IntakeSubsystem extends SubsystemBase {
   }
 
   // Take in or push out the cargo depending on its color
-  public void colorIntake() {
-    if (ColorSensor.colorString == RobotMap.color) {
+  public void colorIntake() {    
+    m_colorSensor.colorMatch();
+    if (colorString == RobotMap.color) {
       setPercentOutput(0.25);
     } else {
       setPercentOutput(0.0);

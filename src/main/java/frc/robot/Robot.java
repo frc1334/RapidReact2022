@@ -19,6 +19,7 @@ import frc.robot.commands.IntakeCommand;
 //import frc.robot.commands.launcher_commands.LauncherCommandGroup;
 import com.revrobotics.ColorSensorV3;
 
+import edu.wpi.first.cameraserver.CameraServer;
 import edu.wpi.first.wpilibj.TimedRobot;
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
@@ -43,8 +44,8 @@ public class Robot extends TimedRobot {
   public static IntakeSubsystem IntakeSubsystem = new IntakeSubsystem();
   public static PneumaticsSubsystem PneumaticsSubsystem = new PneumaticsSubsystem();
   public static ColorSensor ColorSensor = new ColorSensor(); 
-  public static LauncherFXSubsystem LauncherFXSubsystem = new LauncherFXSubsystem();
-  public static LauncherSRXSubsystem LauncherSRXSubsystem = new LauncherSRXSubsystem();
+  public static LauncherFXSubsystem LauncherFXSubsystem = new LauncherFXSubsystem(); // Needs parameter values
+  public static LauncherSRXSubsystem LauncherSRXSubsystem = new LauncherSRXSubsystem(); // Needs parameter values
   public static PneumaticsSubsystem TestingSolenoids = new PneumaticsSubsystem();
 
   // Initializing OI object
@@ -64,6 +65,7 @@ public class Robot extends TimedRobot {
     m_chooser.setDefaultOption("Default Auto", kDefaultAuto);
     m_chooser.addOption("My Auto", kCustomAuto);
     SmartDashboard.putData("Auto choices", m_chooser);
+    CameraServer.startAutomaticCapture();
   }
 
   /**

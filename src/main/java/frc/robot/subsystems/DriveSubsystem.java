@@ -51,7 +51,7 @@ public class DriveSubsystem extends SubsystemBase {
 
   public DriveSubsystem() {
     // make the back motor on left side the follower of the L1motor
-    L2motor.follow(L1motor);
+    L2motor.follow(L1motor); // doesn't work
     R2motor.follow(R1motor);
     
     // reset encoders to start at 0
