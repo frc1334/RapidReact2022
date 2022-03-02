@@ -13,8 +13,12 @@ import java.sql.Driver;
 
 import edu.wpi.first.wpilibj.XboxController;
 import edu.wpi.first.wpilibj2.command.button.JoystickButton;
-
+import frc.robot.commands.DriverIntakeCommand;
+import frc.robot.commands.IndexerCommand;
+import frc.robot.commands.IntakeCommand;
 import frc.robot.commands.ToggleSolenoids;
+import frc.robot.commands.launcher_commands.LauncherCommandGroup;
+import frc.robot.subsystems.IntakeSubsystem;
 
 public class OI {
 
@@ -64,6 +68,20 @@ public class OI {
         OperatorLeftTrigger = new JoystickButton(Operator, 5);
         OperatorRightTrigger = new JoystickButton(Operator, 6);
 
+        // Driver Intake
+        DriverLeftTrigger.whileHeld(new DriverIntakeCommand());
+        
+        // Intake
+        DriverBButton.whenPressed(new IntakeCommand());
+
+        //Indexer
+        DriverXButton.whenPressed(new IndexerCommand());
+
+        //Launcher
+        DriverYButton.whenPressed(new LauncherCommandGroup());
+
+        //Toggle Solenoids
+        DriverAButton.whenPressed(new ToggleSolenoids());
     }
 
     // This double (decimal number) method returns the difference between the left and right Driver triggers (How much to move forwards/backwards)
@@ -86,5 +104,9 @@ public class OI {
 
         return 0.0;
 
+    }
+
+    public double getDriverIntake () {
+        return Driver.getRawAxis(5);
     }
 }

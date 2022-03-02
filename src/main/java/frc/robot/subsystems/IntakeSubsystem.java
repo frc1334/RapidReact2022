@@ -4,6 +4,7 @@
 package frc.robot.subsystems;
 
 import frc.robot.RobotMap;
+import frc.robot.OI;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 
 import com.ctre.phoenix.motorcontrol.ControlMode;
@@ -63,7 +64,7 @@ public class IntakeSubsystem extends SubsystemBase {
         // Returns a color value from the sensor
         Color detectedColor = m_colorSensor.getColor();
         // Returns a raw IR value of the infrared detected
-        double IR = m_colorSensor.getIR();
+        double IR = m_colorSensor.getIR(); // proximity? if not can be deleted
         int proximity = m_colorSensor.getProximity();
 
          // Determine if the object is close enough to provide the accurate color values
@@ -89,5 +90,16 @@ public class IntakeSubsystem extends SubsystemBase {
         }
 
         return colorString;
-      }
+    }
+
+    // For driver to manually control the bot to take in or push out a ball
+    public void driverIntake(double axis) {
+        if (axis > 0) {
+            setPercentOutput(0.25);
+        } else if (axis < 0) {
+            setPercentOutput(-0.25);
+        }         
+           
+    }
+
 }
