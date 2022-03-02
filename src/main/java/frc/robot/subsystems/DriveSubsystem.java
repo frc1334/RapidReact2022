@@ -12,6 +12,8 @@ DriveSubsystem class for differential drivetrain using 4 NEO brushless motors.
 
 package frc.robot.subsystems;
 
+import edu.wpi.first.wpilibj.drive.DifferentialDrive;
+import edu.wpi.first.wpilibj.motorcontrol.MotorControllerGroup;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import frc.robot.RobotMap;
 
@@ -43,11 +45,11 @@ public class DriveSubsystem extends SubsystemBase {
   SparkMaxPIDController R2controller;
 
   // Grouping together the motor controllers on the left side
-  // MotorControllerGroup LeftControllerGroup;
-  // MotorControllerGroup RightControllerGroup;
+   MotorControllerGroup LeftControllerGroup;
+   MotorControllerGroup RightControllerGroup;
 
   // Differential drivetrain object (aka West Coast/Tank drive)
-  // DifferentialDrive DifferentialDriveTrain;
+   DifferentialDrive DifferentialDriveTrain;
 
   public DriveSubsystem() {
     L1motor = new CANSparkMax(RobotMap.L1motor, MotorType.kBrushless);
@@ -62,20 +64,20 @@ public class DriveSubsystem extends SubsystemBase {
     R1encoder = R1motor.getEncoder();
     R1controller = R1motor.getPIDController();
   
-    R2motor = new CANSparkMax(RobotMap.R1motor, MotorType.kBrushless);
+    R2motor = new CANSparkMax(RobotMap.R2motor, MotorType.kBrushless);
     R2encoder = R2motor.getEncoder();
     R2controller = R2motor.getPIDController();
 
     // Grouping together the motor controllers on the left side
-    // LeftControllerGroup = new MotorControllerGroup(L1motor, L2motor);
-    // RightControllerGroup = new MotorControllerGroup(R1motor, R2motor);
+   LeftControllerGroup = new MotorControllerGroup(L1motor, L2motor);
+     RightControllerGroup = new MotorControllerGroup(R1motor, R2motor);
 
     // Differential drivetrain object (aka West Coast/Tank drive)
     // only used for drive pid
     // DifferentialDriveTrain = new DifferentialDrive(LeftControllerGroup, RightControllerGroup);
 
     // make the back motor on left side the follower of the L1motor, not needed
-    // L2motor.follow(L1motor); // doesn't work
+     //L2motor.follow(L1motor); // doesn't work
     // R2motor.follow(R1motor);
     
     // reset encoders to start at 0
@@ -88,8 +90,8 @@ public class DriveSubsystem extends SubsystemBase {
   // feed percent voltage power into both sides of drive train
   // mapping individual motors to voltage 
   public void TankDrive(double Left, double Right) {
-    L1motor.set(Left);
-    L2motor.set(Left);
+    L1motor.set(-Left);
+    L2motor.set(-Left);
     R1motor.set(Right);
     R2motor.set(Right);
   }

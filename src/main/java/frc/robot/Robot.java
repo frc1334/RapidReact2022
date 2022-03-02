@@ -40,13 +40,13 @@ public class Robot extends TimedRobot {
 
   // Initializing subsystems:
   public static DriveSubsystem DriveSubsystem = new DriveSubsystem();
-  public static IndexerSubsystem IndexerSubsystem = new IndexerSubsystem(); //added by will
-  public static IntakeSubsystem IntakeSubsystem = new IntakeSubsystem();
-  public static PneumaticsSubsystem PneumaticsSubsystem = new PneumaticsSubsystem();
-  public static ColorSensor ColorSensor = new ColorSensor(); 
-  public static LauncherFXSubsystem LauncherFXSubsystem = new LauncherFXSubsystem(); // Needs parameter values
-  public static LauncherSRXSubsystem LauncherSRXSubsystem = new LauncherSRXSubsystem(); // Needs parameter values
-  public static PneumaticsSubsystem TestingSolenoids = new PneumaticsSubsystem();
+  public static IndexerSubsystem IndexerSubsystem = null; //added by will
+  public static IntakeSubsystem IntakeSubsystem = null;
+  public static PneumaticsSubsystem PneumaticsSubsystem =null;
+  public static ColorSensor ColorSensor = null;
+  public static LauncherFXSubsystem LauncherFXSubsystem = null;//new LauncherFXSubsystem(); // Needs parameter values
+  public static LauncherSRXSubsystem LauncherSRXSubsystem = null;// // Needs parameter values
+  public static PneumaticsSubsystem TestingSolenoids = null;
 
   // Initializing OI object
   public static OI OI = new OI();
@@ -54,7 +54,7 @@ public class Robot extends TimedRobot {
   // Initializing commands
   DriveCommand DriveCommand = new DriveCommand();
   CommandScheduler commandScheduler = CommandScheduler.getInstance();
-  IntakeCommand IntakeCommand = new IntakeCommand();
+  //IntakeCommand IntakeCommand = new IntakeCommand();
 
   /**
    * This function is run when the robot is first started up and should be used for any
@@ -119,9 +119,6 @@ public class Robot extends TimedRobot {
     // Start the CommandScheduler to schedule commands for each cycle
     commandScheduler.run();
     DriveCommand.schedule();
-    System.out.println("Speed: " + Robot.OI.getSpeed());
-    System.out.println("Left: " + Robot.OI.checkLeftTrigger());
-    System.out.println("Right: " + Robot.OI.checkRightTrigger());
   }
 
   /** This function is called once when the robot is disabled. */
