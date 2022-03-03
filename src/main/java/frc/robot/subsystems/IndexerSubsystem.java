@@ -39,11 +39,11 @@ public class IndexerSubsystem extends SubsystemBase {
   TalonFX IndexerMotor2;
 
   public IndexerSubsystem() {
-    //FeederMotor is set to channel ID 5 in RobotMap.java for now
+    //IndexerMotor1 is set to channel ID 1 in RobotMap.java
+    //IndexerMotor2 is set to channel ID 9 in RobotMap.java
     IndexerMotor1 = new TalonSRX(RobotMap.IndexerMotor1);
     IndexerMotor2 = new TalonFX(RobotMap.IndexerMotor2);
   }
-
   public void setIndexerVoltage (double voltage) {
     //varible ControlMode is pulled from the "com.ctre.phoenix.motorcontrol.ControlMode" import
     IndexerMotor1.set(ControlMode.PercentOutput, voltage);

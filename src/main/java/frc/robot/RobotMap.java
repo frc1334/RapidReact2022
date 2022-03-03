@@ -37,8 +37,8 @@ public class RobotMap {
 
   //added by William Kozlowski for the IndexerSubsystem.java
 
-  public static final int IndexerMotor1 = 5;
-  public static final int IndexerMotor2 = 11;
+  public static final int IndexerMotor1 = 1;
+  public static final int IndexerMotor2 = 9;
 
 }
 
