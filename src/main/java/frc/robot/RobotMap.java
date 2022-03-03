@@ -15,10 +15,10 @@ package frc.robot;
 public class RobotMap {
   /* --- MOTORS --- */
   // DriveSubsystem: 3 Spark Maxes
-  public static final int L1motor = 0;
-  public static final int L2motor = 1;
-  public static final int R1motor = 15;
-  public static final int R2motor = 14;
+  public static final int L1motor = 1;
+  public static final int L2motor = 2;
+  public static final int R1motor = 3;
+  public static final int R2motor = 4;
 
   // IntakeSubsystem: 1 TalonFRX Motor Controller
   public static final int intakeMotor = 8;
@@ -36,10 +36,12 @@ public class RobotMap {
   public static final int Launcher3 = 8;
 
   //added by William Kozlowski for the IndexerSubsystem.java
-  public static final int FeederMotor1 = 5;
-  public static final int FeederMotor2 = 11;
 
-  public static final int FeederMotor = 5;
+  public static final int IndexerMotor1 = 1;
+  public static final int IndexerMotor2 = 9;
+
+}
+
   
    // Climber: 2 Falcons
   public static final int LeftClimbMotor = 9;

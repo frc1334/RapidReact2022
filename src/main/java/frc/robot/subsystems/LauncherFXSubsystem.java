@@ -21,11 +21,13 @@ import edu.wpi.first.wpilibj2.command.SubsystemBase;
 
 // Talon FX is the small motor
 public class LauncherFXSubsystem extends SubsystemBase{
-    TalonFX Launcher1 = new TalonFX(RobotMap.Launcher1);
-    TalonFX Launcher2 = new TalonFX(RobotMap.Launcher2);
+    TalonFX Launcher1;
+    TalonFX Launcher2;
 
     public LauncherFXSubsystem(double P, double I, double D, double FF) {
-
+        Launcher1 = new TalonFX(RobotMap.Launcher1);
+        Launcher2 = new TalonFX(RobotMap.Launcher2);
+    
         // Set the second Talon to follow the first Talon
         Launcher2.set(ControlMode.Follower, RobotMap.Launcher1);
 
