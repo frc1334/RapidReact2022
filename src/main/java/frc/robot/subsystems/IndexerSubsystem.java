@@ -23,23 +23,26 @@ import frc.robot.RobotMap;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 
 import com.ctre.phoenix.motorcontrol.ControlMode;
+
 import com.ctre.phoenix.motorcontrol.can.TalonSRX;
-import com.ctre.phoenix.motorcontrol.can.TalonFX;
+
+import com.ctre.phoenix.motorcontrol.can.TalonFX; //changed to FX since motors are Falcons now - Zoey
+
 
 
 public class IndexerSubsystem extends SubsystemBase {
   /** Creates a new IndexerSubsystem. */
 
   //replace TalonFX with whatever motor controller we're using
+
   TalonSRX IndexerMotor1;
   TalonFX IndexerMotor2;
 
   public IndexerSubsystem() {
     //FeederMotor is set to channel ID 5 in RobotMap.java for now
-    IndexerMotor1 = new TalonSRX(RobotMap.FeederMotor1);
-    IndexerMotor2 = new TalonFX(RobotMap.FeederMotor2);
+    IndexerMotor1 = new TalonSRX(RobotMap.IndexerMotor1);
+    IndexerMotor2 = new TalonFX(RobotMap.IndexerMotor2);
   }
-
 
   public void setIndexerVoltage (double voltage) {
     //varible ControlMode is pulled from the "com.ctre.phoenix.motorcontrol.ControlMode" import

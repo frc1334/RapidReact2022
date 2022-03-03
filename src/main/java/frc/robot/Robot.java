@@ -6,21 +6,20 @@ package frc.robot;
 
 import frc.robot.subsystems.DriveSubsystem;
 import frc.robot.subsystems.IntakeSubsystem;
-
-import frc.robot.subsystems.TestingSolenoids;
-import frc.robot.subsystems.ColorSensor;
-
 import frc.robot.subsystems.PneumaticsSubsystem;
+import frc.robot.subsystems.ColorSensor;
+import frc.robot.subsystems.PneumaticsSubsystem;
+import frc.robot.subsystems.LauncherFXSubsystem;
+import frc.robot.subsystems.LauncherSRXSubsystem;
 
 //import frc.robot.commands.AutoDriveCommand;
 import frc.robot.commands.DriveCommand;
-
 import frc.robot.subsystems.IndexerSubsystem;
-
 import frc.robot.commands.IntakeCommand;
-
+//import frc.robot.commands.launcher_commands.LauncherCommandGroup;
 import com.revrobotics.ColorSensorV3;
 
+import edu.wpi.first.cameraserver.CameraServer;
 import edu.wpi.first.wpilibj.TimedRobot;
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
@@ -51,13 +50,21 @@ public class Robot extends TimedRobot {
 
   public static PneumaticsSubsystem TestingSolenoids = new PneumaticsSubsystem();
 
+  public static IndexerSubsystem IndexerSubsystem = null; //added by will
+  public static IntakeSubsystem IntakeSubsystem = null;
+  public static PneumaticsSubsystem PneumaticsSubsystem =null;
+  //public static ColorSensor ColorSensor = null;
+  public static LauncherFXSubsystem LauncherFXSubsystem = new LauncherFXSubsystem(0, 0, 0, 0); // Needs parameter values
+  public static LauncherSRXSubsystem LauncherSRXSubsystem = new LauncherSRXSubsystem(0, 0, 0, 0); // Needs parameter values
+  public static PneumaticsSubsystem TestingSolenoids = null;
+
   // Initializing OI object
   public static OI OI = new OI();
 
   // Initializing commands
   DriveCommand DriveCommand = new DriveCommand();
   CommandScheduler commandScheduler = CommandScheduler.getInstance();
-  IntakeCommand IntakeCommand = new IntakeCommand();
+  //IntakeCommand IntakeCommand = new IntakeCommand();
 
   /**
    * This function is run when the robot is first started up and should be used for any
@@ -68,6 +75,7 @@ public class Robot extends TimedRobot {
     m_chooser.setDefaultOption("Default Auto", kDefaultAuto);
     m_chooser.addOption("My Auto", kCustomAuto);
     SmartDashboard.putData("Auto choices", m_chooser);
+    CameraServer.startAutomaticCapture();
   }
 
   /**
@@ -121,9 +129,6 @@ public class Robot extends TimedRobot {
     // Start the CommandScheduler to schedule commands for each cycle
     commandScheduler.run();
     DriveCommand.schedule();
-    System.out.println("Speed: " + Robot.OI.getSpeed());
-    System.out.println("Left: " + Robot.OI.checkLeftTrigger());
-    System.out.println("Right: " + Robot.OI.checkRightTrigger());
   }
 
   /** This function is called once when the robot is disabled. */
