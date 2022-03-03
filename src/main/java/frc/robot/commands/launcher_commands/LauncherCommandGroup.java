@@ -14,8 +14,9 @@ public class LauncherCommandGroup extends SequentialCommandGroup {
   /** Creates a new LauncherCommandGroup. */
   public double setpointFX = 0.25;
   public double setpointSRX = 0.5;
+  public double waitTime = 1.5;
 
   public LauncherCommandGroup() {
-    addCommands(new TalonFXCommands(setpointFX), new WaitCommand(1.5), new TalonSRXCommands(setpointSRX));
+    addCommands(new TalonFXCommands(setpointFX), new WaitCommand(waitTime), new TalonSRXCommands(setpointSRX));
   }
 }
