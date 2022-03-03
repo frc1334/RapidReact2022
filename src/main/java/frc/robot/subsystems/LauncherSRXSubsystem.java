@@ -29,7 +29,7 @@ public class LauncherSRXSubsystem extends SubsystemBase{
         Launcher3.config_kP(0, P);
         Launcher3.config_kI(0, I);
         Launcher3.config_kD(0, D);
-        // Launcher1.config_kF(0, FF); 
+        Launcher3.config_kF(0, FF); 
 
     } 
  

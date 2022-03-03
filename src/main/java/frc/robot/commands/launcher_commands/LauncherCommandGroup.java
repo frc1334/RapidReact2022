@@ -10,7 +10,7 @@ import edu.wpi.first.wpilibj2.command.ParallelCommandGroup;
 // information, see:
 // https://docs.wpilib.org/en/stable/docs/software/commandbased/convenience-features.html
 public class LauncherCommandGroup extends ParallelCommandGroup {
-  public  int setpoint=0;
+  public double setpoint = 0.25;
   /** Creates a new LauncherCommand. */
   public LauncherCommandGroup() {
     // Add your commands in the addCommands() call, e.g.

@@ -43,9 +43,9 @@ public class Robot extends TimedRobot {
   public static IndexerSubsystem IndexerSubsystem = null; //added by will
   public static IntakeSubsystem IntakeSubsystem = null;
   public static PneumaticsSubsystem PneumaticsSubsystem =null;
-  public static ColorSensor ColorSensor = null;
-  public static LauncherFXSubsystem LauncherFXSubsystem = null;//new LauncherFXSubsystem(); // Needs parameter values
-  public static LauncherSRXSubsystem LauncherSRXSubsystem = null;// // Needs parameter values
+  //public static ColorSensor ColorSensor = null;
+  public static LauncherFXSubsystem LauncherFXSubsystem = new LauncherFXSubsystem(0, 0, 0, 0); // Needs parameter values
+  public static LauncherSRXSubsystem LauncherSRXSubsystem = new LauncherSRXSubsystem(0, 0, 0, 0); // Needs parameter values
   public static PneumaticsSubsystem TestingSolenoids = null;
 
   // Initializing OI object
