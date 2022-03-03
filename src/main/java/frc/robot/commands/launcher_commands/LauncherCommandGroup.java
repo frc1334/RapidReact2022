@@ -4,16 +4,18 @@
 
 package frc.robot.commands.launcher_commands;
 
-import edu.wpi.first.wpilibj2.command.ParallelCommandGroup;
+import edu.wpi.first.wpilibj2.command.SequentialCommandGroup;
+import edu.wpi.first.wpilibj2.command.WaitCommand;
 
 // NOTE:  Consider using this command inline, rather than writing a subclass.  For more
 // information, see:
 // https://docs.wpilib.org/en/stable/docs/software/commandbased/convenience-features.html
-public class LauncherCommandGroup extends ParallelCommandGroup {
-  /** Creates a new LauncherCommand. */
+public class LauncherCommandGroup extends SequentialCommandGroup {
+  /** Creates a new LauncherCommandGroup. */
+  public double setpointFX = 0.25;
+  public double setpointSRX = 0.5;
+
   public LauncherCommandGroup() {
-    // Add your commands in the addCommands() call, e.g.
-    // addCommands(new FooCommand(), new BarCommand());
-    addCommands(new TalonFXCommands(setpoint), new TalonSRXCommands(setpoint));
+    addCommands(new TalonFXCommands(setpointFX), new WaitCommand(1.5), new TalonSRXCommands(setpointSRX));
   }
 }
