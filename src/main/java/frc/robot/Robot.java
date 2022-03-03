@@ -7,7 +7,7 @@ package frc.robot;
 import frc.robot.subsystems.DriveSubsystem;
 import frc.robot.subsystems.IntakeSubsystem;
 import frc.robot.subsystems.PneumaticsSubsystem;
-import frc.robot.subsystems.ColorSensor;
+//import frc.robot.subsystems.ColorSensor;
 import frc.robot.subsystems.PneumaticsSubsystem;
 import frc.robot.subsystems.LauncherFXSubsystem;
 import frc.robot.subsystems.LauncherSRXSubsystem;
@@ -40,23 +40,13 @@ public class Robot extends TimedRobot {
 
   // Initializing subsystems:
   public static DriveSubsystem DriveSubsystem = new DriveSubsystem();
-
-  public static IndexerSubsystem IndexerSubsystem = new IndexerSubsystem(); //added by will
-
-  public static IntakeSubsystem IntakeSubsystem = new IntakeSubsystem();
-
-  public static TestingSolenoids TestingSolenoids = new TestingSolenoids();
-  public static ColorSensor ColorSensor = new ColorSensor(); 
-
   public static PneumaticsSubsystem TestingSolenoids = new PneumaticsSubsystem();
-
   public static IndexerSubsystem IndexerSubsystem = null; //added by will
   public static IntakeSubsystem IntakeSubsystem = null;
-  public static PneumaticsSubsystem PneumaticsSubsystem =null;
   //public static ColorSensor ColorSensor = null;
   public static LauncherFXSubsystem LauncherFXSubsystem = new LauncherFXSubsystem(0, 0, 0, 0); // Needs parameter values
   public static LauncherSRXSubsystem LauncherSRXSubsystem = new LauncherSRXSubsystem(0, 0, 0, 0); // Needs parameter values
-  public static PneumaticsSubsystem TestingSolenoids = null;
+  public static PneumaticsSubsystem PneumaticsSubsystem = null;
 
   // Initializing OI object
   public static OI OI = new OI();
