@@ -46,4 +46,3 @@ public class RobotMap {
    // Climber: 2 Falcons
   //public static final int LeftClimbMotor = 9;
   //public static final int RightClimbMotor = 10;
-}

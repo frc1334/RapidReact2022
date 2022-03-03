@@ -34,17 +34,11 @@ import frc.robot.commands.launcher_commands.LauncherCommandGroup;
 import frc.robot.subsystems.IntakeSubsystem;
 
 public class OI {
-
-    public XboxController driver;
-    public JoystickButton AButton;
-    // public JoystickButton XButton;
-    public JoystickButton BButton;
-
     // Driver, initialized with port 0
-    public XboxController Driver = new XboxController(0);
+    public XboxController Driver;
 
     // Driver, initialized with port 1
-    public XboxController Operator = new XboxController(1);
+    public XboxController Operator;
   
     // Driver Buttons
     public JoystickButton DriverAButton;
@@ -67,27 +61,24 @@ public class OI {
 
     // Maps an initializes controls to the correct ports on the Xbox controller.
     public OI() {
+        Driver = new XboxController(1);
 
-        driver = new XboxController(1);
-        BButton = new JoystickButton(driver, 3);
-        BButton.whenPressed(new IndexerCommand());
+        DriverLeftTrigger = new JoystickButton(Driver, 5);
+     //  DriverRightTrigger = new JoystickButton(Driver, 6);
 
-        AButton = new JoystickButton(driver, 1);
-        AButton.whenPressed(new ToggleSolenoids());
-        
-        BButton = new JoystickButton(driver, 2);
-        BButton.whenPressed(new IntakeCommand());
-    }
-
-    // method that takes speed to go forwards or backwards from bumpers of controller depending on how hard driver presses
-    public double getSpeed() {
-        return driver.getLeftTriggerAxis() - driver.getRightTriggerAxis();
-
-        // Inititalize the Driver Controls
         DriverAButton = new JoystickButton(Driver, 1);
+        DriverAButton.whenPressed(new ToggleSolenoids());
+        
         DriverBButton = new JoystickButton(Driver, 2);
+        DriverBButton.whenPressed(new IntakeCommand());
+
         DriverXButton = new JoystickButton(Driver, 3);
+        DriverXButton.whenPressed(new IndexerCommand());
+        
         DriverYButton = new JoystickButton(Driver, 4);
+        DriverYButton.whenPressed(new LauncherCommandGroup());        
+
+        Operator = new XboxController(2);
 
         // Inititalize the Operator Controls
         OperatorAButton = new JoystickButton(Operator, 1);
@@ -95,26 +86,13 @@ public class OI {
         OperatorXButton = new JoystickButton(Operator, 3);
         OperatorYButton = new JoystickButton(Operator, 4);
 
-        DriverLeftTrigger = new JoystickButton(Driver, 5);
-     //  DriverRightTrigger = new JoystickButton(Driver, 6);
-
         OperatorLeftTrigger = new JoystickButton(Operator, 5);
         OperatorRightTrigger = new JoystickButton(Operator, 6);
+    }
 
-        // Driver Intake
-        DriverLeftTrigger.whileHeld(new DriverIntakeCommand());
-        
-        // Intake
-        DriverBButton.whenPressed(new IntakeCommand());
-
-        //Indexer
-        DriverXButton.whenPressed(new IndexerCommand());
-
-        //Launcher
-        DriverYButton.whenPressed(new LauncherCommandGroup());
-
-        //Toggle Solenoids
-        DriverAButton.whenPressed(new ToggleSolenoids());
+    // method that takes speed to go forwards or backwards from bumpers of controller depending on how hard driver presses
+    public double getSpeed() {
+        return Driver.getLeftTriggerAxis() - Driver.getRightTriggerAxis();
     }
 
     // This double (decimal number) method returns the difference between the left and right Driver triggers (How much to move forwards/backwards)
