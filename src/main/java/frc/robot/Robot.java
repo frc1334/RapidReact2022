@@ -11,7 +11,7 @@ import frc.robot.subsystems.PneumaticsSubsystem;
 import frc.robot.subsystems.PneumaticsSubsystem;
 import frc.robot.subsystems.LauncherFXSubsystem;
 import frc.robot.subsystems.LauncherSRXSubsystem;
-
+import frc.robot.commands.AutoDriveCommand;
 //import frc.robot.commands.AutoDriveCommand;
 import frc.robot.commands.DriveCommand;
 import frc.robot.subsystems.IndexerSubsystem;
@@ -39,14 +39,13 @@ public class Robot extends TimedRobot {
   private final SendableChooser<String> m_chooser = new SendableChooser<>();
 
   // Initializing subsystems:
-  public static DriveSubsystem DriveSubsystem = new DriveSubsystem();
-  public static PneumaticsSubsystem TestingSolenoids = new PneumaticsSubsystem();
-  public static IndexerSubsystem IndexerSubsystem = null; //added by will
-  public static IntakeSubsystem IntakeSubsystem = null;
+  public static DriveSubsystem DriveSubsystem = null;
+  public static IndexerSubsystem IndexerSubsystem = new IndexerSubsystem(); //added by will
+  public static IntakeSubsystem IntakeSubsystem = new IntakeSubsystem();
   //public static ColorSensor ColorSensor = null;
   public static LauncherFXSubsystem LauncherFXSubsystem = new LauncherFXSubsystem(0, 0, 0, 0); // Needs parameter values
   public static LauncherSRXSubsystem LauncherSRXSubsystem = new LauncherSRXSubsystem(0, 0, 0, 0); // Needs parameter values
-  public static PneumaticsSubsystem PneumaticsSubsystem = null;
+  public static PneumaticsSubsystem PneumaticsSubsystem = new PneumaticsSubsystem();
 
   // Initializing OI object
   public static OI OI = new OI();
@@ -100,7 +99,7 @@ public class Robot extends TimedRobot {
   public void autonomousPeriodic() {
     switch (m_autoSelected) {
       case kCustomAuto:
-        //commandScheduler.schedule(new AutoDriveCommand(15000));
+        commandScheduler.schedule(new AutoDriveCommand(15000));
         break;
       case kDefaultAuto:
       default:
