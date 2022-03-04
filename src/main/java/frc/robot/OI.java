@@ -86,6 +86,8 @@ public class OI {
         OperatorBButton.whileHeld(new IntakeCommand());
 
         OperatorXButton = new JoystickButton(Operator, 3);
+        OperatorXButton.whenPressed(new LauncherCommandGroup());
+
         OperatorYButton = new JoystickButton(Operator, 4);
 
         OperatorLeftTrigger = new JoystickButton(Operator, 5);

@@ -12,11 +12,8 @@ import edu.wpi.first.wpilibj2.command.WaitCommand;
 // https://docs.wpilib.org/en/stable/docs/software/commandbased/convenience-features.html
 public class LauncherCommandGroup extends SequentialCommandGroup {
   /** Creates a new LauncherCommandGroup. */
-  public double setpointFX = 0.5;
-  public double setpointSRX = 0.5;
-  public double waitTime = 1.5;
 
   public LauncherCommandGroup() {
-    addCommands(new TalonFXCommands(setpointFX), new WaitCommand(waitTime), new TalonSRXCommands(setpointSRX));
+    addCommands(new TalonFXPercentCommand(), new WaitCommand(1.5), new TalonSRXPercentCommand());
   }
 }
