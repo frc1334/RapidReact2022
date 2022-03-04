@@ -46,7 +46,6 @@ public class LauncherSRXSubsystem extends SubsystemBase{
 
     public void setLauncherPercent (double percent) {
         Launcher3.set(ControlMode.PercentOutput, percent);
-        Launcher3.set(ControlMode.PercentOutput, percent);
         System.out.println("LAUNCHER: " + Launcher3.getSelectedSensorVelocity());
     }
            

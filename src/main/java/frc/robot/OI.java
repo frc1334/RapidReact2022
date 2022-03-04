@@ -33,6 +33,7 @@ import frc.robot.commands.ToggleSolenoids;
 import frc.robot.commands.launcher_commands.LauncherCommandGroup;
 import frc.robot.commands.launcher_commands.TalonFXCommands;
 import frc.robot.commands.launcher_commands.TalonFXPercentCommand;
+import frc.robot.commands.launcher_commands.TalonSRXPercentCommand;
 import frc.robot.subsystems.IntakeSubsystem;
 
 public class OI {
@@ -86,10 +87,11 @@ public class OI {
         OperatorBButton.whileHeld(new IntakeCommand());
 
         OperatorXButton = new JoystickButton(Operator, 3);
-        OperatorXButton.whenPressed(new LauncherCommandGroup());
+        OperatorXButton.whileHeld(new LauncherCommandGroup());
 
         OperatorYButton = new JoystickButton(Operator, 4);
-
+        OperatorYButton.whileHeld(new TalonSRXPercentCommand());
+        
         OperatorLeftTrigger = new JoystickButton(Operator, 5);
         OperatorRightTrigger = new JoystickButton(Operator, 6);
     }
