@@ -31,6 +31,7 @@ import frc.robot.commands.DriveCommand;
 import frc.robot.commands.IntakeCommand;
 import frc.robot.commands.ToggleSolenoids;
 import frc.robot.commands.launcher_commands.LauncherCommandGroup;
+import frc.robot.commands.launcher_commands.TalonFXCommands;
 import frc.robot.subsystems.IntakeSubsystem;
 
 public class OI {
@@ -76,7 +77,7 @@ public class OI {
         DriverXButton.whenPressed(new IndexerCommand());
         
         DriverYButton = new JoystickButton(Driver, 4);
-        DriverYButton.whenPressed(new LauncherCommandGroup());        
+        DriverYButton.whenPressed(new TalonFXCommands(5000));        
 
         Operator = new XboxController(2);
 
