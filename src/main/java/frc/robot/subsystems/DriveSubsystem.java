@@ -22,6 +22,8 @@ import com.revrobotics.CANSparkMax;
 import com.revrobotics.CANSparkMaxLowLevel.MotorType;
 import com.revrobotics.RelativeEncoder;
 import com.revrobotics.SparkMaxPIDController;
+import com.ctre.phoenix.motorcontrol.ControlMode;
+import com.ctre.phoenix.motorcontrol.can.TalonFX;
 
 // import edu.wpi.first.wpilibj.drive.DifferentialDrive;
 // import edu.wpi.first.wpilibj.motorcontrol.MotorControllerGroup;
@@ -44,12 +46,14 @@ public class DriveSubsystem extends SubsystemBase {
   RelativeEncoder R2encoder;
   SparkMaxPIDController R2controller;
 
+  TalonFX testLauncher;
+
   // Grouping together the motor controllers on the left side
-   MotorControllerGroup LeftControllerGroup;
-   MotorControllerGroup RightControllerGroup;
+  //  MotorControllerGroup LeftControllerGroup;
+  //  MotorControllerGroup RightControllerGroup;
 
   // Differential drivetrain object (aka West Coast/Tank drive)
-   DifferentialDrive DifferentialDriveTrain;
+  // DifferentialDrive DifferentialDriveTrain;
 
   public DriveSubsystem() {
     L1motor = new CANSparkMax(RobotMap.L1motor, MotorType.kBrushless);
@@ -64,13 +68,15 @@ public class DriveSubsystem extends SubsystemBase {
     R1encoder = R1motor.getEncoder();
     R1controller = R1motor.getPIDController();
   
-    R2motor = new CANSparkMax(RobotMap.R2motor, MotorType.kBrushless);
-    R2encoder = R2motor.getEncoder();
-    R2controller = R2motor.getPIDController();
+    // R2motor = new CANSparkMax(RobotMap.R2motor, MotorType.kBrushless);
+    // R2encoder = R2motor.getEncoder();
+    // R2controller = R2motor.getPIDController();
+
+    testLauncher = new TalonFX(7);
 
     // Grouping together the motor controllers on the left side
-   LeftControllerGroup = new MotorControllerGroup(L1motor, L2motor);
-     RightControllerGroup = new MotorControllerGroup(R1motor, R2motor);
+  //  LeftControllerGroup = new MotorControllerGroup(L1motor, L2motor);
+  //    RightControllerGroup = new MotorControllerGroup(R1motor, R2motor);
 
     // Differential drivetrain object (aka West Coast/Tank drive)
     // only used for drive pid
@@ -93,7 +99,8 @@ public class DriveSubsystem extends SubsystemBase {
     L1motor.set(-Left);
     L2motor.set(-Left);
     R1motor.set(Right);
-    R2motor.set(Right);
+    //R2motor.set(Right);
+    testLauncher.set(ControlMode.PercentOutput, Right);
   }
 
   // wrapper function that allows for turning in tank drive
