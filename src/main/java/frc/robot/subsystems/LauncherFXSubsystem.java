@@ -22,23 +22,23 @@ import edu.wpi.first.wpilibj2.command.SubsystemBase;
 // Talon FX is the small motor
 public class LauncherFXSubsystem extends SubsystemBase{
       // The Launcher Talons; 1 is left and 2 is right.
-  TalonFX Launcher1 = new TalonFX(RobotMap.Launcher1);
-  TalonFX Launcher2 = new TalonFX(RobotMap.Launcher2);
+  TalonFX Launcher1;
+  TalonFX Launcher2;
 
-  public LauncherFXSubsystem()
-   {
+  public LauncherFXSubsystem() {
 
+    Launcher1 = new TalonFX(RobotMap.Launcher1);
+    Launcher2 = new TalonFX(RobotMap.Launcher2);
+    
     // Configure the default Integrated Sensors for the Talons
     Launcher1.configSelectedFeedbackSensor(FeedbackDevice.IntegratedSensor, 0, 0);
     Launcher2.configSelectedFeedbackSensor(FeedbackDevice.IntegratedSensor, 0, 0);
 
     // Set the second Talon to follow the first Talon
     Launcher2.set(ControlMode.Follower, RobotMap.Launcher1);
-
+    
     // Invert the first Talon (Left and Right can now run the same Velocity PID RPM)
     Launcher1.setInverted(true);
-
-
 
     // Configure the peak output (max in magnitude both forwards and reverse) for the first Talon
     Launcher1.configPeakOutputForward(1);

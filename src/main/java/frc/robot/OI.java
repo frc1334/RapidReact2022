@@ -32,6 +32,7 @@ import frc.robot.commands.IntakeCommand;
 import frc.robot.commands.ToggleSolenoids;
 import frc.robot.commands.launcher_commands.LauncherCommandGroup;
 import frc.robot.commands.launcher_commands.TalonFXCommands;
+import frc.robot.commands.launcher_commands.TalonFXPercentCommand;
 import frc.robot.subsystems.IntakeSubsystem;
 
 public class OI {
@@ -74,15 +75,14 @@ public class OI {
         DriverBButton.whenPressed(new IntakeCommand());
 
         DriverXButton = new JoystickButton(Driver, 3);
-        DriverXButton.whenPressed(new IndexerCommand());
-        
-        DriverYButton = new JoystickButton(Driver, 4);
-        DriverYButton.whenPressed(new TalonFXCommands(5000));        
+        DriverXButton.whenPressed(new IndexerCommand());        
 
         Operator = new XboxController(2);
 
         // Inititalize the Operator Controls
         OperatorAButton = new JoystickButton(Operator, 1);
+        OperatorAButton.whenPressed(new TalonFXPercentCommand());
+        
         OperatorBButton = new JoystickButton(Operator, 2);
         OperatorXButton = new JoystickButton(Operator, 3);
         OperatorYButton = new JoystickButton(Operator, 4);
@@ -92,10 +92,6 @@ public class OI {
     }
 
     // method that takes speed to go forwards or backwards from bumpers of controller depending on how hard driver presses
-    public double getSpeed() {
-        return Driver.getLeftTriggerAxis() - Driver.getRightTriggerAxis();
-    }
-
     // This double (decimal number) method returns the difference between the left and right Driver triggers (How much to move forwards/backwards)
     public double getDriverSpeed () {
 
@@ -118,7 +114,20 @@ public class OI {
 
     }
 
-    public double getDriverIntake () {
-        return Driver.getRawAxis(5);
+    public double getDriverIntake() {
+        if (Math.abs(Driver.getRawAxis(0)) > 0.15) {
+            return Driver.getRawAxis(0);
+        }
+
+        return 0.0;
     }
+
+    public double getOperatorLauncher() {
+        if (Math.abs(Operator.getRawAxis(0)) > 0.15) {
+            return Operator.getRawAxis(0);
+        }
+
+        return 0.0;
+    }
+
 }

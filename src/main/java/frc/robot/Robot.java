@@ -44,7 +44,7 @@ public class Robot extends TimedRobot {
   public static IntakeSubsystem IntakeSubsystem = new IntakeSubsystem();
   //public static ColorSensor ColorSensor = null;
   public static LauncherFXSubsystem LauncherFXSubsystem = new LauncherFXSubsystem(); // Needs parameter values
-  public static LauncherSRXSubsystem LauncherSRXSubsystem = new LauncherSRXSubsystem(0, 0, 0, 0); // Needs parameter values
+  public static LauncherSRXSubsystem LauncherSRXSubsystem = new LauncherSRXSubsystem(); // Needs parameter values
   public static PneumaticsSubsystem PneumaticsSubsystem = new PneumaticsSubsystem();
 
   // Initializing OI object

@@ -46,8 +46,6 @@ public class DriveSubsystem extends SubsystemBase {
   RelativeEncoder R2encoder;
   SparkMaxPIDController R2controller;
 
-  TalonFX testLauncher;
-
   // Grouping together the motor controllers on the left side
   //  MotorControllerGroup LeftControllerGroup;
   //  MotorControllerGroup RightControllerGroup;
@@ -68,11 +66,9 @@ public class DriveSubsystem extends SubsystemBase {
     R1encoder = R1motor.getEncoder();
     R1controller = R1motor.getPIDController();
   
-    // R2motor = new CANSparkMax(RobotMap.R2motor, MotorType.kBrushless);
-    // R2encoder = R2motor.getEncoder();
-    // R2controller = R2motor.getPIDController();
-
-    testLauncher = new TalonFX(7);
+    R2motor = new CANSparkMax(RobotMap.R2motor, MotorType.kBrushless);
+    R2encoder = R2motor.getEncoder();
+    R2controller = R2motor.getPIDController();
 
     // Grouping together the motor controllers on the left side
   //  LeftControllerGroup = new MotorControllerGroup(L1motor, L2motor);
@@ -81,10 +77,6 @@ public class DriveSubsystem extends SubsystemBase {
     // Differential drivetrain object (aka West Coast/Tank drive)
     // only used for drive pid
     // DifferentialDriveTrain = new DifferentialDrive(LeftControllerGroup, RightControllerGroup);
-
-    // make the back motor on left side the follower of the L1motor, not needed
-     //L2motor.follow(L1motor); // doesn't work
-    // R2motor.follow(R1motor);
     
     // reset encoders to start at 0
     L1encoder.setPosition(0);
@@ -99,8 +91,7 @@ public class DriveSubsystem extends SubsystemBase {
     L1motor.set(-Left);
     L2motor.set(-Left);
     R1motor.set(Right);
-    //R2motor.set(Right);
-    testLauncher.set(ControlMode.PercentOutput, Right);
+    R2motor.set(Right);
   }
 
   // wrapper function that allows for turning in tank drive

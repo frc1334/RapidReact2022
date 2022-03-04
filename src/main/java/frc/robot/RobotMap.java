@@ -31,7 +31,7 @@ public class RobotMap {
 
 
   // Launcher: 2 Falcons
-  //public static final int Launcher1 = 7;
+  public static final int Launcher1 = 7;
   public static final int Launcher2 = 8;
   public static final int Launcher3 = 5;
 
