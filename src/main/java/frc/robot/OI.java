@@ -81,7 +81,7 @@ public class OI {
 
         // Inititalize the Operator Controls
         OperatorAButton = new JoystickButton(Operator, 1);
-        OperatorAButton.whenPressed(new TalonFXPercentCommand());
+        OperatorAButton.whileHeld(new TalonFXPercentCommand());
         
         OperatorBButton = new JoystickButton(Operator, 2);
         OperatorXButton = new JoystickButton(Operator, 3);
