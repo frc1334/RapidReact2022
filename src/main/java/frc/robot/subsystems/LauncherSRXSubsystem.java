@@ -6,7 +6,7 @@
 
 Author: Zoey Xie                                  Date: Jan 22 2022
 
-LauncherFXSubsystem class for motor controller of 775 motor.
+LauncherSRXSubsystem class for motor controller of 775 motor.
 
 ---------------------------------------------------------------------------*/
 

@@ -72,7 +72,6 @@ public class OI {
         DriverAButton.whenPressed(new ToggleSolenoids());
         
         DriverBButton = new JoystickButton(Driver, 2);
-        DriverBButton.whenPressed(new IntakeCommand());
 
         DriverXButton = new JoystickButton(Driver, 3);
         DriverXButton.whenPressed(new IndexerCommand());        
@@ -84,6 +83,8 @@ public class OI {
         OperatorAButton.whileHeld(new TalonFXPercentCommand());
         
         OperatorBButton = new JoystickButton(Operator, 2);
+        OperatorBButton.whileHeld(new IntakeCommand());
+
         OperatorXButton = new JoystickButton(Operator, 3);
         OperatorYButton = new JoystickButton(Operator, 4);
 

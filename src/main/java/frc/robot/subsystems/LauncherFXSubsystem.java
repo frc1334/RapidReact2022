@@ -6,7 +6,7 @@
 
 Author: Zoey Xie                                  Date: Jan 22 2022
 
-LauncherFXSubsystem class for motor controllers of Talon motos.
+LauncherFXSubsystem class for motor controllers of TalonFX motors. (Big wheel on launcher)
 
 ---------------------------------------------------------------------------*/
 
