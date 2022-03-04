@@ -17,6 +17,9 @@ import com.revrobotics.ColorSensorV3;
 import com.revrobotics.ColorMatchResult;
 import com.revrobotics.ColorMatch;
 
+import edu.wpi.first.wpilibj.PneumaticsModuleType;
+import edu.wpi.first.wpilibj.DoubleSolenoid;
+
 public class IntakeSubsystem extends SubsystemBase {
     // Color sensor
     final I2C.Port i2cPort = I2C.Port.kOnboard;
@@ -34,10 +37,14 @@ public class IntakeSubsystem extends SubsystemBase {
     // A new motor controller object to control the 775 motor
     VictorSPX intakeMotor;
 
+    boolean toggle = false;
+    DoubleSolenoid IntakeSol;
+
     public IntakeSubsystem() {
         tryColor = colorMatch();
         intakeMotor = new VictorSPX(RobotMap.intakeMotor);
         intakeMotor.setInverted(true);
+        IntakeSol = new DoubleSolenoid(PneumaticsModuleType.CTREPCM, 1, 2);
     }
 
     // This method makes the motor spin based on a percentage based voltage input
@@ -102,4 +109,23 @@ public class IntakeSubsystem extends SubsystemBase {
            
     }
 
+    // This is a void method for deploying the Intake via actuating the pistons. The parameter deploy indicates whether to deploy or retract the intake
+    public void deployIntake (boolean deploy) {
+        // Check for the deployment states: deploy and retract (true or false on the deploy argument)
+        if (deploy) {
+        // Deploy, set solenoid to forwards
+        IntakeSol.set(DoubleSolenoid.Value.kForward);
+        } else if (!deploy) {
+        // Retract, set solenoid to reverse
+        IntakeSol.set(DoubleSolenoid.Value.kReverse);
+        }
+    }
+
+    // This void method toggles the intake deployment
+    public void toggleSolenoid () {
+        // Deploy the current state of the intake
+        deployIntake(toggle);
+        // Toggle the toggle boolean
+        toggle = !toggle;
+    }
 }

@@ -17,20 +17,11 @@ public class CompressorSubsystem extends SubsystemBase {
     compressor.enableDigital();
   }
 
-  public void pumpAir() {
-    compressor.enableDigital();
-  }
-
-  public void stopAir() {
-    compressor.disable();
-  }
-
-  public boolean isEnabled() {
-    return compressor.enabled();
-  }
-  
-  @Override
-  public void periodic() {
-    // This method will be called once per scheduler run
+    public void setCompressorState (boolean state) {
+      if (state = true) {
+        compressor.enableDigital();
+      } else if (state = false) {
+        compressor.disable();
+      }
   }
 }
