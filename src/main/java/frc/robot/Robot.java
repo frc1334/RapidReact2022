@@ -39,7 +39,7 @@ public class Robot extends TimedRobot {
   private final SendableChooser<String> m_chooser = new SendableChooser<>();
 
   // Initializing subsystems:
-  public static DriveSubsystem DriveSubsystem = null;
+  public static DriveSubsystem DriveSubsystem = new DriveSubsystem();
   public static IndexerSubsystem IndexerSubsystem = new IndexerSubsystem(); //added by will
   public static IntakeSubsystem IntakeSubsystem = new IntakeSubsystem();
   //public static ColorSensor ColorSensor = null;
@@ -64,7 +64,6 @@ public class Robot extends TimedRobot {
     m_chooser.setDefaultOption("Default Auto", kDefaultAuto);
     m_chooser.addOption("My Auto", kCustomAuto);
     SmartDashboard.putData("Auto choices", m_chooser);
-    CameraServer.startAutomaticCapture();
   }
 
   /**

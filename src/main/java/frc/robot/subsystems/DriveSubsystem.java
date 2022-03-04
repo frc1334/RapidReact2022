@@ -47,11 +47,11 @@ public class DriveSubsystem extends SubsystemBase {
   SparkMaxPIDController R2controller;
 
   // Grouping together the motor controllers on the left side
-  //  MotorControllerGroup LeftControllerGroup;
-  //  MotorControllerGroup RightControllerGroup;
+  MotorControllerGroup LeftControllerGroup;
+  MotorControllerGroup RightControllerGroup;
 
   // Differential drivetrain object (aka West Coast/Tank drive)
-  // DifferentialDrive DifferentialDriveTrain;
+  DifferentialDrive DifferentialDriveTrain;
 
   public DriveSubsystem() {
     L1motor = new CANSparkMax(RobotMap.L1motor, MotorType.kBrushless);
@@ -71,12 +71,12 @@ public class DriveSubsystem extends SubsystemBase {
     R2controller = R2motor.getPIDController();
 
     // Grouping together the motor controllers on the left side
-  //  LeftControllerGroup = new MotorControllerGroup(L1motor, L2motor);
-  //    RightControllerGroup = new MotorControllerGroup(R1motor, R2motor);
+    LeftControllerGroup = new MotorControllerGroup(L1motor, L2motor);
+    RightControllerGroup = new MotorControllerGroup(R1motor, R2motor);
 
     // Differential drivetrain object (aka West Coast/Tank drive)
     // only used for drive pid
-    // DifferentialDriveTrain = new DifferentialDrive(LeftControllerGroup, RightControllerGroup);
+    DifferentialDriveTrain = new DifferentialDrive(LeftControllerGroup, RightControllerGroup);
     
     // reset encoders to start at 0
     L1encoder.setPosition(0);
