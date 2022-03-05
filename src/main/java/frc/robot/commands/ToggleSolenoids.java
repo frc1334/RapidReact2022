@@ -18,12 +18,14 @@ public class ToggleSolenoids extends CommandBase {
 
   // Called when the command is initially scheduled.
   @Override
-  public void initialize() {}
+  public void initialize() { 
+    Robot.IntakeSubsystem.solStartSet();
+   }
 
   // Called every time the scheduler runs while the command is scheduled.
   @Override
   public void execute() {
-    Robot.PneumaticsSubsystem.toggleSolenoid();
+    Robot.IntakeSubsystem.toggleSolenoid();
   }
 
   // Called once the command ends or is interrupted.

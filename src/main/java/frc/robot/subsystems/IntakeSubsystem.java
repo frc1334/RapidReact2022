@@ -18,6 +18,7 @@ import com.revrobotics.ColorMatchResult;
 import com.revrobotics.ColorMatch;
 
 import edu.wpi.first.wpilibj.PneumaticsModuleType;
+import edu.wpi.first.wpilibj.DoubleSolenoid.Value;
 import edu.wpi.first.wpilibj.DoubleSolenoid;
 
 public class IntakeSubsystem extends SubsystemBase {
@@ -44,7 +45,7 @@ public class IntakeSubsystem extends SubsystemBase {
         tryColor = colorMatch();
         intakeMotor = new VictorSPX(RobotMap.intakeMotor);
         intakeMotor.setInverted(true);
-        IntakeSol = new DoubleSolenoid(PneumaticsModuleType.CTREPCM, 1, 2);
+        IntakeSol = new DoubleSolenoid(PneumaticsModuleType.CTREPCM, 2, 3);
     }
 
     // This method makes the motor spin based on a percentage based voltage input
@@ -112,20 +113,36 @@ public class IntakeSubsystem extends SubsystemBase {
     // This is a void method for deploying the Intake via actuating the pistons. The parameter deploy indicates whether to deploy or retract the intake
     public void deployIntake (boolean deploy) {
         // Check for the deployment states: deploy and retract (true or false on the deploy argument)
-        if (deploy) {
+        if (deploy == true) {
         // Deploy, set solenoid to forwards
         IntakeSol.set(DoubleSolenoid.Value.kForward);
-        } else if (!deploy) {
+        } else if (deploy == false) {
         // Retract, set solenoid to reverse
         IntakeSol.set(DoubleSolenoid.Value.kReverse);
         }
     }
-
+    
     // This void method toggles the intake deployment
     public void toggleSolenoid () {
+        IntakeSol.toggle();
+        /*
+        System.out.println(toggle);
+        boolean toggleInside = toggle;
         // Deploy the current state of the intake
-        deployIntake(toggle);
+        deployIntake(toggleInside);
         // Toggle the toggle boolean
         toggle = !toggle;
+        */
+    }
+    public void closeSol(){
+        IntakeSol.set(Value.kReverse);
+    }
+
+    public void openSol(){
+        IntakeSol.set(Value.kForward);
+    }
+
+    public void solStartSet() {
+        IntakeSol.set(Value.kReverse);
     }
 }

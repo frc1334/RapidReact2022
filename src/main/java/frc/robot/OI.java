@@ -26,9 +26,11 @@ import edu.wpi.first.wpilibj.GenericHID;
 import edu.wpi.first.wpilibj2.command.button.JoystickButton;
 
 import frc.robot.commands.ToggleSolenoids;
+import frc.robot.commands.CloseSolenods;
 import frc.robot.commands.DriveCommand;
 
 import frc.robot.commands.IntakeCommand;
+import frc.robot.commands.OpenSolenoids;
 import frc.robot.commands.ToggleSolenoids;
 import frc.robot.commands.launcher_commands.LauncherCommandGroup;
 import frc.robot.commands.launcher_commands.TalonFXCommands;
@@ -64,20 +66,21 @@ public class OI {
 
     // Maps an initializes controls to the correct ports on the Xbox controller.
     public OI() {
-        Driver = new XboxController(1);
+        Driver = new XboxController(0);
 
         DriverLeftTrigger = new JoystickButton(Driver, 5);
      //  DriverRightTrigger = new JoystickButton(Driver, 6);
 
         DriverAButton = new JoystickButton(Driver, 1);
-        DriverAButton.whenPressed(new ToggleSolenoids());
+        DriverAButton.whenPressed(new CloseSolenods());
         
         DriverBButton = new JoystickButton(Driver, 2);
+        DriverBButton.whenPressed(new OpenSolenoids());
 
         DriverXButton = new JoystickButton(Driver, 3);
-        DriverXButton.whenPressed(new IndexerCommand());        
+        DriverXButton.whileHeld(new IndexerCommand());        
 
-        Operator = new XboxController(2);
+        Operator = new XboxController(1);
 
         // Inititalize the Operator Controls
         OperatorAButton = new JoystickButton(Operator, 1);
