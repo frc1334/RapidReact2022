@@ -78,7 +78,7 @@ public class OI {
         DriverBButton.whenPressed(new OpenSolenoids());
 
         DriverXButton = new JoystickButton(Driver, 3);
-        DriverXButton.whileHeld(new IndexerCommand());        
+        //DriverXButton.whileHeld(new IndexerCommand());        
 
         Operator = new XboxController(1);
 
@@ -90,7 +90,7 @@ public class OI {
         OperatorBButton.whileHeld(new IntakeCommand());
 
         OperatorXButton = new JoystickButton(Operator, 3);
-        OperatorXButton.whileHeld(new LauncherCommandGroup());
+        OperatorXButton.whileHeld(new IndexerCommand());
 
         OperatorYButton = new JoystickButton(Operator, 4);
         OperatorYButton.whileHeld(new TalonSRXPercentCommand());

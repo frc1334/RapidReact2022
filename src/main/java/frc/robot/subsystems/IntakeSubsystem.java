@@ -57,7 +57,7 @@ public class IntakeSubsystem extends SubsystemBase {
     public void colorIntake() {    
         String colorString = colorMatch();
         if (colorString == RobotMap.color) {
-        setPercentOutput(0.25);
+        setPercentOutput(0.5);
         } else {
         setPercentOutput(0.0);
         // 0 or negative? Do we need to take the ball in before sensing the color?
