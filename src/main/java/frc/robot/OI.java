@@ -5,6 +5,7 @@
 /*-------------------------------------------------------------------------
 Author: Clarrie Wang                                     Date: Jan 22 2022
 OI: operator interface - maps commands to controls on Xbox Controller.
+CURRENTCODEONBOT
 ---------------------------------------------------------------------------*/
 
 package frc.robot;
@@ -104,7 +105,7 @@ public class OI {
     public double getDriverSpeed () {
 
         if (Math.abs(Driver.getRightTriggerAxis() - Driver.getLeftTriggerAxis()) > 0.15) {
-            return Driver.getRightTriggerAxis() - Driver.getLeftTriggerAxis();
+            return Driver.getRightTriggerAxis() - Driver.getLeftTriggerAxis();//maybe-0.5hereONLYiftested
         }
 
         return 0.0;

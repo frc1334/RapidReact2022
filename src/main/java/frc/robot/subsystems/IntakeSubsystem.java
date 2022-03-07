@@ -101,12 +101,13 @@ public class IntakeSubsystem extends SubsystemBase {
     }
 
     // For driver to manually control the bot to take in or push out a ball
-    public void driverIntake(double axis) {
-        if (axis > 0) {
-            setPercentOutput(0.25);
-        } else if (axis < 0) {
-            setPercentOutput(-0.25);
-        }         
+    public void driverIntake() {
+        // if (axis > 0) {
+        //     setPercentOutput(0.25);
+        // } else if (axis < 0) {
+        //     setPercentOutput(-0.25);
+        // }
+        setPercentOutput(0.5);
            
     }
 

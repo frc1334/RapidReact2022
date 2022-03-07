@@ -35,13 +35,13 @@ public class IndexerSubsystem extends SubsystemBase {
 
   //replace TalonFX with whatever motor controller we're using
 
-  TalonSRX IndexerMotor1;
+  TalonFX IndexerMotor1;
   TalonFX IndexerMotor2;
 
   public IndexerSubsystem() {
     //IndexerMotor1 is set to channel ID 1 in RobotMap.java
     //IndexerMotor2 is set to channel ID 9 in RobotMap.java
-    IndexerMotor1 = new TalonSRX(RobotMap.IndexerMotor1);
+    IndexerMotor1 = new TalonFX(RobotMap.IndexerMotor1);
     IndexerMotor2 = new TalonFX(RobotMap.IndexerMotor2);
   
     IndexerMotor1.configSelectedFeedbackSensor(FeedbackDevice.IntegratedSensor, 0, 0);
@@ -49,13 +49,16 @@ public class IndexerSubsystem extends SubsystemBase {
 
     IndexerMotor1.configPeakOutputForward(0.1);
     IndexerMotor1.configPeakOutputReverse(-0.1);
-    IndexerMotor2.configPeakOutputForward(0.1);
-    IndexerMotor2.configPeakOutputReverse(-0.1);
+    IndexerMotor2.configPeakOutputForward(0.5);
+    IndexerMotor2.configPeakOutputReverse(-0.5);
   }
 
-  public void setIndexerVoltage (double percent) {
+  public void setIndexer1Voltage (double percent) {
     //varible ControlMode is pulled from the "com.ctre.phoenix.motorcontrol.ControlMode" import
     IndexerMotor1.set(ControlMode.PercentOutput, percent);
+  }
+  
+  public void setIndexer2Voltage (double percent) {
     IndexerMotor2.set(ControlMode.PercentOutput, percent);
   }
 

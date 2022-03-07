@@ -9,10 +9,10 @@ import frc.robot.Robot;
 
 public class AutoDriveCommand extends CommandBase {
   /** Creates a new AutoDriveCommand. */
-  double endTime;
-  double startTime;
+  long endTime;
+  long startTime;
 
-  public AutoDriveCommand(double time) { // how long to drive for
+  public AutoDriveCommand(long time) { // how long to drive for
     // Use addRequirements() here to declare subsystem dependencies.
     addRequirements(Robot.DriveSubsystem);
     endTime = time;
@@ -22,7 +22,6 @@ public class AutoDriveCommand extends CommandBase {
   @Override
   public void initialize() {
     startTime = System.currentTimeMillis();
-    endTime = endTime + startTime;
   }
 
   // Called every time the scheduler runs while the command is scheduled.
@@ -33,12 +32,14 @@ public class AutoDriveCommand extends CommandBase {
 
   // Called once the command ends or is interrupted.
   @Override
-  public void end(boolean interrupted) {}
+  public void end(boolean interrupted) {
+    Robot.DriveSubsystem.ArcadeDrive(0.0, 0.0);
+  }
 
   // Returns true when the command should end.
   @Override
   public boolean isFinished() {
-    if (endTime >= System.currentTimeMillis()) {
+    if (System.currentTimeMillis() >= (startTime + endTime)) {
       return true;
     }
       return false;

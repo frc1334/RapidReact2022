@@ -36,13 +36,15 @@ public class IndexerCommand extends CommandBase {
   // Called every time the scheduler runs while the command is scheduled.
   @Override
   public void execute() {
-    Robot.IndexerSubsystem.setIndexerVoltage(0.1);
+    Robot.IndexerSubsystem.setIndexer1Voltage(0.1);
+    Robot.IndexerSubsystem.setIndexer2Voltage(0.25);
   }
 
   // Called once the command ends or is interrupted.
   @Override
   public void end(boolean interrupted) {
-    Robot.IndexerSubsystem.setIndexerVoltage(0.0);
+    Robot.IndexerSubsystem.setIndexer1Voltage(0.0);
+    Robot.IndexerSubsystem.setIndexer2Voltage(0.0);
   }
 
   // Returns true when the command should end.

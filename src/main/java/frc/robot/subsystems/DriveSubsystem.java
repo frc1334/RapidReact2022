@@ -88,7 +88,7 @@ public class DriveSubsystem extends SubsystemBase {
   // feed percent voltage power into both sides of drive train
   // mapping individual motors to voltage 
   public void TankDrive(double Left, double Right) {
-    L1motor.set(-Left);
+    L1motor.set(-Left);//don'tadd0.5
     L2motor.set(-Left);
     R1motor.set(Right);
     R2motor.set(Right);

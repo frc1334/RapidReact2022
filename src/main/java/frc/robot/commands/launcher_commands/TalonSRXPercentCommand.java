@@ -21,7 +21,7 @@ public class TalonSRXPercentCommand extends CommandBase {
   // Called every time the scheduler runs while the command is scheduled.
   @Override
   public void execute() {
-    Robot.LauncherSRXSubsystem.setLauncherPercent(1.0);
+    Robot.LauncherSRXSubsystem.setLauncherPercent(0.7);
   }
 
   // Called once the command ends or is interrupted.

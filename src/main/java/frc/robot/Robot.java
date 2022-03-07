@@ -43,9 +43,9 @@ public class Robot extends TimedRobot {
   public static IndexerSubsystem IndexerSubsystem = new IndexerSubsystem(); //added by will
   public static IntakeSubsystem IntakeSubsystem = new IntakeSubsystem();
   //public static ColorSensor ColorSensor = null;
-  public static LauncherFXSubsystem LauncherFXSubsystem = new LauncherFXSubsystem(); // Needs parameter values
-  public static LauncherSRXSubsystem LauncherSRXSubsystem = new LauncherSRXSubsystem(); // Needs parameter values
-  public static PneumaticsSubsystem PneumaticsSubsystem = null;
+  public static LauncherFXSubsystem LauncherFXSubsystem = new LauncherFXSubsystem();
+  public static LauncherSRXSubsystem LauncherSRXSubsystem = new LauncherSRXSubsystem();
+  public static PneumaticsSubsystem PneumaticsSubsystem = null; // pneumatics is implemented in intake
 
   // Initializing OI object
   public static OI OI = new OI();
@@ -91,20 +91,21 @@ public class Robot extends TimedRobot {
     m_autoSelected = m_chooser.getSelected();
     // m_autoSelected = SmartDashboard.getString("Auto Selector", kDefaultAuto);
     System.out.println("Auto selected: " + m_autoSelected);
+    switch (m_autoSelected) {
+      case kCustomAuto:
+        commandScheduler.schedule(new AutoDriveCommand(3000));
+        break;
+      case kDefaultAuto:
+      default:
+        commandScheduler.schedule(new AutoDriveCommand(3000));
+        break;
+    }
   }
 
   /** This function is called periodically during autonomous. */
   @Override
   public void autonomousPeriodic() {
-    switch (m_autoSelected) {
-      case kCustomAuto:
-        commandScheduler.schedule(new AutoDriveCommand(15000));
-        break;
-      case kDefaultAuto:
-      default:
-        // Put default auto code here
-        break;
-    }
+    commandScheduler.run();//keepsrunning
   }
 
   /** This function is called once when teleop is enabled. */
