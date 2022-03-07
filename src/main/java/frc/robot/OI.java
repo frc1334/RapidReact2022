@@ -73,10 +73,10 @@ public class OI {
      //  DriverRightTrigger = new JoystickButton(Driver, 6);
 
         DriverAButton = new JoystickButton(Driver, 1);
-        DriverAButton.whenPressed(new CloseSolenods());
+        DriverAButton.whenPressed(new ToggleSolenoids());
         
         DriverBButton = new JoystickButton(Driver, 2);
-        DriverBButton.whenPressed(new OpenSolenoids());
+        
 
         DriverXButton = new JoystickButton(Driver, 3);
         //DriverXButton.whileHeld(new IndexerCommand());        
