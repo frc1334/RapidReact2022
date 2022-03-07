@@ -15,6 +15,8 @@ public class AutoDriveCommand extends CommandBase {
   public AutoDriveCommand(long time) { // how long to drive for
     // Use addRequirements() here to declare subsystem dependencies.
     addRequirements(Robot.DriveSubsystem);
+    addRequirements(Robot.LauncherFXSubsystem);
+    addRequirements(Robot.LauncherSRXSubsystem);
     endTime = time;
   }
 
