@@ -85,16 +85,16 @@ public class OI {
 
         // Inititalize the Operator Controls
         OperatorAButton = new JoystickButton(Operator, 1);
-        OperatorAButton.whileHeld(new TalonFXPercentCommand());
+        OperatorAButton.whileHeld(new TalonSRXPercentCommand());
         
         OperatorBButton = new JoystickButton(Operator, 2);
         OperatorBButton.whileHeld(new IntakeCommand());
 
         OperatorXButton = new JoystickButton(Operator, 3);
-        OperatorXButton.whileHeld(new IndexerCommand());
+        OperatorXButton.whileHeld(new TalonFXPercentCommand());
 
         OperatorYButton = new JoystickButton(Operator, 4);
-        OperatorYButton.whileHeld(new TalonSRXPercentCommand());
+        OperatorYButton.whileHeld(new IndexerCommand());
         
         OperatorLeftTrigger = new JoystickButton(Operator, 5);
         OperatorRightTrigger = new JoystickButton(Operator, 6);
