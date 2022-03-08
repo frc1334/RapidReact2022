@@ -75,7 +75,6 @@ public class OI {
         
 
         DriverXButton = new JoystickButton(Driver, 3);
-        //DriverXButton.whileHeld(new IndexerCommand());        
 
         Operator = new XboxController(1);
 
@@ -88,7 +87,7 @@ public class OI {
 
         OperatorXButton = new JoystickButton(Operator, 3);
         OperatorXButton.whileHeld(new TalonFXPercentCommand());
-
+        // we need to document our code better
         OperatorYButton = new JoystickButton(Operator, 4);
         OperatorYButton.whileHeld(new IndexerCommand());
         
