@@ -17,7 +17,6 @@ import edu.wpi.first.wpilibj.XboxController;
 // import edu.wpi.first.wpilibj.GenericHID.Hand;
 
 import edu.wpi.first.wpilibj2.command.button.JoystickButton;
-import frc.robot.commands.DriverIntakeCommand;
 import frc.robot.commands.IndexerCommand;
 
 import com.ctre.phoenix.motorcontrol.can.VictorSPX;
@@ -27,14 +26,11 @@ import edu.wpi.first.wpilibj.GenericHID;
 import edu.wpi.first.wpilibj2.command.button.JoystickButton;
 
 import frc.robot.commands.ToggleSolenoids;
-import frc.robot.commands.CloseSolenods;
 import frc.robot.commands.DriveCommand;
 
 import frc.robot.commands.IntakeCommand;
-import frc.robot.commands.OpenSolenoids;
 import frc.robot.commands.ToggleSolenoids;
 import frc.robot.commands.launcher_commands.LauncherCommandGroup;
-import frc.robot.commands.launcher_commands.TalonFXCommands;
 import frc.robot.commands.launcher_commands.TalonFXPercentCommand;
 import frc.robot.commands.launcher_commands.TalonSRXPercentCommand;
 import frc.robot.subsystems.IntakeSubsystem;
@@ -73,13 +69,12 @@ public class OI {
      //  DriverRightTrigger = new JoystickButton(Driver, 6);
 
         DriverAButton = new JoystickButton(Driver, 1);
-        DriverAButton.whenPressed(new CloseSolenods());
+        DriverAButton.whenPressed(new ToggleSolenoids());
         
         DriverBButton = new JoystickButton(Driver, 2);
-        DriverBButton.whenPressed(new OpenSolenoids());
+        
 
         DriverXButton = new JoystickButton(Driver, 3);
-        //DriverXButton.whileHeld(new IndexerCommand());        
 
         Operator = new XboxController(1);
 
@@ -92,7 +87,7 @@ public class OI {
 
         OperatorXButton = new JoystickButton(Operator, 3);
         OperatorXButton.whileHeld(new TalonFXPercentCommand());
-
+        // we need to document our code better
         OperatorYButton = new JoystickButton(Operator, 4);
         OperatorYButton.whileHeld(new IndexerCommand());
         

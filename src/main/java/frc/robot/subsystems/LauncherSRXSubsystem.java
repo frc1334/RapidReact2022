@@ -21,32 +21,32 @@ import edu.wpi.first.wpilibj2.command.SubsystemBase;
 
 // Talon SRX is the big guy
 public class LauncherSRXSubsystem extends SubsystemBase{
-    TalonSRX Launcher3;
+    TalonSRX LauncherSmallWheel;
 
     public LauncherSRXSubsystem() {
-        Launcher3 = new TalonSRX(RobotMap.Launcher3);
+        LauncherSmallWheel = new TalonSRX(RobotMap.LauncherSmallWheel);
 
-        Launcher3.configSelectedFeedbackSensor(FeedbackDevice.IntegratedSensor, 0, 0);
+        LauncherSmallWheel.configSelectedFeedbackSensor(FeedbackDevice.IntegratedSensor, 0, 0);
         // Config PID 
         //Launcher3.config_kP(0, P);
         //Launcher3.config_kI(0, I);
         //Launcher3.config_kD(0, D);
         //Launcher3.config_kF(0, FF); 
 
-        Launcher3.configPeakOutputForward(1);
-        Launcher3.configPeakOutputReverse(-1);
+        LauncherSmallWheel.configPeakOutputForward(1);
+        LauncherSmallWheel.configPeakOutputReverse(-1);
 
     } 
  
     public void setLauncherVelocity (double setpoint) {
         // Set the first Talon's PID target to the setpoing (second Talon will follow)
-        Launcher3.set(ControlMode.Velocity, setpoint);
-        System.out.println("LAUNCHER: " + Launcher3.getSelectedSensorVelocity());
+        LauncherSmallWheel.set(ControlMode.Velocity, setpoint);
+        System.out.println("LAUNCHER: " + LauncherSmallWheel.getSelectedSensorVelocity());
     }
 
     public void setLauncherPercent (double percent) {
-        Launcher3.set(ControlMode.PercentOutput, percent);
-        System.out.println("LAUNCHER: " + Launcher3.getSelectedSensorVelocity());
+        LauncherSmallWheel.set(ControlMode.PercentOutput, percent);
+        System.out.println("LAUNCHER: " + LauncherSmallWheel.getSelectedSensorVelocity());
     }
            
 }

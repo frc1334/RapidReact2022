@@ -35,31 +35,31 @@ public class IndexerSubsystem extends SubsystemBase {
   //replace TalonFX with whatever motor controller we're using
   //we're using FX for now
 
-  TalonFX IndexerMotor1;
-  TalonFX IndexerMotor2;
+  TalonFX HigherIndexer;
+  TalonFX LowerIndexer;
 
   public IndexerSubsystem() {
     //IndexerMotor1 is set to channel ID 9 in RobotMap.java
     //IndexerMotor2 is set to channel ID 6 in RobotMap.java
-    IndexerMotor1 = new TalonFX(RobotMap.IndexerMotor1);
-    IndexerMotor2 = new TalonFX(RobotMap.IndexerMotor2);
+    HigherIndexer = new TalonFX(RobotMap.HigherIndexer);
+    LowerIndexer = new TalonFX(RobotMap.LowerIndexer);
   
-    IndexerMotor1.configSelectedFeedbackSensor(FeedbackDevice.IntegratedSensor, 0, 0);
-    IndexerMotor2.configSelectedFeedbackSensor(FeedbackDevice.IntegratedSensor, 0, 0);
+    HigherIndexer.configSelectedFeedbackSensor(FeedbackDevice.IntegratedSensor, 0, 0);
+    LowerIndexer.configSelectedFeedbackSensor(FeedbackDevice.IntegratedSensor, 0, 0);
 
-    IndexerMotor1.configPeakOutputForward(0.1);
-    IndexerMotor1.configPeakOutputReverse(-0.1);
-    IndexerMotor2.configPeakOutputForward(0.1);//changed speed to match IndexerMotor1
-    IndexerMotor2.configPeakOutputReverse(-0.1);//changed speed to match IndexerMotor1
+    HigherIndexer.configPeakOutputForward(0.1);
+    HigherIndexer.configPeakOutputReverse(-0.1);
+    LowerIndexer.configPeakOutputForward(0.5);
+    LowerIndexer.configPeakOutputReverse(-0.5);
   }
 
   public void setIndexer1Voltage (double percent) {
     //varible ControlMode is pulled from the "com.ctre.phoenix.motorcontrol.ControlMode" import
-    IndexerMotor1.set(ControlMode.PercentOutput, percent);
+    HigherIndexer.set(ControlMode.PercentOutput, percent);
   }
   
   public void setIndexer2Voltage (double percent) {
-    IndexerMotor2.set(ControlMode.PercentOutput, percent);
+    LowerIndexer.set(ControlMode.PercentOutput, percent);
   }
 
   //@Override

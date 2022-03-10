@@ -23,22 +23,24 @@ public class RobotMap {
   // IntakeSubsystem: 1 TalonFRX Motor Controller
   public static final int intakeMotor = 10;
 
-  // IntakeSubsystem: cargo color (may be changed depending on the real situation)
-  public static final String color = "Red";
+  // // IntakeSubsystem: cargo color (may be changed depending on the real situation)
+  // public static final String color = "Red";
 
-  //ColorSensor: 1 Color Sensor V3
-  public static final int ColorSensor = 9;
+  // //ColorSensor: 1 Color Sensor V3
+  // public static final int ColorSensor = 9;
 
 
   // Launcher: 2 Falcons
-  public static final int Launcher1 = 7;
-  public static final int Launcher2 = 8;
-  public static final int Launcher3 = 5;
+  // Launcher1: left; Launcher2: right; Launcher3: feeder wheel 
+  public static final int LauncherLeft = 7;
+  public static final int LauncherRight = 8;
+  public static final int LauncherSmallWheel = 5;
 
   //added by William Kozlowski for the IndexerSubsystem.java
-
-  public static final int IndexerMotor1 = 9; //upper
-  public static final int IndexerMotor2 = 6; //lower
+  // Indexer1: higher indexer
+  // Indexer2: lower indexer
+  public static final int HigherIndexer = 9;
+  public static final int LowerIndexer = 6;
 
 }
 
