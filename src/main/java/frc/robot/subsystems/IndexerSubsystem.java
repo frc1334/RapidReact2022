@@ -39,7 +39,7 @@ public class IndexerSubsystem extends SubsystemBase {
   TalonFX IndexerMotor2;
 
   public IndexerSubsystem() {
-    //IndexerMotor1 is set to channel ID 5 in RobotMap.java
+    //IndexerMotor1 is set to channel ID 9 in RobotMap.java
     //IndexerMotor2 is set to channel ID 6 in RobotMap.java
     IndexerMotor1 = new TalonFX(RobotMap.IndexerMotor1);
     IndexerMotor2 = new TalonFX(RobotMap.IndexerMotor2);
@@ -49,8 +49,8 @@ public class IndexerSubsystem extends SubsystemBase {
 
     IndexerMotor1.configPeakOutputForward(0.1);
     IndexerMotor1.configPeakOutputReverse(-0.1);
-    IndexerMotor2.configPeakOutputForward(0.5);
-    IndexerMotor2.configPeakOutputReverse(-0.5);
+    IndexerMotor2.configPeakOutputForward(0.1);//changed speed to match IndexerMotor1
+    IndexerMotor2.configPeakOutputReverse(-0.1);//changed speed to match IndexerMotor1
   }
 
   public void setIndexer1Voltage (double percent) {
