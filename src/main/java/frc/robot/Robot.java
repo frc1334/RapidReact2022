@@ -12,6 +12,8 @@ import frc.robot.subsystems.PneumaticsSubsystem;
 import frc.robot.subsystems.LauncherFXSubsystem;
 import frc.robot.subsystems.LauncherSRXSubsystem;
 import frc.robot.commands.AutoDriveCommand;
+import frc.robot.commands.AutoLaunchCommand;
+import frc.robot.commands.AutoLaunchCommand;
 //import frc.robot.commands.AutoDriveCommand;
 import frc.robot.commands.DriveCommand;
 import frc.robot.subsystems.IndexerSubsystem;
@@ -94,10 +96,13 @@ public class Robot extends TimedRobot {
     switch (m_autoSelected) {
       case kCustomAuto:
         commandScheduler.schedule(new AutoDriveCommand(3000));
+        commandScheduler.schedule(new AutoLaunchCommand(3000));
+
         break;
       case kDefaultAuto:
       default:
         commandScheduler.schedule(new AutoDriveCommand(3000));
+        commandScheduler.schedule(new AutoLaunchCommand(3000));
         break;
     }
   }

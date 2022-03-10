@@ -10,12 +10,12 @@ import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import com.ctre.phoenix.motorcontrol.ControlMode;
 import com.ctre.phoenix.motorcontrol.can.VictorSPX;
 
-import edu.wpi.first.wpilibj.I2C;
-import edu.wpi.first.wpilibj.util.Color;
+// import edu.wpi.first.wpilibj.I2C;
+// import edu.wpi.first.wpilibj.util.Color;
 
-import com.revrobotics.ColorSensorV3;
-import com.revrobotics.ColorMatchResult;
-import com.revrobotics.ColorMatch;
+// import com.revrobotics.ColorSensorV3;
+// import com.revrobotics.ColorMatchResult;
+// import com.revrobotics.ColorMatch;
 
 import edu.wpi.first.wpilibj.PneumaticsModuleType;
 import edu.wpi.first.wpilibj.DoubleSolenoid.Value;
@@ -32,7 +32,7 @@ public class IntakeSubsystem extends SubsystemBase {
 
     public IntakeSubsystem() {
         // Initialize the solenoid to start on reverse
-        IntakeSol.set(Value.kReverse);
+        //IntakeSol.set(Value.kReverse);
     }
 
     // This method makes the motor spin based on a percentage based voltage input
