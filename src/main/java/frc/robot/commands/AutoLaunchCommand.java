@@ -17,6 +17,7 @@ public class AutoLaunchCommand extends CommandBase {
     // Use addRequirements() here to declare subsystem dependencies.
     addRequirements(Robot.LauncherFXSubsystem);
     addRequirements(Robot.LauncherSRXSubsystem);
+    endTime = time;
   }
 
   // Called when the command is initially scheduled.
