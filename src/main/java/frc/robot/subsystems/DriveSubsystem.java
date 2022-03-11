@@ -70,8 +70,8 @@ public class DriveSubsystem extends SubsystemBase {
     R2encoder = R2motor.getEncoder();
     R2controller = R2motor.getPIDController();
 
-    L1motor.setInverted(true);
-    R1motor.setInverted(true);
+    // L1motor.setInverted(true);
+    // R1motor.setInverted(true);
     
     // Grouping together the motor controllers on the left side
     LeftControllerGroup = new MotorControllerGroup(L1motor, L2motor);

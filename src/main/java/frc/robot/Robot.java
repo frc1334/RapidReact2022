@@ -77,7 +77,6 @@ public class Robot extends TimedRobot {
     camera2 = CameraServer.startAutomaticCapture(1);
     
     cameraSelection = NetworkTableInstance.getDefault().getTable("").getEntry("CameraSelection");
-
   }
 
   /**
