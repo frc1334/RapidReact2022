@@ -22,6 +22,9 @@ import frc.robot.commands.IntakeCommand;
 import com.revrobotics.ColorSensorV3;
 
 import edu.wpi.first.cameraserver.CameraServer;
+import edu.wpi.first.cscore.UsbCamera;
+import edu.wpi.first.networktables.NetworkTableEntry;
+import edu.wpi.first.networktables.NetworkTableInstance;
 import edu.wpi.first.wpilibj.TimedRobot;
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
@@ -55,6 +58,10 @@ public class Robot extends TimedRobot {
   // Initializing commands
   DriveCommand DriveCommand = new DriveCommand();
   CommandScheduler commandScheduler = CommandScheduler.getInstance();
+  UsbCamera camera1;
+  UsbCamera camera2;
+  NetworkTableEntry cameraSelection;
+
   //IntakeCommand IntakeCommand = new IntakeCommand();
 
   /**
@@ -66,6 +73,11 @@ public class Robot extends TimedRobot {
     m_chooser.setDefaultOption("Default Auto", kDefaultAuto);
     m_chooser.addOption("My Auto", kCustomAuto);
     SmartDashboard.putData("Auto choices", m_chooser);
+    camera1 = CameraServer.startAutomaticCapture(0);
+    camera2 = CameraServer.startAutomaticCapture(1);
+    
+    cameraSelection = NetworkTableInstance.getDefault().getTable("").getEntry("CameraSelection");
+
   }
 
   /**
@@ -123,6 +135,13 @@ public class Robot extends TimedRobot {
     // Start the CommandScheduler to schedule commands for each cycle
     commandScheduler.run();
     DriveCommand.schedule();
+    if (joy1.getTriggerPressed()) {
+      System.out.println("Setting camera 2");
+      cameraSelection.setString(camera2.getName());
+  } else if (joy1.getTriggerReleased()) {
+      System.out.println("Setting camera 1");
+      cameraSelection.setString(camera1.getName());
+  }
   }
 
   /** This function is called once when the robot is disabled. */
