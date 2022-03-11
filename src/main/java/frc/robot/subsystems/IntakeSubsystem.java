@@ -8,7 +8,8 @@ import frc.robot.OI;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 
 import com.ctre.phoenix.motorcontrol.ControlMode;
-import com.ctre.phoenix.motorcontrol.can.VictorSPX;
+import com.ctre.phoenix.motorcontrol.can.TalonSRX;
+import edu.wpi.first.wpilibj.motorcontrol.Talon;
 
 // import edu.wpi.first.wpilibj.I2C;
 // import edu.wpi.first.wpilibj.util.Color;
@@ -25,7 +26,7 @@ import edu.wpi.first.wpilibj.DoubleSolenoid;
 public class IntakeSubsystem extends SubsystemBase {
 
     // A new motor controller object to control the 775 motor
-    VictorSPX intakeMotor;
+    TalonSRX intakeMotor;
 
     // boolean toggle = false;
     DoubleSolenoid IntakeSol;
@@ -33,6 +34,7 @@ public class IntakeSubsystem extends SubsystemBase {
     public IntakeSubsystem() {
         // Initialize the solenoid to start on reverse
         //IntakeSol.set(Value.kReverse);
+        intakeMotor = new TalonSRX(RobotMap.intakeMotor);
     }
 
     // This method makes the motor spin based on a percentage based voltage input
