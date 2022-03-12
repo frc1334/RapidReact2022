@@ -7,6 +7,7 @@ package frc.robot;
 import frc.robot.subsystems.DriveSubsystem;
 import frc.robot.subsystems.IntakeSubsystem;
 import frc.robot.subsystems.PneumaticsSubsystem;
+import frc.robot.subsystems.VisionSubsystem;
 //import frc.robot.subsystems.ColorSensor;
 import frc.robot.subsystems.PneumaticsSubsystem;
 import frc.robot.subsystems.LauncherFXSubsystem;
@@ -31,6 +32,8 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.CommandScheduler;
 
+import frc.robot.OI;
+import edu.wpi.first.wpilibj2.command.button.JoystickButton;
 /**
  * The VM is configured to automatically run this class, and to call the functions corresponding to
  * each mode, as described in the TimedRobot documentation. If you change the name of this class or
@@ -51,7 +54,8 @@ public class Robot extends TimedRobot {
   public static LauncherFXSubsystem LauncherFXSubsystem = new LauncherFXSubsystem();
   public static LauncherSRXSubsystem LauncherSRXSubsystem = new LauncherSRXSubsystem();
   public static PneumaticsSubsystem PneumaticsSubsystem = null; // pneumatics is implemented in intake
-
+  public static VisionSubsystem VisionSubsystem = new VisionSubsystem();
+  
   // Initializing OI object
   public static OI OI = new OI();
 
@@ -73,10 +77,11 @@ public class Robot extends TimedRobot {
     m_chooser.setDefaultOption("Default Auto", kDefaultAuto);
     m_chooser.addOption("My Auto", kCustomAuto);
     SmartDashboard.putData("Auto choices", m_chooser);
-    //camera1 = CameraServer.startAutomaticCapture(0);
-    //camera2 = CameraServer.startAutomaticCapture(1);
-    CameraServer.startAutomaticCapture();
-    //cameraSelection = NetworkTableInstance.getDefault().getTable("").getEntry("CameraSelection");
+    camera1 = CameraServer.startAutomaticCapture(0);
+    camera2 = CameraServer.startAutomaticCapture(1);
+    
+    cameraSelection = NetworkTableInstance.getDefault().getTable("").getEntry("CameraSelection");
+
   }
 
   /**
@@ -134,13 +139,13 @@ public class Robot extends TimedRobot {
     // Start the CommandScheduler to schedule commands for each cycle
     commandScheduler.run();
     DriveCommand.schedule();
-  //   if (joy1.getTriggerPressed()) {
-  //     System.out.println("Setting camera 2");
-  //     cameraSelection.setString(camera2.getName());
-  // } else if (joy1.getTriggerReleased()) {
-  //     System.out.println("Setting camera 1");
-  //     cameraSelection.setString(camera1.getName());
-  // }
+    if (DriverXButton.whenPressed()) {
+      System.out.println("Setting camera 2");
+      cameraSelection.setString(camera2.getName());
+  } else if (DriverBButton.whenPressed()) {
+      System.out.println("Setting camera 1");
+      cameraSelection.setString(camera1.getName());
+  }
   }
 
   /** This function is called once when the robot is disabled. */
