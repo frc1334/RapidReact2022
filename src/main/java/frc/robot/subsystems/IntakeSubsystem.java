@@ -8,6 +8,7 @@ import frc.robot.OI;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 
 import com.ctre.phoenix.motorcontrol.ControlMode;
+import com.ctre.phoenix.motorcontrol.FeedbackDevice;
 import com.ctre.phoenix.motorcontrol.can.TalonSRX;
 import edu.wpi.first.wpilibj.motorcontrol.Talon;
 
@@ -21,6 +22,7 @@ import edu.wpi.first.wpilibj.motorcontrol.Talon;
 import edu.wpi.first.wpilibj.PneumaticsModuleType;
 import edu.wpi.first.wpilibj.DoubleSolenoid.Value;
 import edu.wpi.first.wpilibj.DoubleSolenoid;
+import com.ctre.phoenix.motorcontrol.FeedbackDevice;
 
 
 public class IntakeSubsystem extends SubsystemBase {
@@ -35,6 +37,11 @@ public class IntakeSubsystem extends SubsystemBase {
         // Initialize the solenoid to start on reverse
         //IntakeSol.set(Value.kReverse);
         intakeMotor = new TalonSRX(RobotMap.intakeMotor);
+
+        // intakeMotor.configSelectedFeedbackSensor(FeedbackDevice.IntegratedSensor, 0, 0);
+
+        intakeMotor.configPeakOutputForward(1.0);
+        intakeMotor.configPeakOutputReverse(-1.0);
     }
 
     // This method makes the motor spin based on a percentage based voltage input
