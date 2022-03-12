@@ -43,6 +43,5 @@ public class RobotMap {
   public static final int LowerIndexer = 6;
 
   //Climber: 2 Falcons
-  public static final int LeftClimbMotor = 11;
-  public static final int RightClimbMotor = 12;
+  public static final int climbMotor = 11;
 }  
