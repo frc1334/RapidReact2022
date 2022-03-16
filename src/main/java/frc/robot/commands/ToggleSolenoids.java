@@ -9,6 +9,7 @@ import frc.robot.Robot;
 import frc.robot.subsystems.PneumaticsSubsystem;
 import frc.robot.subsystems.IntakeSubsystem;
 
+
 public class ToggleSolenoids extends CommandBase {
   /** Creates a new ToggleSolenoids. */
   public ToggleSolenoids() {
@@ -19,17 +20,21 @@ public class ToggleSolenoids extends CommandBase {
   // Called when the command is initially scheduled.
   @Override
   public void initialize() { 
+
    }
 
   // Called every time the scheduler runs while the command is scheduled.
   @Override
   public void execute() {
     Robot.IntakeSubsystem.toggleSolenoid();
+
   }
 
   // Called once the command ends or is interrupted.
   @Override
-  public void end(boolean interrupted) {}
+  public void end(boolean interrupted) {
+    Robot.IntakeSubsystem.closeSolenoid();
+  }
 
   // Returns true when the command should end.
   @Override

@@ -34,8 +34,9 @@ public class IntakeSubsystem extends SubsystemBase {
     DoubleSolenoid IntakeSol;
 
     public IntakeSubsystem() {
+        IntakeSol = new DoubleSolenoid(PneumaticsModuleType.CTREPCM, 2, 3);
         // Initialize the solenoid to start on reverse
-        //IntakeSol.set(Value.kReverse);
+        IntakeSol.set(Value.kReverse);
         intakeMotor = new TalonSRX(RobotMap.intakeMotor);
 
         // intakeMotor.configSelectedFeedbackSensor(FeedbackDevice.IntegratedSensor, 0, 0);
@@ -64,6 +65,15 @@ public class IntakeSubsystem extends SubsystemBase {
         IntakeSol.toggle();
         
     }
+
+    public void closeSolenoid() {
+        IntakeSol.close();
+    }
+
+    public void solOff() {
+        IntakeSol.set(Value.kOff);
+    }
+
     
     
 

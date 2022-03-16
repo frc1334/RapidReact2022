@@ -18,6 +18,7 @@ import edu.wpi.first.wpilibj.XboxController;
 
 import edu.wpi.first.wpilibj2.command.button.JoystickButton;
 import frc.robot.commands.IndexerCommand;
+import frc.robot.commands.InstantCommandToggleSolenoids;
 
 import com.ctre.phoenix.motorcontrol.can.VictorSPX;
 //import com.revrobotics.ColorSensorV3;
@@ -51,8 +52,8 @@ public class OI {
     public JoystickButton DriverYButton;
 
     // Driver Triggers
-    public JoystickButton DriverLeftTrigger;
-   // public JoystickButton DriverRightTrigger;
+    public JoystickButton DriverLeftBumper;
+    public JoystickButton DriverRightBumper;
 
     // Operator Individual Controller Devices
     public JoystickButton OperatorAButton;
@@ -60,18 +61,18 @@ public class OI {
     public JoystickButton OperatorXButton;
     public JoystickButton OperatorYButton;
 
-    public JoystickButton OperatorLeftTrigger;
-    public JoystickButton OperatorRightTrigger;
+    public JoystickButton OperatorLeftBumper;
+    public JoystickButton OperatorRightBumper;
 
     // Maps an initializes controls to the correct ports on the Xbox controller.
     public OI() {
         Driver = new XboxController(0);
 
-        DriverLeftTrigger = new JoystickButton(Driver, 5);
-     //  DriverRightTrigger = new JoystickButton(Driver, 6);
+        DriverLeftBumper = new JoystickButton(Driver, 5);
+        DriverRightBumper = new JoystickButton(Driver, 6);
 
         DriverAButton = new JoystickButton(Driver, 1);
-        DriverAButton.whenPressed(new ToggleSolenoids());
+        DriverAButton.whenPressed(new InstantCommandToggleSolenoids());
         
         DriverBButton = new JoystickButton(Driver, 2);
         DriverBButton.whenPressed(new PullUpClimberCommand());
@@ -94,8 +95,8 @@ public class OI {
         OperatorYButton = new JoystickButton(Operator, 4);
         OperatorYButton.whileHeld(new IndexerCommand());
         
-        OperatorLeftTrigger = new JoystickButton(Operator, 5);
-        OperatorRightTrigger = new JoystickButton(Operator, 6);
+        OperatorLeftBumper = new JoystickButton(Operator, 5);
+        OperatorRightBumper = new JoystickButton(Operator, 6);
     }
 
     // method that takes speed to go forwards or backwards from bumpers of controller depending on how hard driver presses
