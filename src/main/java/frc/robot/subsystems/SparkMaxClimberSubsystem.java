@@ -22,6 +22,8 @@ public class SparkMaxClimberSubsystem extends SubsystemBase {
     climbMotor = new CANSparkMax(RobotMap.climbMotor, MotorType.kBrushless);
     climbMotor.setIdleMode(IdleMode.kBrake);
 
+    climbMotor.setSmartCurrentLimit(40);
+
     // Limit switch
     lowerSwitch = new DigitalInput(0);
     
