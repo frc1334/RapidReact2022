@@ -15,11 +15,11 @@ import com.revrobotics.CANSparkMax.IdleMode;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 
 public class ClimberSubsystem extends SubsystemBase{
-    CANSparkMax ClimbMotor = new CANSparkMax(RobotMap.ClimbMotor, MotorType.kBrushless);
-//     CANSparkMax RightClimbMotor = new CANSparkMax(RobotMap.RightClimbMotor, MotorType.kBrushless);
-    // RelativeEncoder C1encoder = LeftClimbMotor.getEncoder();
-    // RelativeEncoder C2encoder = RightClimbMotor.getEncoder();
-    RelativeEncoder Climb_encoder;
+//     CANSparkMax ClimbMotor = new CANSparkMax(RobotMap.ClimbMotor, MotorType.kBrushless);
+// //    CANSparkMax RightClimbMotor = new CANSparkMax(RobotMap.RightClimbMotor, MotorType.kBrushless);
+//     // RelativeEncoder C1encoder = LeftClimbMotor.getEncoder();
+//     // RelativeEncoder C2encoder = RightClimbMotor.getEncoder();
+//     RelativeEncoder Climb_encoder;
     //RelativeEncoder Right_encoder;
         /**
      * The RestoreFactoryDefaults method can be used to reset the configuration parameters
@@ -32,6 +32,13 @@ public class ClimberSubsystem extends SubsystemBase{
     * In order to read encoder values an encoder object is created using the 
     * getEncoder() method from an existing CANSparkMax object
     */
+    
+    public ClimberSubsytem() {
+        CANSparkMax ClimbMotor = new CANSparkMax(RobotMap.LeftClimbMotor, MotorType.kBrushless);
+        RelativeEncoder Climb_encoder;
+        ClimbMotor.setIdleMode(IdleMode.kCoast);
+        Climb_encoder = ClimbMotor.getEncoder();
+    }    
     
 //public void whenPressed(ClimberRelease)    
     public void ClimberRelease(CANSparkMax ClimbMotor) {
