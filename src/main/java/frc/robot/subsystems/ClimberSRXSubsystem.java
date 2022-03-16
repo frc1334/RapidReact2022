@@ -15,7 +15,7 @@ import edu.wpi.first.wpilibj.DigitalInput;
 
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 
-public class SRXClimberSubsystem extends SubsystemBase{
+public class ClimberSRXSubsystem extends SubsystemBase{
 //     CANSparkMax ClimbMotor = new CANSparkMax(RobotMap.ClimbMotor, MotorType.kBrushless);
 // //    CANSparkMax RightClimbMotor = new CANSparkMax(RobotMap.RightClimbMotor, MotorType.kBrushless);
 //     // RelativeEncoder C1encoder = LeftClimbMotor.getEncoder();
@@ -38,7 +38,7 @@ public class SRXClimberSubsystem extends SubsystemBase{
     //DigitalInput upperSwitch;
     boolean isClimbing;
 
-    public SRXClimberSubsystem() {
+    public ClimberSRXSubsystem() {
         //CANSparkMax ClimbMotor = new CANSparkMax(RobotMap.LeftClimbMotor, MotorType.kBrushless);
         //RelativeEncoder Climb_encoder;
         //ClimbMotor.setIdleMode(IdleMode.kCoast);
@@ -98,12 +98,12 @@ public class SRXClimberSubsystem extends SubsystemBase{
         
         while (isClimbing) {
         if (lowerSwitch.get()) {
-                isClimbing = false;
                 // LeftClimbMotor.setNeutralMode(NeutralMode.Brake);
                 // RightClimbMotor.setNeutralMode(NeutralMode.Brake);
                 //RightClimbMotor.setIdleMode(IdleMode.kBrake);
                 climbMotor.set(ControlMode.PercentOutput, 0.0);
                 climbMotor.setNeutralMode(NeutralMode.Brake);
+                isClimbing = false;
             }
         }
     }

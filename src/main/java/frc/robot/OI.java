@@ -33,6 +33,8 @@ import frc.robot.commands.ToggleSolenoids;
 import frc.robot.commands.launcher_commands.LauncherCommandGroup;
 import frc.robot.commands.launcher_commands.TalonFXPercentCommand;
 import frc.robot.commands.launcher_commands.TalonSRXPercentCommand;
+import frc.robot.commands.climber.PullUpClimberCommand;
+import frc.robot.commands.climber.ReleaseClimberCommand;
 import frc.robot.subsystems.IntakeSubsystem;
 
 public class OI {
@@ -72,9 +74,10 @@ public class OI {
         DriverAButton.whenPressed(new ToggleSolenoids());
         
         DriverBButton = new JoystickButton(Driver, 2);
+        DriverBButton.whenPressed(new PullUpClimberCommand());
         
-
         DriverXButton = new JoystickButton(Driver, 3);
+        DriverXButton.whenPressed(new ReleaseClimberCommand());
         
         Operator = new XboxController(1);
 
