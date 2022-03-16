@@ -103,7 +103,7 @@ public class OI {
     public double getDriverSpeed () {
 
         if (Math.abs(Driver.getRightTriggerAxis() - Driver.getLeftTriggerAxis()) > 0.15) {
-            return Driver.getRightTriggerAxis() - Driver.getLeftTriggerAxis();//maybe-0.5hereONLYiftested
+            return (Driver.getRightTriggerAxis() - Driver.getLeftTriggerAxis()) * 0.5;//maybe-0.5hereONLYiftested
         }
 
         return 0.0;
