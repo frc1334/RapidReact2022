@@ -19,6 +19,7 @@ import frc.robot.commands.AutoLaunchCommand;
 import frc.robot.commands.DriveCommand;
 import frc.robot.subsystems.IndexerSubsystem;
 import frc.robot.commands.IntakeCommand;
+import frc.robot.subsystems.ClimberSRXSubsystem;
 //import frc.robot.commands.launcher_commands.LauncherCommandGroup;
 import com.revrobotics.ColorSensorV3;
 
@@ -55,7 +56,7 @@ public class Robot extends TimedRobot {
   public static LauncherSRXSubsystem LauncherSRXSubsystem = new LauncherSRXSubsystem();
   public static PneumaticsSubsystem PneumaticsSubsystem = null; // pneumatics is implemented in intake
   public static VisionSubsystem VisionSubsystem = new VisionSubsystem();
-  
+  public static ClimberSRXSubsystem ClimberSRXSubsystem = new ClimberSRXSubsystem();
   // Initializing OI object
   public static OI OI = new OI();
 
