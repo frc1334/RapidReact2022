@@ -15,12 +15,12 @@ import com.revrobotics.CANSparkMax.IdleMode;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 
 public class ClimberSubsystem extends SubsystemBase{
-    CANSparkMax LeftClimbMotor = new CANSparkMax(RobotMap.LeftClimbMotor, MotorType.kBrushless);
-    CANSparkMax RightClimbMotor = new CANSparkMax(RobotMap.RightClimbMotor, MotorType.kBrushless);
+    CANSparkMax ClimbMotor = new CANSparkMax(RobotMap.ClimbMotor, MotorType.kBrushless);
+//     CANSparkMax RightClimbMotor = new CANSparkMax(RobotMap.RightClimbMotor, MotorType.kBrushless);
     // RelativeEncoder C1encoder = LeftClimbMotor.getEncoder();
     // RelativeEncoder C2encoder = RightClimbMotor.getEncoder();
-    RelativeEncoder Left_encoder;
-    RelativeEncoder Right_encoder;
+    RelativeEncoder Climb_encoder;
+    //RelativeEncoder Right_encoder;
         /**
      * The RestoreFactoryDefaults method can be used to reset the configuration parameters
      * in the SPARK MAX to their factory default state. If no argument is passed, these
@@ -34,7 +34,7 @@ public class ClimberSubsystem extends SubsystemBase{
     */
     
 //public void whenPressed(ClimberRelease)    
-    public void ClimberRelease(CANSparkMax leftClimbMotor, CANSparkMax rightClimbMotor) {
+    public void ClimberRelease(CANSparkMax ClimbMotor) {
         
         // C1encoder.setPosition(0);
         // C2encoder.setPosition(0);
@@ -42,10 +42,10 @@ public class ClimberSubsystem extends SubsystemBase{
         
         //set motors to neutral so spring can expand (coast)
         // RightClimbMotor.setNeutralMode(NeutralMode.Coast);
-        RightClimbMotor.setIdleMode(IdleMode.kCoast);
-        LeftClimbMotor.setIdleMode(IdleMode.kCoast);
-        Left_encoder = LeftClimbMotor.getEncoder();
-        Right_encoder = RightClimbMotor.getEncoder();
+        //RightClimbMotor.setIdleMode(IdleMode.kCoast);
+        ClimbMotor.setIdleMode(IdleMode.kCoast);
+        Climb_encoder = ClimbMotor.getEncoder();
+        //Right_encoder = RightClimbMotor.getEncoder();
         boolean Latching = true;
 
         while (Latching) {
@@ -56,12 +56,12 @@ public class ClimberSubsystem extends SubsystemBase{
 
         //stop motors once they reach target distance (or set them to hold position)
         //4096 encoder counts in a single revoloution of CANSpark    
-        if (Left_encoder.getPosition() >= 2048 || Right_encoder.getPosition() >= 2048 ) {
+        if (Left_encoder.getPosition() >= 2048) {
                 Latching = false;
                 // LeftClimbMotor.setNeutralMode(NeutralMode.Brake);
                 // RightClimbMotor.setNeutralMode(NeutralMode.Brake);
-                RightClimbMotor.setIdleMode(IdleMode.kBrake);
-                LeftClimbMotor.setIdleMode(IdleMode.kBrake);
+                //RightClimbMotor.setIdleMode(IdleMode.kBrake);
+                ClimbMotor.setIdleMode(IdleMode.kBrake);
             }
         }
         
