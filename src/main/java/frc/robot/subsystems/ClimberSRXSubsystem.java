@@ -35,8 +35,9 @@ public class ClimberSRXSubsystem extends SubsystemBase{
     */
     TalonSRX climbMotor;
     DigitalInput lowerSwitch;
-    //DigitalInput upperSwitch;
+    DigitalInput upperSwitch;
     boolean isClimbing;
+    boolean isReleasing;
 
     public ClimberSRXSubsystem() {
         //CANSparkMax ClimbMotor = new CANSparkMax(RobotMap.LeftClimbMotor, MotorType.kBrushless);
@@ -46,19 +47,36 @@ public class ClimberSRXSubsystem extends SubsystemBase{
         climbMotor = new TalonSRX(RobotMap.climbMotor);
         climbMotor.configSelectedFeedbackSensor(FeedbackDevice.IntegratedSensor);
     
-        climbMotor.configPeakOutputForward(0.0);
+        climbMotor.configPeakOutputForward(1.0);
         climbMotor.configPeakOutputReverse(-1.0);
 
         lowerSwitch = new DigitalInput(0);
-        //upperSwitch = new DigitalInput(1);
+        upperSwitch = new DigitalInput(1);
 
         climbMotor.setNeutralMode(NeutralMode.Brake);
 
+        isReleasing = false;
         isClimbing = false;
     }    
     
 //public void whenPressed(ClimberRelease)    
     public void climberRelease() {
+        isReleasing = true;
+
+        climbMotor.setNeutralMode(NeutralMode.Coast);
+        climbMotor.set(ControlMode.PercentOutput, -1.0);
+
+        while (isReleasing) {
+            if (upperSwitch.get()) {
+                    climbMotor.set(ControlMode.PercentOutput, 0.0);
+                    climbMotor.setNeutralMode(NeutralMode.Brake);
+                    isReleasing = false;
+                }
+        }
+
+
+
+
         // C1encoder.setPosition(0);
         // C2encoder.setPosition(0);
         //RightClimbMotor.set(ControlMode.Follower, RobotMap.LeftClimbMotor);
@@ -89,7 +107,6 @@ public class ClimberSRXSubsystem extends SubsystemBase{
         //     }
         // }
         
-        climbMotor.setNeutralMode(NeutralMode.Coast);
     }
 
     public void pullUpRobot() {
