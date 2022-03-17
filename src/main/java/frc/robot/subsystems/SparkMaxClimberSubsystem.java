@@ -15,10 +15,8 @@ import edu.wpi.first.wpilibj.DigitalInput;
 public class SparkMaxClimberSubsystem extends SubsystemBase {
   CANSparkMax climbMotor;
   DigitalInput lowerSwitch;
-  DigitalInput upperSwitch;
   boolean isClimbing;
   boolean isReleasing;
-
   /** Creates a new SparkMaxCLimberSubsystem. */
   public SparkMaxClimberSubsystem() {
 
@@ -29,37 +27,23 @@ public class SparkMaxClimberSubsystem extends SubsystemBase {
 
     // Limit switch
     lowerSwitch = new DigitalInput(0);
-    upperSwitch = new DigitalInput(1);
     
     isClimbing = false;
     isReleasing = false;
+
   }
 
   public void releaseClimber() {
-
     isReleasing = true;
     // Set the motor to coast so the bars are released
     climbMotor.setIdleMode(IdleMode.kCoast);
-    climbMotor.set(-1.0);
-
-    while (isReleasing) {
-
-      if (upperSwitch.get()) {
-        // Stop pulling up the robot and lock the motor once we reached the limit
-        climbMotor.set(0.0);
-        climbMotor.setIdleMode(IdleMode.kBrake);
-
-        isReleasing = false;
-      }
-    }
-
-
+    climbMotor.set(1.0);
   }
 
   public void pullRobot() {
     isClimbing = true;
     // Motor spins to pull up the robot
-    climbMotor.set(1.0);
+    climbMotor.set(-1.0);
 
     while (isClimbing) {
 
