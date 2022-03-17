@@ -16,6 +16,7 @@ public class SparkMaxClimberSubsystem extends SubsystemBase {
   CANSparkMax climbMotor;
   DigitalInput lowerSwitch;
   boolean isClimbing;
+  boolean isReleasing;
   /** Creates a new SparkMaxCLimberSubsystem. */
   public SparkMaxClimberSubsystem() {
 
@@ -28,17 +29,21 @@ public class SparkMaxClimberSubsystem extends SubsystemBase {
     lowerSwitch = new DigitalInput(0);
     
     isClimbing = false;
+    isReleasing = false;
+
   }
 
   public void releaseClimber() {
+    isReleasing = true;
     // Set the motor to coast so the bars are released
     climbMotor.setIdleMode(IdleMode.kCoast);
+    climbMotor.set(1.0);
   }
 
   public void pullRobot() {
     isClimbing = true;
     // Motor spins to pull up the robot
-    climbMotor.set(1.0);
+    climbMotor.set(-1.0);
 
     while (isClimbing) {
 
