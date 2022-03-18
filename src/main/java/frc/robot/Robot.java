@@ -7,6 +7,7 @@ package frc.robot;
 import frc.robot.subsystems.DriveSubsystem;
 import frc.robot.subsystems.IntakeSubsystem;
 import frc.robot.subsystems.PneumaticsSubsystem;
+import frc.robot.subsystems.SparkMaxClimberSubsystem;
 import frc.robot.subsystems.VisionSubsystem;
 //import frc.robot.subsystems.ColorSensor;
 import frc.robot.subsystems.PneumaticsSubsystem;
@@ -56,7 +57,7 @@ public class Robot extends TimedRobot {
   public static LauncherSRXSubsystem LauncherSRXSubsystem = new LauncherSRXSubsystem();
   public static PneumaticsSubsystem PneumaticsSubsystem = null; // pneumatics is implemented in intake
   public static VisionSubsystem VisionSubsystem = new VisionSubsystem();
-  public static ClimberSRXSubsystem ClimberSRXSubsystem = new ClimberSRXSubsystem();
+  public static SparkMaxClimberSubsystem SparkMaxClimberSubsystem = new SparkMaxClimberSubsystem();
   // Initializing OI object
   public static OI OI = new OI();
 

@@ -11,7 +11,7 @@ public class ReleaseClimberCommand extends CommandBase {
   /** Creates a new ClimberCommand. */
   public ReleaseClimberCommand() {
     // Use addRequirements() here to declare subsystem dependencies.
-    addRequirements(Robot.ClimberSRXSubsystem);
+    addRequirements(Robot.SparkMaxClimberSubsystem);
   }
 
   // Called when the command is initially scheduled.
@@ -21,7 +21,7 @@ public class ReleaseClimberCommand extends CommandBase {
   // Called every time the scheduler runs while the command is scheduled.
   @Override
   public void execute() {
-    Robot.ClimberSRXSubsystem.climberRelease();
+    Robot.SparkMaxClimberSubsystem.releaseClimber();
   }
 
   // Called once the command ends or is interrupted.
