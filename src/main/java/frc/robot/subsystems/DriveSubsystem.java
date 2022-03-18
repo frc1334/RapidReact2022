@@ -22,8 +22,6 @@ import com.revrobotics.CANSparkMax;
 import com.revrobotics.CANSparkMaxLowLevel.MotorType;
 import com.revrobotics.RelativeEncoder;
 import com.revrobotics.SparkMaxPIDController;
-import com.ctre.phoenix.motorcontrol.ControlMode;
-import com.ctre.phoenix.motorcontrol.can.TalonFX;
 
 // import edu.wpi.first.wpilibj.drive.DifferentialDrive;
 // import edu.wpi.first.wpilibj.motorcontrol.MotorControllerGroup;
@@ -69,9 +67,6 @@ public class DriveSubsystem extends SubsystemBase {
     R2motor = new CANSparkMax(RobotMap.R2motor, MotorType.kBrushless);
     R2encoder = R2motor.getEncoder();
     R2controller = R2motor.getPIDController();
-
-    // L1motor.setInverted(true);
-    // R1motor.setInverted(true);
     
     // Grouping together the motor controllers on the left side
     LeftControllerGroup = new MotorControllerGroup(L1motor, L2motor);
@@ -79,7 +74,7 @@ public class DriveSubsystem extends SubsystemBase {
 
     // Differential drivetrain object (aka West Coast/Tank drive)
     // only used for drive pid
-    DifferentialDriveTrain = new DifferentialDrive(LeftControllerGroup, RightControllerGroup);
+    // DifferentialDriveTrain = new DifferentialDrive(LeftControllerGroup, RightControllerGroup);
     
     // reset encoders to start at 0
     L1encoder.setPosition(0);
@@ -91,7 +86,7 @@ public class DriveSubsystem extends SubsystemBase {
   // feed percent voltage power into both sides of drive train
   // mapping individual motors to voltage 
   public void TankDrive(double Left, double Right) {
-    L1motor.set(-Left);//don'tadd0.5
+    L1motor.set(-Left);
     L2motor.set(-Left);
     R1motor.set(Right);
     R2motor.set(Right);

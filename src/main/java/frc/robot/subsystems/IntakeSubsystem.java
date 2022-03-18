@@ -4,13 +4,10 @@
 package frc.robot.subsystems;
 
 import frc.robot.RobotMap;
-import frc.robot.OI;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 
 import com.ctre.phoenix.motorcontrol.ControlMode;
-import com.ctre.phoenix.motorcontrol.FeedbackDevice;
 import com.ctre.phoenix.motorcontrol.can.TalonSRX;
-import edu.wpi.first.wpilibj.motorcontrol.Talon;
 
 // import edu.wpi.first.wpilibj.I2C;
 // import edu.wpi.first.wpilibj.util.Color;
@@ -22,8 +19,6 @@ import edu.wpi.first.wpilibj.motorcontrol.Talon;
 import edu.wpi.first.wpilibj.PneumaticsModuleType;
 import edu.wpi.first.wpilibj.DoubleSolenoid.Value;
 import edu.wpi.first.wpilibj.DoubleSolenoid;
-import com.ctre.phoenix.motorcontrol.FeedbackDevice;
-
 
 public class IntakeSubsystem extends SubsystemBase {
 

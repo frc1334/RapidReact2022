@@ -6,9 +6,6 @@ package frc.robot.commands;
 
 import edu.wpi.first.wpilibj2.command.CommandBase;
 import frc.robot.Robot;
-import frc.robot.subsystems.PneumaticsSubsystem;
-import frc.robot.subsystems.IntakeSubsystem;
-
 
 public class ToggleSolenoids extends CommandBase {
   /** Creates a new ToggleSolenoids. */

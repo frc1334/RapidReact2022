@@ -61,9 +61,4 @@ public class IndexerSubsystem extends SubsystemBase {
   public void setIndexer2Voltage (double percent) {
     LowerIndexer.set(ControlMode.PercentOutput, percent);
   }
-
-  //@Override
-  //public void periodic() {
-    //This method will be called once per scheduler run
-  //}
 }

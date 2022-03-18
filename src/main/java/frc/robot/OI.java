@@ -20,23 +20,13 @@ import edu.wpi.first.wpilibj2.command.button.JoystickButton;
 import frc.robot.commands.IndexerCommand;
 import frc.robot.commands.InstantCommandToggleSolenoids;
 
-import com.ctre.phoenix.motorcontrol.can.VictorSPX;
 //import com.revrobotics.ColorSensorV3;
 
-import edu.wpi.first.wpilibj.GenericHID;
-import edu.wpi.first.wpilibj2.command.button.JoystickButton;
-
-import frc.robot.commands.ToggleSolenoids;
-import frc.robot.commands.DriveCommand;
-
 import frc.robot.commands.IntakeCommand;
-import frc.robot.commands.ToggleSolenoids;
-import frc.robot.commands.launcher_commands.LauncherCommandGroup;
 import frc.robot.commands.launcher_commands.TalonFXPercentCommand;
 import frc.robot.commands.launcher_commands.TalonSRXPercentCommand;
 import frc.robot.commands.climber.PullUpClimberCommand;
 import frc.robot.commands.climber.ReleaseClimberCommand;
-import frc.robot.subsystems.IntakeSubsystem;
 
 public class OI {
     // Driver, initialized with port 0
