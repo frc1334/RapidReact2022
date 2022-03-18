@@ -2,21 +2,19 @@
 // Open Source Software; you can modify and/or share it under the terms of
 // the WPILib BSD license file in the root directory of this project.
 
-package frc.robot.commands;
+package frc.robot.commands.auto;
 
 import edu.wpi.first.wpilibj2.command.CommandBase;
-
 import frc.robot.Robot;
 
-public class AutoLaunchCommand extends CommandBase {
-  /** Creates a new AutoLaunchCommand. */
+public class AutoDriveCommand extends CommandBase {
+  /** Creates a new AutoDriveCommand. */
   long endTime;
   long startTime;
 
-  public AutoLaunchCommand(long time) {
+  public AutoDriveCommand(long time) { // how long to drive for
     // Use addRequirements() here to declare subsystem dependencies.
-    addRequirements(Robot.LauncherFXSubsystem);
-    addRequirements(Robot.LauncherSRXSubsystem);
+    addRequirements(Robot.DriveSubsystem);
     endTime = time;
   }
 
@@ -29,15 +27,13 @@ public class AutoLaunchCommand extends CommandBase {
   // Called every time the scheduler runs while the command is scheduled.
   @Override
   public void execute() {
-    Robot.LauncherSRXSubsystem.setLauncherPercent(0.3);
-    Robot.LauncherFXSubsystem.setLauncherPercent(0.5);
+    Robot.DriveSubsystem.ArcadeDrive(-0.25, 0.0);
   }
 
   // Called once the command ends or is interrupted.
   @Override
   public void end(boolean interrupted) {
-    Robot.LauncherSRXSubsystem.setLauncherPercent(0.0);
-    Robot.LauncherFXSubsystem.setLauncherPercent(0.0);
+    Robot.DriveSubsystem.ArcadeDrive(0.0, 0.0);
   }
 
   // Returns true when the command should end.
@@ -46,6 +42,6 @@ public class AutoLaunchCommand extends CommandBase {
     if (System.currentTimeMillis() >= (startTime + endTime)) {
       return true;
     }
-    return false;
+      return false;
   }
 }
