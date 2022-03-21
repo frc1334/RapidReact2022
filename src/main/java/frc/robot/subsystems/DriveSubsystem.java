@@ -23,6 +23,10 @@ import com.revrobotics.CANSparkMaxLowLevel.MotorType;
 import com.revrobotics.RelativeEncoder;
 import com.revrobotics.SparkMaxPIDController;
 
+import edu.wpi.first.wpilibj.DoubleSolenoid;
+import edu.wpi.first.wpilibj.PneumaticsModuleType;
+import edu.wpi.first.wpilibj.DoubleSolenoid.Value;
+
 // import edu.wpi.first.wpilibj.drive.DifferentialDrive;
 // import edu.wpi.first.wpilibj.motorcontrol.MotorControllerGroup;
 
@@ -43,6 +47,8 @@ public class DriveSubsystem extends SubsystemBase {
   CANSparkMax R2motor;
   RelativeEncoder R2encoder;
   SparkMaxPIDController R2controller;
+
+  DoubleSolenoid mirrorSol;
 
   // Grouping together the motor controllers on the left side
   MotorControllerGroup LeftControllerGroup;
@@ -81,6 +87,10 @@ public class DriveSubsystem extends SubsystemBase {
     L2encoder.setPosition(0);    
     R1encoder.setPosition(0);
     R2encoder.setPosition(0);
+
+    mirrorSol = new DoubleSolenoid(PneumaticsModuleType.CTREPCM, 2, 3);
+    // Initialize the solenoid to start on reverse
+    mirrorSol.set(Value.kReverse);
   }
 
   // feed percent voltage power into both sides of drive train
@@ -95,5 +105,9 @@ public class DriveSubsystem extends SubsystemBase {
   // wrapper function that allows for turning in tank drive
   public void ArcadeDrive(double speed, double turn) {
     TankDrive(speed - turn, speed + turn);
+  }
+
+  public void toggleMirrorSolenoid() {
+    mirrorSol.toggle();   
   }
 }

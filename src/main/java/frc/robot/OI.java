@@ -23,6 +23,7 @@ import frc.robot.commands.ToggleSolenoids;
 //import com.revrobotics.ColorSensorV3;
 
 import frc.robot.commands.IntakeCommand;
+import frc.robot.commands.ToggleMirrorSolenoid;
 import frc.robot.commands.launcher_commands.TalonFXPercentCommand;
 import frc.robot.commands.launcher_commands.TalonSRXPercentCommand;
 import frc.robot.commands.climber.PullUpClimberCommand;
@@ -69,6 +70,9 @@ public class OI {
         
         DriverXButton = new JoystickButton(Driver, 3);
         DriverXButton.whenPressed(new ReleaseClimberCommand());
+        
+        DriverYButton = new JoystickButton(Driver, 4);
+        DriverYButton.whenPressed(new ToggleMirrorSolenoid());
         
         Operator = new XboxController(1);
 
