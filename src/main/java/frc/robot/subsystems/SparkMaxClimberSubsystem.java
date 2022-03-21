@@ -16,8 +16,6 @@ public class SparkMaxClimberSubsystem extends SubsystemBase {
   CANSparkMax climbMotor;
   // DigitalInput lowerSwitch;
   RelativeEncoder encoder;
-  boolean isClimbing;
-  boolean isReleasing;
 
   /** Creates a new SparkMaxCLimberSubsystem. */
   public SparkMaxClimberSubsystem() {
@@ -27,44 +25,53 @@ public class SparkMaxClimberSubsystem extends SubsystemBase {
 
     encoder = climbMotor.getEncoder();
     encoder.setPosition(0);
-
-    // Limit switch
-    //lowerSwitch = new DigitalInput(0);
-    
-    isClimbing = false;
-    isReleasing = false;
   }
 
   public void releaseClimber() {
-    isReleasing = true;
     // Set the motor to coast so the bars are released
     climbMotor.setIdleMode(IdleMode.kCoast);
     climbMotor.set(0.2);
+  }
 
-    while (isReleasing) {
-      if (encoder.getPosition() >= 2) {
-        climbMotor.set(0.0);
-        climbMotor.setIdleMode(IdleMode.kBrake);
+  public void stopReleasingClimber() {
+    climbMotor.set(0.0);
+    climbMotor.setIdleMode(IdleMode.kBrake);
+  }
 
-        isReleasing = false;
-      }
+  public boolean stopReleasingCheck() {
+    if (encoder.getPosition() >= 2) {
+      return true;
+    } else {
+      return false;
     }
   }
 
+    // while (isClimbing) {
+    //   if (encoder.getPosition() >= 2) {
+    //     // Stop pulling up the robot and lock the motor once we reached the limit
+    //     climbMotor.set(0.0);
+    //     climbMotor.setIdleMode(IdleMode.kBrake);
+
+    //     isClimbing = false;
+    //   }
+    // }
+  
   public void pullRobot() {
     encoder.setPosition(0);
-    isClimbing = true;
     // Motor spins to pull up the robot
-    climbMotor.set(-0.2);
+    climbMotor.set(-0.2);//do we need coast?
+  }
+  
+  public void stopPullingRobot() {
+    climbMotor.set(0.0);
+    climbMotor.setIdleMode(IdleMode.kBrake);
+  }
 
-    while (isClimbing) {
-      if (encoder.getPosition() >= 2) {
-        // Stop pulling up the robot and lock the motor once we reached the limit
-        climbMotor.set(0.0);
-        climbMotor.setIdleMode(IdleMode.kBrake);
-
-        isClimbing = false;
-      }
+  public boolean stopPullingCheck() {
+    if (encoder.getPosition() >= 2) {
+      return true;
+    } else {
+      return false;
     }
   }
 }
