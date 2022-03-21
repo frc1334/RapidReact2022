@@ -39,7 +39,7 @@ public class SparkMaxClimberSubsystem extends SubsystemBase {
     isReleasing = true;
     // Set the motor to coast so the bars are released
     climbMotor.setIdleMode(IdleMode.kCoast);
-    climbMotor.set(0.25);
+    climbMotor.set(0.2);
 
     while (isReleasing) {
       if (encoder.getPosition() >= 2) {
@@ -55,7 +55,7 @@ public class SparkMaxClimberSubsystem extends SubsystemBase {
     encoder.setPosition(0);
     isClimbing = true;
     // Motor spins to pull up the robot
-    climbMotor.set(-1.0);
+    climbMotor.set(-0.2);
 
     while (isClimbing) {
       if (encoder.getPosition() >= 2) {

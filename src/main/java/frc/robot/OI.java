@@ -89,8 +89,9 @@ public class OI {
         OperatorYButton = new JoystickButton(Operator, 4);
         OperatorYButton.whileHeld(new IndexerCommand());
         
-        OperatorLeftBumper = new JoystickButton(Operator, 5);
-        OperatorRightBumper = new JoystickButton(Operator, 6);
+        if (Math.abs(Operator.getRightTriggerAxis()) > 0) {
+            new ToggleSolenoids();
+        }
     }
 
     // method that takes speed to go forwards or backwards from bumpers of controller depending on how hard driver presses

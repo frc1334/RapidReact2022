@@ -88,9 +88,9 @@ public class DriveSubsystem extends SubsystemBase {
     R1encoder.setPosition(0);
     R2encoder.setPosition(0);
 
-    mirrorSol = new DoubleSolenoid(PneumaticsModuleType.CTREPCM, 2, 3);
+    //mirrorSol = new DoubleSolenoid(PneumaticsModuleType.CTREPCM, 2, 3);
     // Initialize the solenoid to start on reverse
-    mirrorSol.set(Value.kReverse);
+    //mirrorSol.set(Value.kReverse);
   }
 
   // feed percent voltage power into both sides of drive train

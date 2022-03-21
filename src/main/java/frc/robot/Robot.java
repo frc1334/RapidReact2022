@@ -60,9 +60,9 @@ public class Robot extends TimedRobot {
   // Initializing commands
   DriveCommand DriveCommand = new DriveCommand();
   CommandScheduler commandScheduler = CommandScheduler.getInstance();
-  UsbCamera camera1;
-  UsbCamera camera2;
-  NetworkTableEntry cameraSelection;
+  // UsbCamera camera1;
+  // UsbCamera camera2;
+  // NetworkTableEntry cameraSelection;
 
   //IntakeCommand IntakeCommand = new IntakeCommand();
 
@@ -78,7 +78,7 @@ public class Robot extends TimedRobot {
     //camera1 = CameraServer.startAutomaticCapture(0);
     //camera2 = CameraServer.startAutomaticCapture(1);
     
-    cameraSelection = NetworkTableInstance.getDefault().getTable("").getEntry("CameraSelection");
+    // cameraSelection = NetworkTableInstance.getDefault().getTable("").getEntry("CameraSelection");
 
   }
 
