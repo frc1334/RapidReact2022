@@ -18,7 +18,7 @@ import edu.wpi.first.wpilibj.XboxController;
 
 import edu.wpi.first.wpilibj2.command.button.JoystickButton;
 import frc.robot.commands.IndexerCommand;
-import frc.robot.commands.InstantCommandToggleSolenoids;
+import frc.robot.commands.ToggleSolenoids;
 
 //import com.revrobotics.ColorSensorV3;
 
@@ -62,7 +62,7 @@ public class OI {
         DriverRightBumper = new JoystickButton(Driver, 6);
 
         DriverAButton = new JoystickButton(Driver, 1);
-        DriverAButton.whenPressed(new InstantCommandToggleSolenoids());
+        DriverAButton.whenPressed(new ToggleSolenoids());
         
         DriverBButton = new JoystickButton(Driver, 2);
         DriverBButton.whenPressed(new PullUpClimberCommand());
