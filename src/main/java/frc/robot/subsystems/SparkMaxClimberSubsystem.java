@@ -81,12 +81,12 @@ public class SparkMaxClimberSubsystem extends SubsystemBase {
 
   public void testingForward() {
     climbMotor.setIdleMode(IdleMode.kCoast);
-    climbMotor.set(0.1);
+    climbMotor.set(0.2);
   }
 
   public void testingReverse() {
     climbMotor.setIdleMode(IdleMode.kCoast);
-    climbMotor.set(-0.1);
+    climbMotor.set(-1.0);
   }
 
 }

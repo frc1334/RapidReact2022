@@ -67,18 +67,18 @@ public class OI {
         DriverRightBumper = new JoystickButton(Driver, 6);
 
         DriverAButton = new JoystickButton(Driver, 1);
-        DriverAButton.whenPressed(new ToggleSolenoids());
+        //DriverAButton.whenPressed(new ToggleSolenoids());
         
         DriverBButton = new JoystickButton(Driver, 2);
-        DriverBButton.whenPressed(new PullUpClimberCommand());
-        //DriverBButton.whileHeld(new ClimbTestingForward());
+        //DriverBButton.whenPressed(new PullUpClimberCommand());
+        //DriverBButton.whileHeld(new ClimbTestingForward()) ;
         
         DriverXButton = new JoystickButton(Driver, 3);
-        DriverXButton.whenPressed(new ReleaseClimberCommand());
+        //DriverXButton.whenPressed(new ReleaseClimberCommand());
         //DriverXButton.whileHeld(new ClimbTestingReverse());
         
         DriverYButton = new JoystickButton(Driver, 4);
-        DriverYButton.whenPressed(new ToggleMirrorSolenoid());
+        //DriverYButton.whenPressed(new ToggleMirrorSolenoid());
 
 
         
@@ -86,16 +86,18 @@ public class OI {
 
         // Inititalize the Operator Controls
         OperatorAButton = new JoystickButton(Operator, 1);
-        OperatorAButton.whileHeld(new TalonSRXPercentCommand());
+        //OperatorAButton.whileHeld(new TalonSRXPercentCommand());
         
         OperatorBButton = new JoystickButton(Operator, 2);
-        OperatorBButton.whileHeld(new IntakeCommand());
+        //OperatorBButton.whileHeld(new IntakeCommand());
+        OperatorBButton.whileHeld(new ClimbTestingForward());
 
         OperatorXButton = new JoystickButton(Operator, 3);
-        OperatorXButton.whileHeld(new TalonFXPercentCommand());
+        //OperatorXButton.whileHeld(new TalonFXPercentCommand());
+        OperatorXButton.whileHeld(new ClimbTestingReverse());
         // we need to document our code better
         OperatorYButton = new JoystickButton(Operator, 4);
-        OperatorYButton.whileHeld(new IndexerCommand());
+        //OperatorYButton.whileHeld(new IndexerCommand());
         
         if (Math.abs(Operator.getRightTriggerAxis()) > 0) {
             new ToggleSolenoids();
