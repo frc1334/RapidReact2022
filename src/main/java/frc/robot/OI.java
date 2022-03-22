@@ -29,6 +29,10 @@ import frc.robot.commands.launcher_commands.TalonSRXPercentCommand;
 import frc.robot.commands.climber.PullUpClimberCommand;
 import frc.robot.commands.climber.ReleaseClimberCommand;
 
+
+import frc.robot.commands.ClimbTestingForward;
+import frc.robot.commands.ClimbTestingReverse;
+
 public class OI {
     // Driver, initialized with port 0
     public XboxController Driver;
@@ -67,12 +71,16 @@ public class OI {
         
         DriverBButton = new JoystickButton(Driver, 2);
         DriverBButton.whenPressed(new PullUpClimberCommand());
+        //DriverBButton.whileHeld(new ClimbTestingForward());
         
         DriverXButton = new JoystickButton(Driver, 3);
         DriverXButton.whenPressed(new ReleaseClimberCommand());
+        //DriverXButton.whileHeld(new ClimbTestingReverse());
         
         DriverYButton = new JoystickButton(Driver, 4);
         DriverYButton.whenPressed(new ToggleMirrorSolenoid());
+
+
         
         Operator = new XboxController(1);
 
