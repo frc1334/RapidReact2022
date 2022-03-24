@@ -17,7 +17,7 @@ import frc.robot.subsystems.IndexerSubsystem;
 import frc.robot.commands.IntakeCommand;
 // import frc.robot.commands.auto.AutoDriveCommand;
 // import frc.robot.commands.auto.AutoLaunchCommand;
-import frc.robot.commands.auto.AutoSequence;
+import frc.robot.commands.auto.FinalAutoSequence;
 import frc.robot.subsystems.ClimberSRXSubsystem;
 //import frc.robot.commands.launcher_commands.LauncherCommandGroup;
 
@@ -109,12 +109,12 @@ public class Robot extends TimedRobot {
     System.out.println("Auto selected: " + m_autoSelected);
     switch (m_autoSelected) {
       case kCustomAuto:
-        commandScheduler.schedule(new AutoSequence());
+        commandScheduler.schedule(new FinalAutoSequence());
 
         break;
       case kDefaultAuto:
       default:
-        commandScheduler.schedule(new AutoSequence());
+        commandScheduler.schedule(new FinalAutoSequence());
         break;
     }
   }
