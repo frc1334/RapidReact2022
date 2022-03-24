@@ -33,7 +33,7 @@ public class IntakeSubsystem extends SubsystemBase {
         // Initialize the solenoid to start on reverse
         IntakeSol.set(Value.kReverse);
         intakeMotor = new TalonSRX(RobotMap.intakeMotor);
-
+        intakeMotor.setInverted(true);
         // intakeMotor.configSelectedFeedbackSensor(FeedbackDevice.IntegratedSensor, 0, 0);
 
         intakeMotor.configPeakOutputForward(1.0);
@@ -51,7 +51,7 @@ public class IntakeSubsystem extends SubsystemBase {
         // } else if (axis < 0) {
         //     setPercentOutput(-0.25);
         // }
-        setPercentOutput(0.5);
+        setPercentOutput(0.6);
            
     }
 

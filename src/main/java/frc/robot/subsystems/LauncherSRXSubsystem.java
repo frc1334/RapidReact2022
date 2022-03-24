@@ -36,6 +36,7 @@ public class LauncherSRXSubsystem extends SubsystemBase{
         LauncherSmallWheel.configPeakOutputForward(1);
         LauncherSmallWheel.configPeakOutputReverse(-1);
 
+        //LauncherSmallWheel.setInverted(true);
     } 
  
     public void setLauncherVelocity (double setpoint) {

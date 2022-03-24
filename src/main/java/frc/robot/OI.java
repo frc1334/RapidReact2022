@@ -23,15 +23,17 @@ import frc.robot.commands.ToggleSolenoids;
 //import com.revrobotics.ColorSensorV3;
 
 import frc.robot.commands.IntakeCommand;
-import frc.robot.commands.ToggleMirrorSolenoid;
+//import frc.robot.commands.ToggleMirrorSolenoid;
 import frc.robot.commands.launcher_commands.TalonFXPercentCommand;
 import frc.robot.commands.launcher_commands.TalonSRXPercentCommand;
 import frc.robot.commands.climber.PullUpClimberCommand;
 import frc.robot.commands.climber.ReleaseClimberCommand;
-
-
 import frc.robot.commands.ClimbTestingForward;
 import frc.robot.commands.ClimbTestingReverse;
+
+
+//import frc.robot.commands.ClimbTestingForward;
+//import frc.robot.commands.ClimbTestingReverse;
 
 public class OI {
     // Driver, initialized with port 0
@@ -71,11 +73,11 @@ public class OI {
         
         DriverBButton = new JoystickButton(Driver, 2);
         //DriverBButton.whenPressed(new PullUpClimberCommand());
-        //DriverBButton.whileHeld(new ClimbTestingForward()) ;
+        DriverBButton.whileHeld(new ClimbTestingForward()) ;
         
         DriverXButton = new JoystickButton(Driver, 3);
         //DriverXButton.whenPressed(new ReleaseClimberCommand());
-        //DriverXButton.whileHeld(new ClimbTestingReverse());
+        DriverXButton.whileHeld(new ClimbTestingReverse());
         
         DriverYButton = new JoystickButton(Driver, 4);
         //DriverYButton.whenPressed(new ToggleMirrorSolenoid());
@@ -86,18 +88,21 @@ public class OI {
 
         // Inititalize the Operator Controls
         OperatorAButton = new JoystickButton(Operator, 1);
-        //OperatorAButton.whileHeld(new TalonSRXPercentCommand());
+        OperatorAButton.whileHeld(new TalonSRXPercentCommand());
         
         OperatorBButton = new JoystickButton(Operator, 2);
-        //OperatorBButton.whileHeld(new IntakeCommand());
-        OperatorBButton.whileHeld(new ClimbTestingForward());
+        OperatorBButton.whileHeld(new IntakeCommand());
+        //OperatorBButton.whileHeld(new ClimbTestingForward());
 
         OperatorXButton = new JoystickButton(Operator, 3);
-        //OperatorXButton.whileHeld(new TalonFXPercentCommand());
-        OperatorXButton.whileHeld(new ClimbTestingReverse());
+        OperatorXButton.whileHeld(new TalonFXPercentCommand());
+        //OperatorXButton.whileHeld(new ClimbTestingReverse());
         // we need to document our code better
         OperatorYButton = new JoystickButton(Operator, 4);
-        //OperatorYButton.whileHeld(new IndexerCommand());
+        OperatorYButton.whileHeld(new IndexerCommand());
+
+        OperatorRightBumper = new JoystickButton(Operator, 6);
+        OperatorRightBumper.whenPressed(new ToggleSolenoids());
         
         if (Math.abs(Operator.getRightTriggerAxis()) > 0) {
             new ToggleSolenoids();
@@ -109,7 +114,7 @@ public class OI {
     public double getDriverSpeed () {
 
         if (Math.abs(Driver.getRightTriggerAxis() - Driver.getLeftTriggerAxis()) > 0.15) {
-            return (Driver.getRightTriggerAxis() - Driver.getLeftTriggerAxis()) * 0.5;//maybe-0.5hereONLYiftested
+            return (Driver.getRightTriggerAxis() - Driver.getLeftTriggerAxis()) * 0.7;//maybe-0.5hereONLYiftested
         }
 
         return 0.0;
