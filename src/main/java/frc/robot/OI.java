@@ -26,10 +26,10 @@ import frc.robot.commands.IntakeCommand;
 //import frc.robot.commands.ToggleMirrorSolenoid;
 import frc.robot.commands.launcher_commands.TalonFXPercentCommand;
 import frc.robot.commands.launcher_commands.TalonSRXPercentCommand;
+import frc.robot.commands.climber.ClimbTestingForward;
+import frc.robot.commands.climber.ClimbTestingReverse;
 import frc.robot.commands.climber.PullUpClimberCommand;
 import frc.robot.commands.climber.ReleaseClimberCommand;
-import frc.robot.commands.ClimbTestingForward;
-import frc.robot.commands.ClimbTestingReverse;
 
 
 //import frc.robot.commands.ClimbTestingForward;

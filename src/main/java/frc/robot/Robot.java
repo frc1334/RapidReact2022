@@ -14,11 +14,9 @@ import frc.robot.subsystems.LauncherSRXSubsystem;
 //import frc.robot.commands.AutoDriveCommand;
 import frc.robot.commands.DriveCommand;
 import frc.robot.subsystems.IndexerSubsystem;
-import frc.robot.commands.IntakeCommand;
 // import frc.robot.commands.auto.AutoDriveCommand;
 // import frc.robot.commands.auto.AutoLaunchCommand;
 import frc.robot.commands.auto.FinalAutoSequence;
-import frc.robot.subsystems.ClimberSRXSubsystem;
 //import frc.robot.commands.launcher_commands.LauncherCommandGroup;
 
 import edu.wpi.first.cameraserver.CameraServer;
@@ -28,11 +26,8 @@ import edu.wpi.first.networktables.NetworkTableInstance;
 import edu.wpi.first.wpilibj.TimedRobot;
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
-import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.CommandScheduler;
 
-import frc.robot.OI;
-import edu.wpi.first.wpilibj2.command.button.JoystickButton;
 /**
  * The VM is configured to automatically run this class, and to call the functions corresponding to
  * each mode, as described in the TimedRobot documentation. If you change the name of this class or
