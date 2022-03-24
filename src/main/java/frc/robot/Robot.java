@@ -15,11 +15,11 @@ import frc.robot.subsystems.LauncherSRXSubsystem;
 import frc.robot.commands.DriveCommand;
 import frc.robot.subsystems.IndexerSubsystem;
 import frc.robot.commands.IntakeCommand;
-import frc.robot.commands.auto.AutoDriveCommand;
-import frc.robot.commands.auto.AutoLaunchCommand;
+// import frc.robot.commands.auto.AutoDriveCommand;
+// import frc.robot.commands.auto.AutoLaunchCommand;
+import frc.robot.commands.auto.AutoSequence;
 import frc.robot.subsystems.ClimberSRXSubsystem;
 //import frc.robot.commands.launcher_commands.LauncherCommandGroup;
-import com.revrobotics.ColorSensorV3;
 
 import edu.wpi.first.cameraserver.CameraServer;
 import edu.wpi.first.cscore.UsbCamera;
@@ -109,14 +109,12 @@ public class Robot extends TimedRobot {
     System.out.println("Auto selected: " + m_autoSelected);
     switch (m_autoSelected) {
       case kCustomAuto:
-        commandScheduler.schedule(new AutoDriveCommand(3000));
-        commandScheduler.schedule(new AutoLaunchCommand(3000));
+        commandScheduler.schedule(new AutoSequence());
 
         break;
       case kDefaultAuto:
       default:
-        commandScheduler.schedule(new AutoDriveCommand(3000));
-        commandScheduler.schedule(new AutoLaunchCommand(3000));
+        commandScheduler.schedule(new AutoSequence());
         break;
     }
   }
