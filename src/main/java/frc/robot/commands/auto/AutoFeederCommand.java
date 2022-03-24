@@ -24,7 +24,7 @@ public class AutoFeederCommand extends CommandBase {
   // Called when the command is initially scheduled.
   @Override
   public void initialize() {
-    startTime = System.currentTimeMillis() + 2000;
+    startTime = System.currentTimeMillis();
 
   }
 
