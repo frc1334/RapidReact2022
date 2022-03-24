@@ -8,33 +8,38 @@ import edu.wpi.first.wpilibj2.command.CommandBase;
 
 import frc.robot.Robot;
 
-public class AutoLaunchCommand extends CommandBase {
-  /** Creates a new AutoLaunchCommand. */
+
+public class AutoFeederCommand extends CommandBase {
+  /** Creates a new AutoFeederCommand. */
   long endTime;
   long startTime;
 
-  public AutoLaunchCommand(long time) {
+  public AutoFeederCommand(long time) {
     // Use addRequirements() here to declare subsystem dependencies.
-    addRequirements(Robot.LauncherFXSubsystem);
+    addRequirements(Robot.LauncherSRXSubsystem);
     endTime = time;
+
   }
 
   // Called when the command is initially scheduled.
   @Override
   public void initialize() {
-    startTime = System.currentTimeMillis() + 1000;
+    startTime = System.currentTimeMillis() + 2000;
+
   }
 
   // Called every time the scheduler runs while the command is scheduled.
   @Override
   public void execute() {
-    Robot.LauncherFXSubsystem.setLauncherPercent(1.0);
+    Robot.LauncherSRXSubsystem.setLauncherPercent(0.7);
+
   }
 
   // Called once the command ends or is interrupted.
   @Override
   public void end(boolean interrupted) {
-    Robot.LauncherFXSubsystem.setLauncherPercent(0.0);
+    Robot.LauncherSRXSubsystem.setLauncherPercent(0.0);
+
   }
 
   // Returns true when the command should end.
