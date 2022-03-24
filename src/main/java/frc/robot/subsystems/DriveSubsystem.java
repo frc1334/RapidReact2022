@@ -58,21 +58,26 @@ public class DriveSubsystem extends SubsystemBase {
   DifferentialDrive DifferentialDriveTrain;
 
   public DriveSubsystem() {
+    double rampValue = 1.10;
     L1motor = new CANSparkMax(RobotMap.L1motor, MotorType.kBrushless);
     L1encoder = L1motor.getEncoder();
     L1controller = L1motor.getPIDController();
+    L1motor.setOpenLoopRampRate(rampValue);
   
     L2motor = new CANSparkMax(RobotMap.L2motor, MotorType.kBrushless);
     L2encoder = L2motor.getEncoder();
     L2controller = L2motor.getPIDController();
+    L2motor.setOpenLoopRampRate(rampValue);
   
     R1motor = new CANSparkMax(RobotMap.R1motor, MotorType.kBrushless);
     R1encoder = R1motor.getEncoder();
     R1controller = R1motor.getPIDController();
+    R1motor.setOpenLoopRampRate(rampValue);
   
     R2motor = new CANSparkMax(RobotMap.R2motor, MotorType.kBrushless);
     R2encoder = R2motor.getEncoder();
     R2controller = R2motor.getPIDController();
+    R2motor.setOpenLoopRampRate(rampValue);
     
     // Grouping together the motor controllers on the left side
     LeftControllerGroup = new MotorControllerGroup(L1motor, L2motor);
