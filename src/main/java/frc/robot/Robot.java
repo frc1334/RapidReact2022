@@ -70,11 +70,7 @@ public class Robot extends TimedRobot {
     m_chooser.setDefaultOption("Default Auto", kDefaultAuto);
     m_chooser.addOption("My Auto", kCustomAuto);
     SmartDashboard.putData("Auto choices", m_chooser);
-    //camera1 = CameraServer.startAutomaticCapture(0);
-    //camera2 = CameraServer.startAutomaticCapture(1);
-    
-    // cameraSelection = NetworkTableInstance.getDefault().getTable("").getEntry("CameraSelection");
-
+    CameraServer.startAutomaticCapture();
   }
 
   /**
