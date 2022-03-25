@@ -25,21 +25,25 @@ public class SparkMaxClimberSubsystem extends SubsystemBase {
 
     encoder = climbMotor.getEncoder();
     encoder.setPosition(0);
+
   }
 
   public void releaseClimber() {
     // Set the motor to coast so the bars are released
     climbMotor.setIdleMode(IdleMode.kCoast);
-    climbMotor.set(0.2);
+    climbMotor.set(1.0);
+    System.out.println(encoder.getPosition());
   }
 
   public void stopReleasingClimber() {
     climbMotor.set(0.0);
     climbMotor.setIdleMode(IdleMode.kBrake);
+    System.out.println(encoder.getPosition());
   }
 
   public boolean stopReleasingCheck() {
-    if (encoder.getPosition() >= 2) {
+    System.out.println(encoder.getPosition());
+    if (encoder.getPosition() >= 160) {
       return true;
     } else {
       return false;
@@ -56,27 +60,11 @@ public class SparkMaxClimberSubsystem extends SubsystemBase {
     //   }
     // }
   
-  public void pullRobot() {
-    encoder.setPosition(0);
-    // Motor spins to pull up the robot
-    climbMotor.set(-0.2);//do we need coast?
-  }
-  
+
   public void stopPullingRobot() {
     climbMotor.set(0.0);
     climbMotor.setIdleMode(IdleMode.kBrake);
   }
-
-  public boolean stopPullingCheck() {
-    if (encoder.getPosition() >= 2) {
-      return true;
-    } else {
-      return false;
-    }
-  }
-
-
-
 
 
   public void testingForward() {
@@ -85,8 +73,10 @@ public class SparkMaxClimberSubsystem extends SubsystemBase {
   }
 
   public void testingReverse() {
+
     climbMotor.setIdleMode(IdleMode.kCoast);
-    climbMotor.set(-1.0);
+    climbMotor.set(-0.5); //change it to -1
   }
+
 
 }

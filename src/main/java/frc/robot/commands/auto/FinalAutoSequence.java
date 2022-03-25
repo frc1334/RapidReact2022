@@ -17,6 +17,6 @@ public class FinalAutoSequence extends SequentialCommandGroup {
   public FinalAutoSequence() {
     // Add your commands in the addCommands() call, e.g.
     // addCommands(new FooCommand(), new BarCommand());
-    addCommands(new WaitCommand(1.0), new AutoLaunchFeedParallel(), new WaitCommand(1.0), new AutoDriveCommand(2000));
+    addCommands(new WaitCommand(1.0), new AutoLaunchFeedParallel(), new WaitCommand(1.0), new AutoDriveCommand(3500));
   }
 }

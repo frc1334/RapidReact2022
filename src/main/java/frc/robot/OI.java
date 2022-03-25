@@ -28,7 +28,6 @@ import frc.robot.commands.launcher_commands.TalonFXPercentCommand;
 import frc.robot.commands.launcher_commands.TalonSRXPercentCommand;
 import frc.robot.commands.climber.ClimbTestingForward;
 import frc.robot.commands.climber.ClimbTestingReverse;
-import frc.robot.commands.climber.PullUpClimberCommand;
 import frc.robot.commands.climber.ReleaseClimberCommand;
 
 
@@ -66,23 +65,22 @@ public class OI {
         Driver = new XboxController(0);
 
         DriverLeftBumper = new JoystickButton(Driver, 5);
+        DriverLeftBumper.whileHeld(new ClimbTestingForward());
+
         DriverRightBumper = new JoystickButton(Driver, 6);
+        DriverRightBumper.whileHeld(new ClimbTestingReverse());
 
         DriverAButton = new JoystickButton(Driver, 1);
         //DriverAButton.whenPressed(new ToggleSolenoids());
         
         DriverBButton = new JoystickButton(Driver, 2);
-        //DriverBButton.whenPressed(new PullUpClimberCommand());
-        DriverBButton.whileHeld(new ClimbTestingForward()) ;
+        //DriverBButton.whileHeld(new ClimbTestingReverse());
         
         DriverXButton = new JoystickButton(Driver, 3);
-        //DriverXButton.whenPressed(new ReleaseClimberCommand());
-        DriverXButton.whileHeld(new ClimbTestingReverse());
+        DriverXButton.whenPressed(new ReleaseClimberCommand());
         
         DriverYButton = new JoystickButton(Driver, 4);
         //DriverYButton.whenPressed(new ToggleMirrorSolenoid());
-
-
         
         Operator = new XboxController(1);
 
