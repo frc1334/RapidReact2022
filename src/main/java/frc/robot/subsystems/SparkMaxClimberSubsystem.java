@@ -25,7 +25,6 @@ public class SparkMaxClimberSubsystem extends SubsystemBase {
 
     encoder = climbMotor.getEncoder();
     encoder.setPosition(0);
-
   }
 
   public void releaseClimber() {
@@ -75,8 +74,6 @@ public class SparkMaxClimberSubsystem extends SubsystemBase {
   public void testingReverse() {
 
     climbMotor.setIdleMode(IdleMode.kCoast);
-    climbMotor.set(-0.5); //change it to -1
+    climbMotor.set(-1.0); //change it to -1DONE
   }
-
-
 }
