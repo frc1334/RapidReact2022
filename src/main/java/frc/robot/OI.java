@@ -17,21 +17,18 @@ import edu.wpi.first.wpilibj.XboxController;
 // import edu.wpi.first.wpilibj.GenericHID.Hand;
 
 import edu.wpi.first.wpilibj2.command.button.JoystickButton;
-import frc.robot.commands.IndexerCommand;
 import frc.robot.commands.ToggleSolenoids;
 import frc.robot.commands.auto.base_auto_commands.AutoLaunchCommand;
 import frc.robot.commands.auto.command_groups.AutoLaunchFeedParallel;
-
-//import com.revrobotics.ColorSensorV3;
-
-import frc.robot.commands.IntakeCommand;
-import frc.robot.commands.IntakeIndexerParallel;
 //import frc.robot.commands.ToggleMirrorSolenoid;
 import frc.robot.commands.launcher_commands.LauncherCommand;
 import frc.robot.commands.launcher_commands.FeederCommand;
 import frc.robot.commands.climber.ClimbTestingForward;
 import frc.robot.commands.climber.ClimbTestingReverse;
 import frc.robot.commands.climber.ReleaseClimberCommand;
+import frc.robot.commands.intake_commands.IndexerCommand;
+import frc.robot.commands.intake_commands.IntakeCommand;
+import frc.robot.commands.intake_commands.IntakeIndexerParallel;
 
 
 //import frc.robot.commands.ClimbTestingForward;
