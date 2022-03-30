@@ -19,13 +19,15 @@ import edu.wpi.first.wpilibj.XboxController;
 import edu.wpi.first.wpilibj2.command.button.JoystickButton;
 import frc.robot.commands.IndexerCommand;
 import frc.robot.commands.ToggleSolenoids;
+import frc.robot.commands.auto.base_auto_commands.AutoLaunchCommand;
+import frc.robot.commands.auto.command_groups.AutoLaunchFeedParallel;
 
 //import com.revrobotics.ColorSensorV3;
 
 import frc.robot.commands.IntakeCommand;
 //import frc.robot.commands.ToggleMirrorSolenoid;
-import frc.robot.commands.launcher_commands.TalonFXPercentCommand;
-import frc.robot.commands.launcher_commands.TalonSRXPercentCommand;
+import frc.robot.commands.launcher_commands.LauncherCommand;
+import frc.robot.commands.launcher_commands.FeederCommand;
 import frc.robot.commands.climber.ClimbTestingForward;
 import frc.robot.commands.climber.ClimbTestingReverse;
 import frc.robot.commands.climber.ReleaseClimberCommand;
@@ -86,14 +88,13 @@ public class OI {
 
         // Inititalize the Operator Controls
         OperatorAButton = new JoystickButton(Operator, 1);
-        OperatorAButton.whileHeld(new TalonSRXPercentCommand());
         
         OperatorBButton = new JoystickButton(Operator, 2);
         OperatorBButton.whileHeld(new IntakeCommand());
         //OperatorBButton.whileHeld(new ClimbTestingForward());
 
         OperatorXButton = new JoystickButton(Operator, 3);
-        OperatorXButton.whileHeld(new TalonFXPercentCommand());
+        OperatorXButton.whenPressed(new AutoLaunchFeedParallel());
         //OperatorXButton.whileHeld(new ClimbTestingReverse());
         // we need to document our code better
         OperatorYButton = new JoystickButton(Operator, 4);

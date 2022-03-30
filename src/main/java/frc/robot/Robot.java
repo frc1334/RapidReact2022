@@ -9,8 +9,8 @@ import frc.robot.subsystems.IntakeSubsystem;
 import frc.robot.subsystems.PneumaticsSubsystem;
 import frc.robot.subsystems.SparkMaxClimberSubsystem;
 //import frc.robot.subsystems.ColorSensor;
-import frc.robot.subsystems.LauncherFXSubsystem;
-import frc.robot.subsystems.LauncherSRXSubsystem;
+import frc.robot.subsystems.LauncherSubsystem;
+import frc.robot.subsystems.FeederSubsystem;
 //import frc.robot.commands.AutoDriveCommand;
 import frc.robot.commands.DriveCommand;
 import frc.robot.subsystems.IndexerSubsystem;
@@ -45,8 +45,8 @@ public class Robot extends TimedRobot {
   public static IndexerSubsystem IndexerSubsystem = new IndexerSubsystem(); //added by will
   public static IntakeSubsystem IntakeSubsystem = new IntakeSubsystem();
   //public static ColorSensor ColorSensor = null;
-  public static LauncherFXSubsystem LauncherFXSubsystem = new LauncherFXSubsystem();
-  public static LauncherSRXSubsystem LauncherSRXSubsystem = new LauncherSRXSubsystem();
+  public static LauncherSubsystem LauncherFXSubsystem = new LauncherSubsystem();
+  public static FeederSubsystem LauncherSRXSubsystem = new FeederSubsystem();
   public static PneumaticsSubsystem PneumaticsSubsystem = null; // pneumatics is implemented in intake
   public static SparkMaxClimberSubsystem SparkMaxClimberSubsystem = new SparkMaxClimberSubsystem();
   // Initializing OI object

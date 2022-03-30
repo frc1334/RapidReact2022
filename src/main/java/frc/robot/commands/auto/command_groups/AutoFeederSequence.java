@@ -16,6 +16,6 @@ public class AutoFeederSequence extends SequentialCommandGroup {
   public AutoFeederSequence() {
     // Add your commands in the addCommands() call, e.g.
     // addCommands(new FooCommand(), new BarCommand());
-    addCommands(new WaitCommand(2), new AutoFeederCommand(1000));
+    addCommands(new WaitCommand(1.5), new AutoFeederCommand(1000));
   }
 }
