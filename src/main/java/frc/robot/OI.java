@@ -25,6 +25,7 @@ import frc.robot.commands.auto.command_groups.AutoLaunchFeedParallel;
 //import com.revrobotics.ColorSensorV3;
 
 import frc.robot.commands.IntakeCommand;
+import frc.robot.commands.IntakeIndexerParallel;
 //import frc.robot.commands.ToggleMirrorSolenoid;
 import frc.robot.commands.launcher_commands.LauncherCommand;
 import frc.robot.commands.launcher_commands.FeederCommand;
@@ -88,9 +89,10 @@ public class OI {
 
         // Inititalize the Operator Controls
         OperatorAButton = new JoystickButton(Operator, 1);
+        // OperatorAButton.whileHeld(new FeederCommand());
         
         OperatorBButton = new JoystickButton(Operator, 2);
-        OperatorBButton.whileHeld(new IntakeCommand());
+        OperatorBButton.whileHeld(new IntakeIndexerParallel());
         //OperatorBButton.whileHeld(new ClimbTestingForward());
 
         OperatorXButton = new JoystickButton(Operator, 3);
@@ -98,7 +100,7 @@ public class OI {
         //OperatorXButton.whileHeld(new ClimbTestingReverse());
         // we need to document our code better
         OperatorYButton = new JoystickButton(Operator, 4);
-        OperatorYButton.whileHeld(new IndexerCommand());
+        // OperatorYButton.whileHeld(new IndexerCommand());
 
         OperatorRightBumper = new JoystickButton(Operator, 6);
         OperatorRightBumper.whenPressed(new ToggleSolenoids());
