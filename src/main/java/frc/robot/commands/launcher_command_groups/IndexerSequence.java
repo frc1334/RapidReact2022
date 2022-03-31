@@ -4,19 +4,18 @@
 
 package frc.robot.commands.launcher_command_groups;
 
-import edu.wpi.first.wpilibj2.command.ParallelCommandGroup;
-import edu.wpi.first.wpilibj2.command.WaitCommand;
+import edu.wpi.first.wpilibj2.command.SequentialCommandGroup;
 import frc.robot.commands.auto.base_auto_commands.TimedIndexerCommand;
-import frc.robot.commands.auto.base_auto_commands.AutoFeederCommand;
+import edu.wpi.first.wpilibj2.command.WaitCommand;
 
 // NOTE:  Consider using this command inline, rather than writing a subclass.  For more
 // information, see:
 // https://docs.wpilib.org/en/stable/docs/software/commandbased/convenience-features.html
-public class IndexerFeederParallel extends ParallelCommandGroup {
-  /** Creates a new IndexerFeederParallel. */
-  public IndexerFeederParallel() {
+public class IndexerSequence extends SequentialCommandGroup {
+  /** Creates a new IndexerSequence. */
+  public IndexerSequence() {
     // Add your commands in the addCommands() call, e.g.
     // addCommands(new FooCommand(), new BarCommand());
-    addCommands(new IndexerSequence(), new FeederSequence());
+    addCommands(new WaitCommand(0.25), new TimedIndexerCommand(1500));
   }
 }
