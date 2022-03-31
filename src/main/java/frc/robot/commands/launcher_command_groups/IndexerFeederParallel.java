@@ -17,6 +17,6 @@ public class IndexerFeederParallel extends ParallelCommandGroup {
   public IndexerFeederParallel() {
     // Add your commands in the addCommands() call, e.g.
     // addCommands(new FooCommand(), new BarCommand());
-    addCommands(new IndexerSequence(), new FeederSequence());
+    addCommands(new IndexerSequence(), new AutoFeederCommand(2000));
   }
 }

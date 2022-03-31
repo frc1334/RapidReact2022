@@ -30,7 +30,7 @@ import frc.robot.commands.climber.ReleaseClimberCommand;
 import frc.robot.commands.intake_commands.IndexerCommand;
 import frc.robot.commands.intake_commands.IntakeCommand;
 import frc.robot.commands.intake_commands.IntakeIndexerParallel;
-import frc.robot.commands.launcher_command_groups.ShooterParallel;
+import frc.robot.commands.launcher_command_groups.FinalLauncherParalell;
 
 
 //import frc.robot.commands.ClimbTestingForward;
@@ -96,7 +96,7 @@ public class OI {
 
         OperatorXButton = new JoystickButton(Operator, 3);
         //OperatorXButton.whileHeld(new LauncherCommand());
-        OperatorXButton.whenPressed(new ShooterParallel());
+        OperatorXButton.whenPressed(new FinalLauncherParalell());
         //OperatorXButton.whileHeld(new ClimbTestingReverse());
         // we need to document our code better
         OperatorYButton = new JoystickButton(Operator, 4);
