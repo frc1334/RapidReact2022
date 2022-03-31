@@ -19,7 +19,9 @@ import edu.wpi.first.wpilibj.XboxController;
 import edu.wpi.first.wpilibj2.command.button.JoystickButton;
 import frc.robot.commands.ToggleSolenoids;
 import frc.robot.commands.auto.base_auto_commands.AutoLaunchCommand;
+import frc.robot.commands.auto.base_auto_commands.TimedIndexerCommand;
 import frc.robot.commands.auto.command_groups.AutoLaunchFeedParallel;
+import frc.robot.commands.auto.command_groups.ShooterParallel;
 //import frc.robot.commands.ToggleMirrorSolenoid;
 import frc.robot.commands.launcher_commands.LauncherCommand;
 import frc.robot.commands.launcher_commands.FeederCommand;
@@ -29,6 +31,7 @@ import frc.robot.commands.climber.ReleaseClimberCommand;
 import frc.robot.commands.intake_commands.IndexerCommand;
 import frc.robot.commands.intake_commands.IntakeCommand;
 import frc.robot.commands.intake_commands.IntakeIndexerParallel;
+import frc.robot.commands.auto.command_groups.AutoLaunchFeedParallel;
 
 
 //import frc.robot.commands.ClimbTestingForward;
@@ -86,14 +89,15 @@ public class OI {
 
         // Inititalize the Operator Controls
         OperatorAButton = new JoystickButton(Operator, 1);
-        // OperatorAButton.whileHeld(new FeederCommand());
+        OperatorAButton.whileHeld(new FeederCommand());
         
         OperatorBButton = new JoystickButton(Operator, 2);
         OperatorBButton.whileHeld(new IntakeIndexerParallel());
         //OperatorBButton.whileHeld(new ClimbTestingForward());
 
         OperatorXButton = new JoystickButton(Operator, 3);
-        OperatorXButton.whenPressed(new AutoLaunchFeedParallel());
+        //OperatorXButton.whileHeld(new LauncherCommand());
+        OperatorXButton.whenPressed(new TimedIndexerCommand(5000));
         //OperatorXButton.whileHeld(new ClimbTestingReverse());
         // we need to document our code better
         OperatorYButton = new JoystickButton(Operator, 4);
@@ -112,7 +116,7 @@ public class OI {
     public double getDriverSpeed () {
 
         if (Math.abs(Driver.getRightTriggerAxis() - Driver.getLeftTriggerAxis()) > 0.15) {
-            return (Driver.getRightTriggerAxis() - Driver.getLeftTriggerAxis()) * 0.7;//maybe-0.5hereONLYiftested
+            return (Driver.getRightTriggerAxis() - Driver.getLeftTriggerAxis());//maybe-0.5hereONLYiftested
         }
 
         return 0.0;
