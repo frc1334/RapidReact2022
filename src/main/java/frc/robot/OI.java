@@ -100,7 +100,7 @@ public class OI {
         //OperatorXButton.whileHeld(new ClimbTestingReverse());
         // we need to document our code better
         OperatorYButton = new JoystickButton(Operator, 4);
-        // OperatorYButton.whileHeld(new IndexerCommand());
+        OperatorYButton.whileHeld(new IndexerCommand());
 
         OperatorRightBumper = new JoystickButton(Operator, 6);
         OperatorRightBumper.whenPressed(new ToggleSolenoids());
