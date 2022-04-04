@@ -115,4 +115,13 @@ public class DriveSubsystem extends SubsystemBase {
   public void toggleMirrorSolenoid() {
     mirrorSol.toggle();   
   }
+
+  public Boolean driveDistance(double distance) { // distance in inches
+    double rotations = distance * 6 * Math.PI;
+    if (L1encoder.getPosition() >= rotations || R1encoder.getPosition() >= rotations || L2encoder.getPosition() >= rotations || R2encoder.getPosition() >= rotations) {
+      return true;
+    } else {
+      return false;
+    }
+  }
 }
