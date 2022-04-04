@@ -49,8 +49,8 @@ public class IndexerSubsystem extends SubsystemBase {
 
     //HigherIndexer.setInverted(true);
 
-    HigherIndexer.configPeakOutputForward(0.1);
-    HigherIndexer.configPeakOutputReverse(-0.1);
+    HigherIndexer.configPeakOutputForward(0.5);
+    HigherIndexer.configPeakOutputReverse(-0.5);
     LowerIndexer.configPeakOutputForward(0.5);
     LowerIndexer.configPeakOutputReverse(-0.5);
   }

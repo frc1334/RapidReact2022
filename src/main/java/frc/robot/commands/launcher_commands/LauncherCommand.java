@@ -11,7 +11,7 @@ public class LauncherCommand extends CommandBase {
   /** Creates a new TalonFXPercentCommand. */
   public LauncherCommand() {
     // Use addRequirements() here to declare subsystem dependencies.
-    addRequirements(Robot.LauncherFXSubsystem);
+    addRequirements(Robot.LauncherSubsystem);
   }
 
   // Called when the command is initially scheduled.
@@ -21,13 +21,13 @@ public class LauncherCommand extends CommandBase {
   // Called every time the scheduler runs while the command is scheduled.
   @Override
   public void execute() {
-    Robot.LauncherFXSubsystem.setLauncherPercent(0.7);
+    Robot.LauncherSubsystem.setLauncherPercent(0.7);
   }
 
   // Called once the command ends or is interrupted.
   @Override
   public void end(boolean interrupted) {
-    Robot.LauncherFXSubsystem.setLauncherPercent(0.0);
+    Robot.LauncherSubsystem.setLauncherPercent(0.0);
   }
 
   // Returns true when the command should end.

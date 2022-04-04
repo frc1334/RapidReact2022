@@ -46,8 +46,8 @@ public class Robot extends TimedRobot {
   public static IndexerSubsystem IndexerSubsystem = new IndexerSubsystem(); //added by will
   public static IntakeSubsystem IntakeSubsystem = new IntakeSubsystem();
   //public static ColorSensor ColorSensor = null;
-  public static LauncherSubsystem LauncherFXSubsystem = new LauncherSubsystem();
-  public static FeederSubsystem LauncherSRXSubsystem = new FeederSubsystem();
+  public static LauncherSubsystem LauncherSubsystem = new LauncherSubsystem();
+  public static FeederSubsystem FeederSubsystem = new FeederSubsystem();
   public static PneumaticsSubsystem PneumaticsSubsystem = null; // pneumatics is implemented in intake
   public static SparkMaxClimberSubsystem SparkMaxClimberSubsystem = new SparkMaxClimberSubsystem();
   // Initializing OI object

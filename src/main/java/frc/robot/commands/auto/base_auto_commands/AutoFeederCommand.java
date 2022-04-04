@@ -16,7 +16,7 @@ public class AutoFeederCommand extends CommandBase {
 
   public AutoFeederCommand(long time) {
     // Use addRequirements() here to declare subsystem dependencies.
-    addRequirements(Robot.LauncherSRXSubsystem);
+    addRequirements(Robot.FeederSubsystem);
     endTime = time;
 
   }
@@ -31,14 +31,14 @@ public class AutoFeederCommand extends CommandBase {
   // Called every time the scheduler runs while the command is scheduled.
   @Override
   public void execute() {
-    Robot.LauncherSRXSubsystem.setLauncherPercent(0.7);
+    Robot.FeederSubsystem.setLauncherPercent(0.7);
 
   }
 
   // Called once the command ends or is interrupted.
   @Override
   public void end(boolean interrupted) {
-    Robot.LauncherSRXSubsystem.setLauncherPercent(0.0);
+    Robot.FeederSubsystem.setLauncherPercent(0.0);
 
   }
 
