@@ -49,10 +49,10 @@ public class IndexerSubsystem extends SubsystemBase {
 
     //HigherIndexer.setInverted(true);
 
-    HigherIndexer.configPeakOutputForward(0.5);
-    HigherIndexer.configPeakOutputReverse(-0.5);
-    LowerIndexer.configPeakOutputForward(0.5);
-    LowerIndexer.configPeakOutputReverse(-0.5);
+    HigherIndexer.configPeakOutputForward(1.0);
+    HigherIndexer.configPeakOutputReverse(-1.0);
+    LowerIndexer.configPeakOutputForward(1.0);
+    LowerIndexer.configPeakOutputReverse(-1.0);
   }
 
   public void setIndexer1Voltage (double percent) {
