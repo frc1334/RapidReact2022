@@ -7,6 +7,7 @@ package frc.robot.commands.auto.auto_command_groups.sequence2;
 import edu.wpi.first.wpilibj2.command.InstantCommand;
 import edu.wpi.first.wpilibj2.command.ParallelDeadlineGroup;
 import frc.robot.commands.auto.base_auto_commands.DriveDistanceCommand;
+import frc.robot.commands.launcher_commands.LauncherCommand;
 
 // NOTE:  Consider using this command inline, rather than writing a subclass.  For more
 // information, see:
@@ -17,6 +18,6 @@ public class DriveLaunchParallelDeadline extends ParallelDeadlineGroup {
     // Add the deadline command in the super() call. Add other commands using
     // addCommands().
     super(new DriveDistanceCommand());
-    addCommands(new FooCommand(), new BarCommand());
+    addCommands(new LauncherCommand());
   }
 }
