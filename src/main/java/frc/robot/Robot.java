@@ -17,7 +17,7 @@ import frc.robot.subsystems.IndexerSubsystem;
 // import frc.robot.commands.auto.AutoDriveCommand;
 // import frc.robot.commands.auto.AutoLaunchCommand;
 import frc.robot.commands.auto.FinalAutoSequence;
-import frc.robot.commands.auto.auto_command_groups.sequence2.DriveLaunchParallelDeadline;
+import frc.robot.commands.auto.auto_command_groups.sequence2.SecondAuto;
 //import frc.robot.commands.launcher_commands.LauncherCommandGroup;
 import frc.robot.commands.auto.auto_command_groups.sequence2.ToggleSolIntakeDriveParallelDeadline;
 import edu.wpi.first.cameraserver.CameraServer;
@@ -101,14 +101,11 @@ public class Robot extends TimedRobot {
     System.out.println("Auto selected: " + m_autoSelected);
     switch (m_autoSelected) {
       case kCustomAuto:
-        //commandScheduler.schedule(new FinalAutoSequence());
-
+        commandScheduler.schedule(new SecondAuto());
         break;
       case kDefaultAuto:
       default:
-        //commandScheduler.schedule(new FinalAutoSequence());
-        new ToggleSolIntakeDriveParallelDeadline();
-        new DriveLaunchParallelDeadline();
+        commandScheduler.schedule(new FinalAutoSequence());
         break;
     }
   }

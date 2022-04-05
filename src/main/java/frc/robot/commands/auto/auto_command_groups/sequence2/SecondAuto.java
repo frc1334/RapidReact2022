@@ -16,6 +16,6 @@ public class SecondAuto extends SequentialCommandGroup {
   public SecondAuto() {
     // Add your commands in the addCommands() call, e.g.
     // addCommands(new FooCommand(), new BarCommand());
-    addCommands(new ToggleSolIntakeDriveParallelDeadline(), new DriveDistanceCommand(0.25, 10.0), new FinalLauncherParalell());
+    addCommands(new ToggleSolIntakeDriveParallelDeadline(), new DriveDistanceCommand(0.25, 48.0), new FinalLauncherParalell(), new DriveDistanceCommand(-0.25, 48.0));
   }
 }

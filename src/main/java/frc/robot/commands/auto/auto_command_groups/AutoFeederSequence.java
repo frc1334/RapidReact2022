@@ -12,7 +12,7 @@ import frc.robot.commands.auto.base_auto_commands.AutoFeederCommand;
 // information, see:
 // https://docs.wpilib.org/en/stable/docs/software/commandbased/convenience-features.html
 public class AutoFeederSequence extends SequentialCommandGroup {
-  /** Creates a new AutoFeederSequence. */
+  /** Creates a new AutoFeederSequence - robot waits for x seconds and runs feeder motor for y milliseconds */
   public AutoFeederSequence() {
     // Add your commands in the addCommands() call, e.g.
     // addCommands(new FooCommand(), new BarCommand());
