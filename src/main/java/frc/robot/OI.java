@@ -19,7 +19,7 @@ import edu.wpi.first.wpilibj.XboxController;
 import edu.wpi.first.wpilibj2.command.button.JoystickButton;
 import frc.robot.commands.ToggleSolenoids;
 import frc.robot.commands.auto.auto_command_groups.AutoLaunchFeedParallel;
-import frc.robot.commands.auto.base_auto_commands.AutoLaunchCommand;
+import frc.robot.commands.auto.base_auto_commands.TimedLaunchCommand;
 import frc.robot.commands.auto.base_auto_commands.TimedIndexerCommand;
 //import frc.robot.commands.ToggleMirrorSolenoid;
 import frc.robot.commands.launcher_commands.LauncherCommand;
@@ -30,7 +30,7 @@ import frc.robot.commands.climber.ReleaseClimberCommand;
 import frc.robot.commands.intake_commands.IndexerCommand;
 import frc.robot.commands.intake_commands.IntakeCommand;
 import frc.robot.commands.intake_commands.IntakeIndexerParallel;
-import frc.robot.commands.launcher_command_groups.FinalLauncherParalell;
+import frc.robot.commands.launcher_command_groups.FinalLauncherParallel;
 
 
 //import frc.robot.commands.ClimbTestingForward;
@@ -76,7 +76,7 @@ public class OI {
         //DriverAButton.whenPressed(new ToggleSolenoids());
         
         DriverBButton = new JoystickButton(Driver, 2);
-        //DriverBButton.whileHeld(new ClimbTestingReverse());
+        DriverBButton.whileHeld(new ClimbTestingReverse());
         
         DriverXButton = new JoystickButton(Driver, 3);
         DriverXButton.whenPressed(new ReleaseClimberCommand());
@@ -96,7 +96,7 @@ public class OI {
 
         OperatorXButton = new JoystickButton(Operator, 3);
         //OperatorXButton.whileHeld(new LauncherCommand());
-        OperatorXButton.whenPressed(new FinalLauncherParalell());
+        OperatorXButton.whenPressed(new FinalLauncherParallel());
         //OperatorXButton.whileHeld(new ClimbTestingReverse());
         // we need to document our code better
         OperatorYButton = new JoystickButton(Operator, 4);

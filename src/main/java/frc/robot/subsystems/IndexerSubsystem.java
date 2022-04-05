@@ -55,12 +55,12 @@ public class IndexerSubsystem extends SubsystemBase {
     LowerIndexer.configPeakOutputReverse(-1.0);
   }
 
-  public void setIndexer1Voltage (double percent) {
+  public void setHigherIndexerVoltage (double percent) {
     //varible ControlMode is pulled from the "com.ctre.phoenix.motorcontrol.ControlMode" import
     HigherIndexer.set(ControlMode.PercentOutput, percent);
   }
   
-  public void setIndexer2Voltage (double percent) {
+  public void setLowerIndexerVoltage (double percent) {
     LowerIndexer.set(ControlMode.PercentOutput, percent);
   }
 }

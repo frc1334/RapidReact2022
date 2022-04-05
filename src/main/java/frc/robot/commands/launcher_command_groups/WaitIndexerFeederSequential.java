@@ -12,7 +12,7 @@ import frc.robot.commands.auto.base_auto_commands.TimedIndexerCommand;
 // information, see:
 // https://docs.wpilib.org/en/stable/docs/software/commandbased/convenience-features.html
 public class WaitIndexerFeederSequential extends SequentialCommandGroup {
-  /** Creates a new WaitIndexerFeederSequential. */
+  /** Creates a new WaitIndexerFeederSequential - runs indexer for x milliseconds, wait, and then indexer and feeder parallel command*/
   public WaitIndexerFeederSequential() {
     // Add your commands in the addCommands() call, e.g.
     // addCommands(new FooCommand(), new BarCommand());

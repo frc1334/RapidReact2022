@@ -7,7 +7,7 @@ package frc.robot.commands.launcher_command_groups;
 import edu.wpi.first.wpilibj2.command.ParallelCommandGroup;
 import edu.wpi.first.wpilibj2.command.WaitCommand;
 import frc.robot.commands.auto.base_auto_commands.TimedIndexerCommand;
-import frc.robot.commands.auto.base_auto_commands.AutoFeederCommand;
+import frc.robot.commands.auto.base_auto_commands.TimedFeederCommand;
 
 // NOTE:  Consider using this command inline, rather than writing a subclass.  For more
 // information, see:
@@ -17,6 +17,6 @@ public class IndexerFeederParallel extends ParallelCommandGroup {
   public IndexerFeederParallel() {
     // Add your commands in the addCommands() call, e.g.
     // addCommands(new FooCommand(), new BarCommand());
-    addCommands(new IndexerSequence(), new AutoFeederCommand(2000));
+    addCommands(new IndexerSequence(), new TimedFeederCommand(2000));
   }
 }

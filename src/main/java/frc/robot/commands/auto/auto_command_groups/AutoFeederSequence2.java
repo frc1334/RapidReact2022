@@ -6,17 +6,17 @@ package frc.robot.commands.auto.auto_command_groups;
 
 import edu.wpi.first.wpilibj2.command.SequentialCommandGroup;
 import edu.wpi.first.wpilibj2.command.WaitCommand;
-import frc.robot.commands.auto.base_auto_commands.AutoFeederCommand;
+import frc.robot.commands.auto.base_auto_commands.TimedFeederCommand;
 
 // NOTE:  Consider using this command inline, rather than writing a subclass.  For more
 // information, see:
 // https://docs.wpilib.org/en/stable/docs/software/commandbased/convenience-features.html
 public class AutoFeederSequence2 extends SequentialCommandGroup {
-  /** Creates a new AutoFeederSequence. */
+  /** Creates a new AutoFeederSequence - runs feeder for x milliseconds, wati command for y seconds and feeder for z milliseconds in sequence*/
   public AutoFeederSequence2() {
     // Add your commands in the addCommands() call, e.g.
     // addCommands(new FooCommand(), new BarCommand());
-    addCommands(new AutoFeederCommand(1000), new WaitCommand(2), new AutoFeederCommand(1000));
+    addCommands(new TimedFeederCommand(1000), new WaitCommand(2), new TimedFeederCommand(1000));
   }
 }
 

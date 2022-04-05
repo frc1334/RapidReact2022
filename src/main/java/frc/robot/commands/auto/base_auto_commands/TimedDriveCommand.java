@@ -5,17 +5,16 @@
 package frc.robot.commands.auto.base_auto_commands;
 
 import edu.wpi.first.wpilibj2.command.CommandBase;
-
 import frc.robot.Robot;
 
-public class AutoLaunchCommand extends CommandBase {
-  /** Creates a new AutoLaunchCommand. */
+public class TimedDriveCommand extends CommandBase {
+  /** Creates a new AutoDriveCommand. */
   long endTime;
   long startTime;
 
-  public AutoLaunchCommand(long time) {
+  public TimedDriveCommand(long time) { // how long to drive for
     // Use addRequirements() here to declare subsystem dependencies.
-    addRequirements(Robot.LauncherSubsystem);
+    addRequirements(Robot.DriveSubsystem);
     endTime = time;
   }
 
@@ -28,13 +27,13 @@ public class AutoLaunchCommand extends CommandBase {
   // Called every time the scheduler runs while the command is scheduled.
   @Override
   public void execute() {
-    Robot.LauncherSubsystem.setLauncherPercent(1.00);
+    Robot.DriveSubsystem.ArcadeDrive(-0.25, 0.0);
   }
 
   // Called once the command ends or is interrupted.
   @Override
   public void end(boolean interrupted) {
-    Robot.LauncherSubsystem.setLauncherPercent(0.0);
+    Robot.DriveSubsystem.ArcadeDrive(0.0, 0.0);
   }
 
   // Returns true when the command should end.
@@ -43,6 +42,6 @@ public class AutoLaunchCommand extends CommandBase {
     if (System.currentTimeMillis() >= (startTime + endTime)) {
       return true;
     }
-    return false;
+      return false;
   }
 }

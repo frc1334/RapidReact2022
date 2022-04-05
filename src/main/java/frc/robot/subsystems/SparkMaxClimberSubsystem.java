@@ -14,7 +14,6 @@ import com.revrobotics.RelativeEncoder;
 
 public class SparkMaxClimberSubsystem extends SubsystemBase {
   CANSparkMax climbMotor;
-  // DigitalInput lowerSwitch;
   RelativeEncoder encoder;
 
   /** Creates a new SparkMaxCLimberSubsystem. */

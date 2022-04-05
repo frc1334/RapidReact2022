@@ -19,35 +19,34 @@ import com.ctre.phoenix.motorcontrol.FeedbackDevice;
 
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 
-// Talon SRX is the big guy
 public class FeederSubsystem extends SubsystemBase{
-    TalonSRX LauncherSmallWheel;
+    TalonSRX feeder;
 
     public FeederSubsystem() {
-        LauncherSmallWheel = new TalonSRX(RobotMap.LauncherSmallWheel);
+        feeder = new TalonSRX(RobotMap.feeder);
 
-        LauncherSmallWheel.configSelectedFeedbackSensor(FeedbackDevice.IntegratedSensor, 0, 0);
+        feeder.configSelectedFeedbackSensor(FeedbackDevice.IntegratedSensor, 0, 0);
         // Config PID 
         //Launcher3.config_kP(0, P);
         //Launcher3.config_kI(0, I);
         //Launcher3.config_kD(0, D);
         //Launcher3.config_kF(0, FF); 
 
-        LauncherSmallWheel.configPeakOutputForward(1);
-        LauncherSmallWheel.configPeakOutputReverse(-1);
+        feeder.configPeakOutputForward(1);
+        feeder.configPeakOutputReverse(-1);
 
-        //LauncherSmallWheel.setInverted(true);
+        //feeder.setInverted(true);
     } 
  
-    public void setLauncherVelocity (double setpoint) {
+    public void setFeederVelocity (double setpoint) {
         // Set the first Talon's PID target to the setpoing (second Talon will follow)
-        LauncherSmallWheel.set(ControlMode.Velocity, setpoint);
-        System.out.println("LAUNCHER: " + LauncherSmallWheel.getSelectedSensorVelocity());
+        feeder.set(ControlMode.Velocity, setpoint);
+        System.out.println("LAUNCHER: " + feeder.getSelectedSensorVelocity());
     }
 
-    public void setLauncherPercent (double percent) {
-        LauncherSmallWheel.set(ControlMode.PercentOutput, percent);
-        System.out.println("LAUNCHER: " + LauncherSmallWheel.getSelectedSensorVelocity());
+    public void setFeederPercent (double percent) {
+        feeder.set(ControlMode.PercentOutput, percent);
+        System.out.println("LAUNCHER: " + feeder.getSelectedSensorVelocity());
     }
            
 }

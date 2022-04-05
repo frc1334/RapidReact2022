@@ -6,16 +6,16 @@ package frc.robot.commands.auto.auto_command_groups.sequence2;
 
 import edu.wpi.first.wpilibj2.command.SequentialCommandGroup;
 import frc.robot.commands.auto.base_auto_commands.DriveDistanceCommand;
-import frc.robot.commands.launcher_command_groups.FinalLauncherParalell;
+import frc.robot.commands.launcher_command_groups.FinalLauncherParallel;
 
 // NOTE:  Consider using this command inline, rather than writing a subclass.  For more
 // information, see:
 // https://docs.wpilib.org/en/stable/docs/software/commandbased/convenience-features.html
 public class SecondAuto extends SequentialCommandGroup {
-  /** Creates a new SecondHalfAuto. */
+  /** Creates a new SecondAuto - robot drives back to intake 2nd ball, drives forwards to shoot, drives back off the tarmac**/
   public SecondAuto() {
     // Add your commands in the addCommands() call, e.g.
     // addCommands(new FooCommand(), new BarCommand());
-    addCommands(new ToggleSolIntakeDriveParallelDeadline(), new DriveDistanceCommand(0.25, 48.0), new FinalLauncherParalell(), new DriveDistanceCommand(-0.25, 48.0));
+    addCommands(new ToggleSolIntakeDriveParallelDeadline(), new DriveDistanceCommand(0.25, 48.0), new FinalLauncherParallel(), new DriveDistanceCommand(-0.25, 48.0));
   }
 }

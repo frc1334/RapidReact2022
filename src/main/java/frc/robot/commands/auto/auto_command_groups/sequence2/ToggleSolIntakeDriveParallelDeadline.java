@@ -14,7 +14,7 @@ import frc.robot.commands.intake_commands.IntakeCommand;
 // information, see:
 // https://docs.wpilib.org/en/stable/docs/software/commandbased/convenience-features.html
 public class ToggleSolIntakeDriveParallelDeadline extends ParallelDeadlineGroup {
-  /** Creates a new ToggleSolIntakeDriveParallelDeadline. */
+  /** Creates a new ToggleSolIntakeDriveParallelDeadline - runs drive distance command, solenoids and intake altogether until drive finishes driving x distance.*/
   public ToggleSolIntakeDriveParallelDeadline() {
     // Add the deadline command in the super() call. Add other commands using
     // addCommands().

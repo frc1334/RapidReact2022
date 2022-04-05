@@ -9,7 +9,7 @@ import edu.wpi.first.wpilibj2.command.CommandBase;
 import frc.robot.Robot;
 
 public class ClimbTestingReverse extends CommandBase {
-  /** Creates a new ClimbTestingReverse. */
+  /** Creates a new ClimbTestingReverse - bars go downwards*/
   public ClimbTestingReverse() {
     // Use addRequirements() here to declare subsystem dependencies.
     addRequirements(Robot.SparkMaxClimberSubsystem);

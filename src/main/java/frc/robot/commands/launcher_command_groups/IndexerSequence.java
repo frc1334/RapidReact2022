@@ -12,7 +12,7 @@ import edu.wpi.first.wpilibj2.command.WaitCommand;
 // information, see:
 // https://docs.wpilib.org/en/stable/docs/software/commandbased/convenience-features.html
 public class IndexerSequence extends SequentialCommandGroup {
-  /** Creates a new IndexerSequence. */
+  /** Creates a new IndexerSequence - runs a sequence of a wait command for x seconds and indexer for y milliseconds.*/
   public IndexerSequence() {
     // Add your commands in the addCommands() call, e.g.
     // addCommands(new FooCommand(), new BarCommand());

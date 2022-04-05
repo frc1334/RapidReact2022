@@ -9,11 +9,10 @@ import edu.wpi.first.wpilibj2.command.CommandBase;
 import frc.robot.Robot;
 
 public class ClimbTestingForward extends CommandBase {
-  /** Creates a new ClimbTesting. */
+  /** Creates a new ClimbTestingForward - bars go upwards*/
   public ClimbTestingForward() {
     // Use addRequirements() here to declare subsystem dependencies.
     addRequirements(Robot.SparkMaxClimberSubsystem);
-
   }
 
   // Called when the command is initially scheduled.

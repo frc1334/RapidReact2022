@@ -11,7 +11,7 @@ import frc.robot.commands.auto.base_auto_commands.TimedIndexerCommand;
 // information, see:
 // https://docs.wpilib.org/en/stable/docs/software/commandbased/convenience-features.html
 public class IndexerAutoFeederParallel extends ParallelCommandGroup {
-  /** Creates a new AutoLaunchFeedParallel. */
+  /** Creates a new IndexerAutoFeederParallel - runs indexer for x milliseconds and the feeder sequence at the same time.*/
   public IndexerAutoFeederParallel() {
     // Add your commands in the addCommands() call, e.g.
     // addCommands(new FooCommand(), new BarCommand());

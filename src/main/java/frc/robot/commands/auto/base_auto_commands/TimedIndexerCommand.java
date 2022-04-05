@@ -9,7 +9,7 @@ import edu.wpi.first.wpilibj2.command.CommandBase;
 import frc.robot.Robot;
 
 public class TimedIndexerCommand extends CommandBase {
-  /** Creates a new AutoLaunchCommand. */
+  /** Creates a new TimedIndexerCommand - runs indexer for x milliseconds. */
   long endTime;
   long startTime;
 

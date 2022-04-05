@@ -34,7 +34,7 @@ public class RobotMap {
   // Launcher1: left; Launcher2: right; Launcher3: feeder wheel 
   public static final int LauncherLeft = 7;
   public static final int LauncherRight = 8;
-  public static final int LauncherSmallWheel = 5;
+  public static final int feeder = 5;
 
   //added by William Kozlowski for the IndexerSubsystem.java
   // Indexer1: higher indexer

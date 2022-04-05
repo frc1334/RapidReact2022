@@ -8,15 +8,15 @@ import edu.wpi.first.wpilibj2.command.SequentialCommandGroup;
 import edu.wpi.first.wpilibj2.command.WaitCommand;
 import frc.robot.commands.auto.auto_command_groups.AutoFeederSequence;
 import frc.robot.commands.auto.auto_command_groups.AutoLaunchFeedParallel;
-import frc.robot.commands.auto.base_auto_commands.AutoDriveCommand;
+import frc.robot.commands.auto.base_auto_commands.TimedDriveCommand;
 // NOTE:  Consider using this command inline, rather than writing a subclass.  For more
 // information, see:
 // https://docs.wpilib.org/en/stable/docs/software/commandbased/convenience-features.html
 public class FinalAutoSequence extends SequentialCommandGroup {
-  /** Creates a new AutoSequence. */
+  /** Creates a new AutoSequence - robot shoots and drives off the tarmac*/
   public FinalAutoSequence() {
     // Add your commands in the addCommands() call, e.g.
     // addCommands(new FooCommand(), new BarCommand());
-    addCommands(new WaitCommand(1.0), new AutoLaunchFeedParallel(), new WaitCommand(1.0), new AutoDriveCommand(2500));
+    addCommands(new WaitCommand(1.0), new AutoLaunchFeedParallel(), new WaitCommand(1.0), new TimedDriveCommand(2500));
   }
 }
