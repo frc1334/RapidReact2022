@@ -18,7 +18,7 @@ public class ToggleSolIntakeDriveParallelDeadline extends ParallelDeadlineGroup 
   public ToggleSolIntakeDriveParallelDeadline() {
     // Add the deadline command in the super() call. Add other commands using
     // addCommands().
-    super(new DriveDistanceCommand());
+    super(new DriveDistanceCommand(-0.25, 10.0));
     addCommands(new ToggleSolenoids(), new IntakeCommand());
   }
 }
