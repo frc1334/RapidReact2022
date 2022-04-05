@@ -35,7 +35,7 @@ public class IndexerCommand extends CommandBase {
   // Called every time the scheduler runs while the command is scheduled.
   @Override
   public void execute() {
-    Robot.IndexerSubsystem.setHigherIndexerVoltage(1.00);
+    Robot.IndexerSubsystem.setHigherIndexerVoltage(0.25);
     Robot.IndexerSubsystem.setLowerIndexerVoltage(0.25);
   }
 

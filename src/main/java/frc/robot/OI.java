@@ -76,7 +76,7 @@ public class OI {
         //DriverAButton.whenPressed(new ToggleSolenoids());
         
         DriverBButton = new JoystickButton(Driver, 2);
-        DriverBButton.whileHeld(new ClimbTestingReverse());
+        //DriverBButton.whileHeld(new ClimbTestingReverse());
         
         DriverXButton = new JoystickButton(Driver, 3);
         DriverXButton.whenPressed(new ReleaseClimberCommand());
