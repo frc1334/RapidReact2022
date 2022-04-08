@@ -18,10 +18,12 @@ import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import frc.robot.RobotMap;
 
 import com.revrobotics.CANSparkMax;
+import com.revrobotics.REVLibError;
 // import com.revrobotics.CANSparkMax.ControlType;
 import com.revrobotics.CANSparkMaxLowLevel.MotorType;
 import com.revrobotics.RelativeEncoder;
 import com.revrobotics.SparkMaxPIDController;
+import com.revrobotics.REVLibError;
 
 import edu.wpi.first.wpilibj.DoubleSolenoid;
 import edu.wpi.first.wpilibj.PneumaticsModuleType;
@@ -109,6 +111,11 @@ public class DriveSubsystem extends SubsystemBase {
 
   // wrapper function that allows for turning in tank drive
   public void ArcadeDrive(double speed, double turn) {
+    // L1encoder.setPosition(0);
+    // L2encoder.setPosition(0);    
+    // R1encoder.setPosition(0);
+    // R2encoder.setPosition(0);
+
     TankDrive(speed - turn, speed + turn);
   }
 
@@ -116,12 +123,29 @@ public class DriveSubsystem extends SubsystemBase {
     mirrorSol.toggle();   
   }
 
-  public Boolean driveDistance(double distance) { // distance in inches
-    double rotations = distance * 6 * Math.PI;
-    if (L1encoder.getPosition() >= rotations || R1encoder.getPosition() >= rotations || L2encoder.getPosition() >= rotations || R2encoder.getPosition() >= rotations) {
+  // public void printEncoder() {
+  //   System.out.println(L1encoder.getEncoder());
+  // }
+
+  public Boolean driveDistance(double rotations) { // distance in inches
+    //double rotations = distance / (6 * Math.PI);
+    System.out.println("Successful? " + L1encoder.setPosition(0));
+    
+    if (Math.abs(L1encoder.getPosition()) >= Math.abs(rotations) || Math.abs(R1encoder.getPosition()) >= Math.abs(rotations) || Math.abs(L2encoder.getPosition()) >= Math.abs(rotations) || Math.abs(R2encoder.getPosition()) >= Math.abs(rotations)) {
+      System.out.println("Rotations: " + rotations);
+      System.out.println("Encoder position: " + L1encoder.getPosition());
       return true;
     } else {
+      System.out.println(rotations);
+      System.out.println(L1encoder.getPosition());
       return false;
     }
+  }
+
+  public void encoderTo0() {
+    L1encoder.setPosition(0);
+    L2encoder.setPosition(0);    
+    R1encoder.setPosition(0);
+    R2encoder.setPosition(0);
   }
 }

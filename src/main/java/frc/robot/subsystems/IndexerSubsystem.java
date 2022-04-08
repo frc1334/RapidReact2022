@@ -47,7 +47,7 @@ public class IndexerSubsystem extends SubsystemBase {
     HigherIndexer.configSelectedFeedbackSensor(FeedbackDevice.IntegratedSensor, 0, 0);
     LowerIndexer.configSelectedFeedbackSensor(FeedbackDevice.IntegratedSensor, 0, 0);
 
-    //HigherIndexer.setInverted(true);
+    HigherIndexer.setInverted(true);
 
     HigherIndexer.configPeakOutputForward(1.0);
     HigherIndexer.configPeakOutputReverse(-1.0);

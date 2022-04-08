@@ -20,6 +20,7 @@ import frc.robot.commands.auto.FinalAutoSequence;
 import frc.robot.commands.auto.auto_command_groups.sequence2.SecondAuto;
 //import frc.robot.commands.launcher_commands.LauncherCommandGroup;
 import frc.robot.commands.auto.auto_command_groups.sequence2.ToggleSolIntakeDriveParallelDeadline;
+import frc.robot.commands.auto.base_auto_commands.DriveDistanceCommand;
 import edu.wpi.first.cameraserver.CameraServer;
 import edu.wpi.first.cscore.UsbCamera;
 import edu.wpi.first.networktables.NetworkTableEntry;
@@ -28,6 +29,7 @@ import edu.wpi.first.wpilibj.TimedRobot;
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj2.command.CommandScheduler;
+import frc.robot.commands.auto.base_auto_commands.SetEncoderTo0;
 
 /**
  * The VM is configured to automatically run this class, and to call the functions corresponding to
@@ -101,11 +103,16 @@ public class Robot extends TimedRobot {
     System.out.println("Auto selected: " + m_autoSelected);
     switch (m_autoSelected) {
       case kCustomAuto:
-        commandScheduler.schedule(new SecondAuto());
+        //commandScheduler.schedule(new SecondAuto());
         break;
       case kDefaultAuto:
       default:
-        commandScheduler.schedule(new FinalAutoSequence());
+        //DriveSubsystem.printEncoder();
+        //commandScheduler.schedule(new FinalAutoSequence());
+        //commandScheduler.schedule(new SecondAuto());
+        commandScheduler.schedule(new SetEncoderTo0());
+        commandScheduler.schedule(new DriveDistanceCommand(-0.25, 1047));
+        
         break;
     }
   }

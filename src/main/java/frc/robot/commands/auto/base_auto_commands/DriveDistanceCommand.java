@@ -9,14 +9,14 @@ import frc.robot.Robot;
 
 public class DriveDistanceCommand extends CommandBase {
   double speed;
-  double distance;
+  double rotations;
 
   /** Creates a new DriveOffDistanceCommand with parameters speed (voltage) and distance in inches. */
-  public DriveDistanceCommand(double speed, double distance) {
+  public DriveDistanceCommand(double speed, double rotations) {
     // Use addRequirements() here to declare subsystem dependencies.
     addRequirements(Robot.DriveSubsystem);
     this.speed = speed;
-    this.distance = distance;
+    this.rotations = rotations;
   }
 
   // Called when the command is initially scheduled.
@@ -38,7 +38,7 @@ public class DriveDistanceCommand extends CommandBase {
   // Returns true when the command should end.
   @Override
   public boolean isFinished() {
-    if (Robot.DriveSubsystem.driveDistance(distance)) {
+    if (Robot.DriveSubsystem.driveDistance(rotations)) {
       return true;
     } else {
       return false;

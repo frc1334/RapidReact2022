@@ -9,6 +9,7 @@ import edu.wpi.first.wpilibj2.command.ParallelDeadlineGroup;
 import frc.robot.commands.ToggleSolenoids;
 import frc.robot.commands.auto.base_auto_commands.DriveDistanceCommand;
 import frc.robot.commands.intake_commands.IntakeCommand;
+import frc.robot.commands.intake_commands.IntakeIndexerParallel;
 
 // NOTE:  Consider using this command inline, rather than writing a subclass.  For more
 // information, see:
@@ -18,7 +19,7 @@ public class ToggleSolIntakeDriveParallelDeadline extends ParallelDeadlineGroup 
   public ToggleSolIntakeDriveParallelDeadline() {
     // Add the deadline command in the super() call. Add other commands using
     // addCommands().
-    super(new DriveDistanceCommand(-0.25, 48.0));
-    addCommands(new ToggleSolenoids(), new IntakeCommand());
+    super(new DriveDistanceCommand(-0.25, 40));
+    addCommands(new IntakeIndexerParallel());
   }
 }
