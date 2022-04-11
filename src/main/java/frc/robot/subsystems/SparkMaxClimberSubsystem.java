@@ -41,7 +41,7 @@ public class SparkMaxClimberSubsystem extends SubsystemBase {
 
   public boolean stopReleasingCheck() {
     System.out.println(encoder.getPosition());
-    if (encoder.getPosition() >= 160) {
+    if (encoder.getPosition() >= 160) { // test 320 gearbox ratio now 80:1
       return true;
     } else {
       return false;

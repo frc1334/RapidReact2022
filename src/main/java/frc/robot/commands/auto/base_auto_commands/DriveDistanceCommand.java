@@ -38,7 +38,7 @@ public class DriveDistanceCommand extends CommandBase {
   // Returns true when the command should end.
   @Override
   public boolean isFinished() {
-    if (Robot.DriveSubsystem.driveDistance(rotations)) {
+    if (Robot.DriveSubsystem.driveDistance(rotations)) { // gear ratio 11.25:1
       return true;
     } else {
       return false;
