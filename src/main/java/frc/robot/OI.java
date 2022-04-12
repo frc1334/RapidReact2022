@@ -20,6 +20,7 @@ import edu.wpi.first.wpilibj2.command.button.JoystickButton;
 import frc.robot.commands.ToggleSolenoids;
 import frc.robot.commands.auto.auto_command_groups.AutoLaunchFeedParallel;
 import frc.robot.commands.auto.base_auto_commands.TimedLaunchCommand;
+import frc.robot.commands.auto.base_auto_commands.DriveAutoTesting;
 import frc.robot.commands.auto.base_auto_commands.TimedIndexerCommand;
 //import frc.robot.commands.ToggleMirrorSolenoid;
 import frc.robot.commands.launcher_commands.LauncherCommand;
@@ -76,7 +77,7 @@ public class OI {
         //DriverAButton.whenPressed(new ToggleSolenoids());
         
         DriverBButton = new JoystickButton(Driver, 2);
-        //DriverBButton.whileHeld(new ClimbTestingReverse());
+        DriverBButton.whileHeld(new DriveAutoTesting());
         
         DriverXButton = new JoystickButton(Driver, 3);
         DriverXButton.whenPressed(new ReleaseClimberCommand());
