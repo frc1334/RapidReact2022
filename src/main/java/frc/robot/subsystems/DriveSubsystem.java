@@ -90,10 +90,10 @@ public class DriveSubsystem extends SubsystemBase {
     // DifferentialDriveTrain = new DifferentialDrive(LeftControllerGroup, RightControllerGroup);
     
     // reset encoders to start at 0
-    L1encoder.setPosition(0);
-    L2encoder.setPosition(0);    
-    R1encoder.setPosition(0);
-    R2encoder.setPosition(0);
+    // L1encoder.setPosition(0);
+    // L2encoder.setPosition(0);    
+    // R1encoder.setPosition(0);
+    // R2encoder.setPosition(0);
 
     //mirrorSol = new DoubleSolenoid(PneumaticsModuleType.CTREPCM, 2, 3);
     // Initialize the solenoid to start on reverse

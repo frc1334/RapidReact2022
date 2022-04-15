@@ -18,18 +18,12 @@ import edu.wpi.first.wpilibj.XboxController;
 
 import edu.wpi.first.wpilibj2.command.button.JoystickButton;
 import frc.robot.commands.ToggleSolenoids;
-import frc.robot.commands.auto.auto_command_groups.AutoLaunchFeedParallel;
-import frc.robot.commands.auto.base_auto_commands.TimedLaunchCommand;
-import frc.robot.commands.auto.base_auto_commands.DriveAutoTesting;
-import frc.robot.commands.auto.base_auto_commands.TimedIndexerCommand;
 //import frc.robot.commands.ToggleMirrorSolenoid;
-import frc.robot.commands.launcher_commands.LauncherCommand;
 import frc.robot.commands.launcher_commands.FeederCommand;
 import frc.robot.commands.climber.ClimbTestingForward;
 import frc.robot.commands.climber.ClimbTestingReverse;
 import frc.robot.commands.climber.ReleaseClimberCommand;
 import frc.robot.commands.intake_commands.IndexerCommand;
-import frc.robot.commands.intake_commands.IntakeCommand;
 import frc.robot.commands.intake_commands.IntakeIndexerParallel;
 import frc.robot.commands.launcher_command_groups.FinalLauncherParallel;
 
@@ -74,16 +68,13 @@ public class OI {
         DriverRightBumper.whileHeld(new ClimbTestingReverse());
 
         DriverAButton = new JoystickButton(Driver, 1);
-        //DriverAButton.whenPressed(new ToggleSolenoids());
         
         DriverBButton = new JoystickButton(Driver, 2);
-        DriverBButton.whileHeld(new DriveAutoTesting());
         
         DriverXButton = new JoystickButton(Driver, 3);
         DriverXButton.whenPressed(new ReleaseClimberCommand());
         
         DriverYButton = new JoystickButton(Driver, 4);
-        //DriverYButton.whenPressed(new ToggleMirrorSolenoid());
         
         Operator = new XboxController(1);
 
@@ -93,13 +84,10 @@ public class OI {
         
         OperatorBButton = new JoystickButton(Operator, 2);
         OperatorBButton.whileHeld(new IntakeIndexerParallel());
-        //OperatorBButton.whileHeld(new ClimbTestingForward());
 
         OperatorXButton = new JoystickButton(Operator, 3);
-        //OperatorXButton.whileHeld(new LauncherCommand());
         OperatorXButton.whenPressed(new FinalLauncherParallel());
-        //OperatorXButton.whileHeld(new ClimbTestingReverse());
-        // we need to document our code better
+
         OperatorYButton = new JoystickButton(Operator, 4);
         OperatorYButton.whileHeld(new IndexerCommand());
 
@@ -133,21 +121,4 @@ public class OI {
         return 0.0;
 
     }
-
-    public double getDriverIntake() {
-        if (Math.abs(Driver.getRawAxis(0)) > 0.15) {
-            return Driver.getRawAxis(0);
-        }
-
-        return 0.0;
-    }
-
-    public double getOperatorLauncher() {
-        if (Math.abs(Operator.getRawAxis(0)) > 0.15) {
-            return Operator.getRawAxis(0);
-        }
-
-        return 0.0;
-    }
-
 }

@@ -23,7 +23,7 @@ public class IntakeCommand extends CommandBase {
   // Called every time the scheduler runs while the command is scheduled.
   @Override
   public void execute() {
-    Robot.IntakeSubsystem.setPercentOutput(0.6);
+    Robot.IntakeSubsystem.setPercentOutput(0.50);
   }
 
   // Called once the command ends or is interrupted.

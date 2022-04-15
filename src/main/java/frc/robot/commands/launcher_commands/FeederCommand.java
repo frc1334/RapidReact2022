@@ -21,7 +21,7 @@ public class FeederCommand extends CommandBase {
   // Called every time the scheduler runs while the command is scheduled.
   @Override
   public void execute() {
-    Robot.FeederSubsystem.setFeederPercent(0.5);
+    Robot.FeederSubsystem.setFeederPercent(0.8);
   }
 
   // Called once the command ends or is interrupted.

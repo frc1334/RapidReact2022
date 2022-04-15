@@ -103,16 +103,15 @@ public class Robot extends TimedRobot {
     System.out.println("Auto selected: " + m_autoSelected);
     switch (m_autoSelected) {
       case kCustomAuto:
-        //commandScheduler.schedule(new SecondAuto());
+        commandScheduler.schedule(new FinalAutoSequence());
         break;
       case kDefaultAuto:
       default:
         //DriveSubsystem.printEncoder();
-        //commandScheduler.schedule(new FinalAutoSequence());
+        commandScheduler.schedule(new FinalAutoSequence());
         //commandScheduler.schedule(new SecondAuto());
-        commandScheduler.schedule(new SetEncoderTo0());
-        commandScheduler.schedule(new DriveDistanceCommand(-0.25, 1047));
-        
+        // commandScheduler.schedule(new SetEncoderTo0());
+        // commandScheduler.schedule(new DriveDistanceCommand(-0.25, 100));
         break;
     }
   }
