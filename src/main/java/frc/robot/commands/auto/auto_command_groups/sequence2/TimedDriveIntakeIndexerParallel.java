@@ -4,20 +4,19 @@
 
 package frc.robot.commands.auto.auto_command_groups.sequence2;
 
-import edu.wpi.first.wpilibj2.command.SequentialCommandGroup;
-import frc.robot.commands.ToggleSolenoids;
-import frc.robot.commands.auto.base_auto_commands.DriveDistanceCommand;
+import edu.wpi.first.wpilibj2.command.ParallelCommandGroup;
+import frc.robot.commands.auto.base_auto_commands.TimedIndexerCommand;
+import frc.robot.commands.auto.base_auto_commands.TimedIntakeCommand;
 import frc.robot.commands.auto.base_auto_commands.TimedDriveCommand;
-import frc.robot.commands.launcher_command_groups.FinalLauncherParallel;
 
 // NOTE:  Consider using this command inline, rather than writing a subclass.  For more
 // information, see:
 // https://docs.wpilib.org/en/stable/docs/software/commandbased/convenience-features.html
-public class SecondAuto extends SequentialCommandGroup {
-  /** Creates a new SecondAuto - robot drives back to intake 2nd ball, drives forwards to shoot, drives back off the tarmac**/
-  public SecondAuto() {
+public class TimedDriveIntakeIndexerParallel extends ParallelCommandGroup {
+  /** Creates a new TimedIntakeIndexerParallel - runs drive at x voltage, intake and indexer for y amount of time*/
+  public TimedDriveIntakeIndexerParallel(double driveVoltage, long time) {
     // Add your commands in the addCommands() call, e.g.
     // addCommands(new FooCommand(), new BarCommand());
-    addCommands(new ToggleSolenoids(), new TimedDriveIntakeIndexerParallel(-0.25, 4000), new TimedDriveCommand(0.25, 4000), new FinalLauncherParallel(), new TimedDriveCommand(0.25, 4000));
+    addCommands(new TimedDriveCommand(driveVoltage, time), new TimedIntakeCommand(time), new TimedIndexerCommand(time));
   }
 }
