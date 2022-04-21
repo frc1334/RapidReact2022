@@ -23,7 +23,7 @@ import edu.wpi.first.wpilibj.DoubleSolenoid;
 public class IntakeSubsystem extends SubsystemBase {
 
     // A new motor controller object to control the 775 motor
-    TalonSRX intakeMotor;
+    public TalonSRX intakeMotor;
 
     // boolean toggle = false;
     DoubleSolenoid IntakeSol;

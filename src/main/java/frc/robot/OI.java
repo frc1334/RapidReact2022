@@ -24,6 +24,7 @@ import frc.robot.commands.climber.ClimbTestingForward;
 import frc.robot.commands.climber.ClimbTestingReverse;
 import frc.robot.commands.climber.ReleaseClimberCommand;
 import frc.robot.commands.intake_commands.IndexerCommand;
+import frc.robot.commands.intake_commands.IntakeIndexerBackParallel;
 import frc.robot.commands.intake_commands.IntakeIndexerParallel;
 import frc.robot.commands.launcher_command_groups.FinalLauncherParallel;
 
@@ -84,6 +85,9 @@ public class OI {
         
         OperatorBButton = new JoystickButton(Operator, 2);
         OperatorBButton.whileHeld(new IntakeIndexerParallel());
+
+        OperatorLeftBumper = new JoystickButton(Operator, 5);
+        OperatorLeftBumper.whileHeld(new IntakeIndexerBackParallel());
 
         OperatorXButton = new JoystickButton(Operator, 3);
         OperatorXButton.whenPressed(new FinalLauncherParallel());

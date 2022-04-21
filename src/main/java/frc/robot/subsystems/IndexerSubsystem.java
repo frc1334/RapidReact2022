@@ -32,11 +32,11 @@ import com.ctre.phoenix.motorcontrol.can.TalonFX; //changed to FX since motors a
 public class IndexerSubsystem extends SubsystemBase {
   /** Creates a new IndexerSubsystem. */
 
-  //replace TalonFX with whatever motor controller we're using
+  public //replace TalonFX with whatever motor controller we're using
   //we're using FX for now
 
   TalonFX HigherIndexer;
-  TalonFX LowerIndexer;
+  public TalonFX LowerIndexer;
 
   public IndexerSubsystem() {
     //IndexerMotor1 is set to channel ID 9 in RobotMap.java

@@ -2,47 +2,54 @@
 // Open Source Software; you can modify and/or share it under the terms of
 // the WPILib BSD license file in the root directory of this project.
 
-package frc.robot.commands.auto.base_auto_commands;
+/*
 
-import edu.wpi.first.wpilibj2.command.CommandBase;
+Created by: William Kozlowski
+
+Created 2022-02-20
+
+Modified 2022-03-03, by William Kozlowski
+
+Indexer Subsystem, helps to sort/push the ball to fit into the conveyer, and preps the ball to be shot
+
+*/
+
+package frc.robot.commands.intake_commands;
 
 import frc.robot.Robot;
 
-public class TimedIntakeCommand extends CommandBase {
-  /** Creates a new TimedIndexerCommand - runs indexer for x milliseconds. */
-  long endTime;
-  long startTime;
+import edu.wpi.first.wpilibj2.command.CommandBase;
 
-  public TimedIntakeCommand(long time) {
+public class IndexerBackCommand extends CommandBase {
+
+  public IndexerBackCommand() {
     // Use addRequirements() here to declare subsystem dependencies.
-    addRequirements(Robot.IntakeSubsystem);
-    endTime = time;
+    addRequirements(Robot.IndexerSubsystem);
   }
 
   // Called when the command is initially scheduled.
   @Override
   public void initialize() {
-    startTime = System.currentTimeMillis();
   }
 
   // Called every time the scheduler runs while the command is scheduled.
   @Override
   public void execute() {
-    Robot.IntakeSubsystem.setPercentOutput(0.6);
+    Robot.IndexerSubsystem.setHigherIndexerVoltage(-0.25);
+    Robot.IndexerSubsystem.setLowerIndexerVoltage(-0.25);
   }
 
   // Called once the command ends or is interrupted.
   @Override
   public void end(boolean interrupted) {
-    Robot.IntakeSubsystem.setPercentOutput(0.0);
+    Robot.IndexerSubsystem.setHigherIndexerVoltage(0.0);
+    Robot.IndexerSubsystem.setLowerIndexerVoltage(0.0);
   }
 
   // Returns true when the command should end.
   @Override
   public boolean isFinished() {
-    if (System.currentTimeMillis() >= (startTime + endTime)) {
-      return true;
-    }
     return false;
   }
+
 }
