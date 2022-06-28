@@ -37,10 +37,10 @@ public class LauncherSubsystem extends SubsystemBase{
     // Set the second Talon to follow the first Talon
     LauncherRight.set(ControlMode.Follower, RobotMap.LauncherLeft);
     // Config PID 
-    //LauncherLeft.config_kP(0, P);
-    //LauncherLeft.config_kI(0, I);
-    //LauncherLeft.config_kD(0, D);
-    //LauncherLeft.config_kF(0, FF);
+    LauncherLeft.config_kP(0, 0.1);
+    LauncherLeft.config_kI(0, 0.0);
+    LauncherLeft.config_kD(0, 1.0);
+    // LauncherLeft.config_kF(0, FF);
     
     // Invert the first Talon (Left and Right can now run the same Velocity PID RPM)
     LauncherLeft.setInverted(true);

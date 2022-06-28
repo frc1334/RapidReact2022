@@ -7,14 +7,12 @@ package frc.robot.commands.launcher_commands;
 import edu.wpi.first.wpilibj2.command.CommandBase;
 import frc.robot.Robot;
 
-public class LauncherCommand extends CommandBase {
-
-  double setpoint;
-
-  /** Creates a new TalonFXPercentCommand. */
-  public LauncherCommand(double setpoint) {
+public class AimAndShoot extends CommandBase {
+  double target = 0.0;
+  /** Creates a new AimAndShoot. */
+  public AimAndShoot() {
     // Use addRequirements() here to declare subsystem dependencies.
-    this.setpoint = setpoint;
+    addRequirements(Robot.LimelightSubsystem);
     addRequirements(Robot.LauncherSubsystem);
   }
 
@@ -25,14 +23,21 @@ public class LauncherCommand extends CommandBase {
   // Called every time the scheduler runs while the command is scheduled.
   @Override
   public void execute() {
-    Robot.LauncherSubsystem.setLauncherVelocity(setpoint);
+
+    if (Robot.LimelightSubsystem.getTargetArea() > 0) {
+      target = Robot.LimelightSubsystem.getTargetArea() * 10000;
+      target = 10000 - target;
+    } else {
+      target = 0;
+    }
+
+    Robot.LauncherSubsystem.setLauncherVelocity(target);
+
   }
 
   // Called once the command ends or is interrupted.
   @Override
-  public void end(boolean interrupted) {
-    Robot.LauncherSubsystem.setLauncherVelocity(0);
-  }
+  public void end(boolean interrupted) {}
 
   // Returns true when the command should end.
   @Override

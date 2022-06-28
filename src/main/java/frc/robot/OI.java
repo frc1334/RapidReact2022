@@ -18,6 +18,7 @@ import edu.wpi.first.wpilibj.XboxController;
 
 import edu.wpi.first.wpilibj2.command.button.JoystickButton;
 import frc.robot.commands.ToggleSolenoids;
+import frc.robot.commands.launcher_commands.AimAndShoot;
 //import frc.robot.commands.ToggleMirrorSolenoid;
 import frc.robot.commands.launcher_commands.FeederCommand;
 import frc.robot.commands.climber.ClimbTestingForward;
@@ -27,7 +28,7 @@ import frc.robot.commands.intake_commands.IndexerCommand;
 import frc.robot.commands.intake_commands.IntakeIndexerBackParallel;
 import frc.robot.commands.intake_commands.IntakeIndexerParallel;
 import frc.robot.commands.launcher_command_groups.FinalLauncherParallel;
-
+import frc.robot.commands.launcher_commands.LauncherCommand;
 
 //import frc.robot.commands.ClimbTestingForward;
 //import frc.robot.commands.ClimbTestingReverse;
@@ -69,6 +70,7 @@ public class OI {
         DriverRightBumper.whileHeld(new ClimbTestingReverse());
 
         DriverAButton = new JoystickButton(Driver, 1);
+        DriverAButton.whileHeld(new AimAndShoot());
         
         DriverBButton = new JoystickButton(Driver, 2);
         
